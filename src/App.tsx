@@ -2,6 +2,10 @@ import React from "react";
 import Sidebar from "./sideBar";
 import Profile from "./Profile";
 import SearchBar from "./searchBar";
+
+
+
+
 const App: React.FC = () => {
   return (
     <div className ="bg-gray-100 w-fit ml-10">
