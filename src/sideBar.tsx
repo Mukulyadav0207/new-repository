@@ -25,7 +25,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = (props) => {
   return (
-    <div className="sidebar  bg-gray-200  w-36 h-924px flex flex-col gap-4 items-center  pt-4 pb-10 ">
+    <div className="sidebar  bg-white  w-36 h-924px flex flex-col gap-4 items-start  pt-4 pb-10 ">
       <SiAdobexd className="text-6xl text-amber-700" />
 
       <Link to="/" className=" hover:text-red-200  ">
@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
           <div>Dashboard</div>
         </div>
       </Link>
-      <Link className=" hover:text-red-200" to="">
+      <Link className=" hover:text-red-200" to="/employees">
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <BsFillPeopleFill />
@@ -45,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
           <div>Employees</div>
         </div>
       </Link>
-      <Link className=" hover:text-red-200" to=" ">
+      <Link className=" hover:text-red-200" to="/projects">
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <CiViewTable />
@@ -53,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
           <div>Projects</div>
         </div>
       </Link>
-      <Link className=" hover:text-red-200" to={""}>
+      <Link className=" hover:text-red-200" to={"/Departments"}>
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <VscTypeHierarchySub />
@@ -61,7 +61,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
           <div>Departments</div>
         </div>
       </Link>
-      <Link className=" hover:text-red-200" to={""}>
+      <Link className=" hover:text-red-200" to={"/Clients"}>
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <GrRestroomMen />
@@ -69,7 +69,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
           <div>Clients</div>
         </div>
       </Link>
-      <Link className=" hover:text-red-200" to={""}>
+      <Link className=" hover:text-red-200" to={"/Devices"}>
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <BsLaptop />
@@ -77,7 +77,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
           <div>Devices</div>
         </div>
       </Link>
-      <Link className=" hover:text-red-200" to={""}>
+      <Link className=" hover:text-red-200" to={"/Calendar"}>
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <FaCalendarAlt />
@@ -85,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
           <div>Calendar</div>
         </div>
       </Link>
-      <Link className=" hover:text-red-200" to={""}>
+      <Link className=" hover:text-red-200" to={"/Leaves"}>
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <GiUmbrella />
@@ -94,16 +94,16 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
         </div>
       </Link>
 
-      <Link className=" hover:text-red-200" to={""}>
+      <Link className=" hover:bgt-red-200" to={"/Invoices"}>
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <FaFileInvoiceDollar />
           </div>
-          <div>Invoicess</div>
+          <div>Invoices</div>
         </div>
       </Link>
 
-      <Link className=" hover:text-red-200" to={""}>
+      <Link className=" hover:text-red-200" to={"/Reports"}>
         <div className="flex flex justify-center items-center gap-1">
           <div>
             <FaFileSignature />

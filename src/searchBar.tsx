@@ -7,7 +7,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
     <div className="relative ">
       <input
         {...props}
-        className="bg-indigo-200 "
+        className=" "
         type="text"
         placeholder="Search"
       />
