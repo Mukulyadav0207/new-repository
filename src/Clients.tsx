@@ -1,28 +1,37 @@
 import React from "react";
 import { AiFillEye } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
+import Modal from "./pops/AddClient";
+import Filter from "./pops/FilterClients";
+
+
 
 function Client() {
   return (
     <>
-      <div className="flex flex gap-4">
+      <div className="flex   ">
         <div>
           <h3 className="font-bold ">Clients</h3>
         </div>
-        <div className="relative ml-36 ">
-          <input
-            className=" rounded-md "
-            type="text"
-            placeholder="Search items"
-          />
-          <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
-        </div>
-        <div>
-          <button className=" border border-red-500 text-white rounded-md px-2 w-50 bg-blue-700 hover:bg-red-600">
-            + Add Client
-          </button>
+
+        <div className="flex   gap-4  flex-grow justify-end  ">
+          <div className="relative flex  justify-end ">
+            <input
+              className=" rounded-md "
+              type="text"
+              placeholder="Search items"
+            />
+            <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
+          </div>
+          <div>
+            <Filter />
+          </div>
+          <div>
+            <Modal />
+          </div>
         </div>
       </div>
+
       <div>
         <table className="table-auto border-collapse w-full  mt-4 mx-auto">
           <thead>

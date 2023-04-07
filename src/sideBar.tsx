@@ -25,7 +25,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = (props) => {
   return (
-    <div className="sidebar  bg-white  w-36 h-924px flex flex-col gap-4 items-start  pt-4 pb-10 ">
+    <div className="sidebar  bg-gray-100  w-36 h-924px flex flex-col gap-4 items-start  pl-4 pt-4 pb-10 ">
       <SiAdobexd className="text-6xl text-amber-700" />
 
       <Link to="/" className=" hover:text-red-200  ">

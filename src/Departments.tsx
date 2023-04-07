@@ -1,15 +1,17 @@
 import React from "react";
 import {AiFillEye} from "react-icons/ai"
 import {BsSearch} from "react-icons/bs"
-
+import Modal from "./pops/AddDepartment";
 
 function Department() {
   return (
-     <>
-      <div className="flex flex gap-4">
+    <>
+      <div className="flex  ">
         <div>
           <h3 className="font-bold ">Departments</h3>
         </div>
+
+ <div className="flex   gap-4  flex-grow justify-end   ">
         <div className="relative ml-36 ">
           <input
             className=" rounded-md "
@@ -19,10 +21,9 @@ function Department() {
           <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
         </div>
         <div>
-          <button className=" border border-red-500 text-white rounded-md px-2 w-50 bg-blue-700 hover:bg-red-600">
-            + Add Department
-          </button>
+          <Modal />
         </div>
+      </div>
       </div>
       <div>
         <table className="table-auto border-collapse w-full  mt-4 mx-auto">
@@ -34,7 +35,7 @@ function Department() {
               <th className="px-4 py-2 font-bold">Action</th>
             </tr>
           </thead>
-          <tbody className = "bg-white">
+          <tbody className="bg-white">
             <tr>
               <td className="border px-4 py-2">IT</td>
               <td className="border px-4 py-2">INR 13K</td>

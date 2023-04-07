@@ -17,12 +17,12 @@ import Reports from "./Reports";
 
 const App: React.FC = () => {
   return (
-    <div className=" bg-gray-600 w-fit ml-10">
+    <div className=" flex justify-center items-center w-full ">
       <div className="flex flex-row mt-4">
         <div>
           <Sidebar />
         </div>
-        <div className="flex flex-col bg-slate-300">
+        <div className="flex flex-col bg-slate-300 w-[990px] h-[587px]">
           <div>
             <Header />
           </div>
