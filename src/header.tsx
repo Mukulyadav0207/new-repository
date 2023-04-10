@@ -4,7 +4,7 @@ import SearchBar from "./searchBar";
 
 function header(){
     return (
-      <div className="flex items-center  bg-gray-200   ">
+      <div className="flex items-center position-relative bg-gray-200 h-10  ">
         <div>
           <SearchBar />
         </div>

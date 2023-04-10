@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
       <SiAdobexd className="text-6xl text-amber-700" />
 
       <Link to="/" className=" hover:text-red-200  ">
-        {" "}
+    
         <div className="flex flex items-center justify-center  gap-1">
           <div>
             <BsGraphUp />

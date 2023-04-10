@@ -14,6 +14,7 @@ import Calendar from "./Calendar";
 import Leaves from "./Leaves";
 import Invoices from "./Invoices";
 import Reports from "./Reports";
+import Settings from "./settings/Setting";
 
 const App: React.FC = () => {
   return (
@@ -45,6 +46,7 @@ const App: React.FC = () => {
               <Route path="/leaves" element={<Leaves />}></Route>
               <Route path="/invoices" element={<Invoices />}></Route>
               <Route path="/reports" element={<Reports />}></Route>
+              <Route path="/settings" element={<Settings />}></Route>
             </Routes>
           </div>
         </div>
