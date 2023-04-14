@@ -16,7 +16,7 @@ function Department() {
           <input
             className=" rounded-md "
             type="text"
-            placeholder="Search items"
+            placeholder="Search keyword"
           />
           <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
         </div>

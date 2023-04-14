@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 
-const Password = () => {
-  const [showPasswordModal, setShowPasswordModal] = useState(false);
+const SecurityModal = () => {
+  const [SecurityModal, setScurityModal] = useState(false);
 
-  const PasswordModal = () => {
+  const MySecurityModal = () => {
     return (
       <>
-        <div className=" fixed inset-0 bg-black bg-opacity-25    flex justify-center items-center   ">
-          <div className="  bg-gray-100   p-2  ">
-            <div className=" text-black flex justify-end ">
-             
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 ">
+          <div className="p-2 bg-gray-100 ">
+            <div className="flex justify-end text-black ">
               <div>
                 <button
-                  onClick={() => setShowPasswordModal(false)}
-                  className="text-black text-xl place-self-end"
+                  onClick={() => setScurityModal(false)}
+                  className="text-xl text-black place-self-end"
                 >
                   <IoIosCloseCircle />
                 </button>
@@ -53,12 +52,9 @@ const Password = () => {
               ></input>
             </div>
 
-           
-
-            <div className="flex flex gap-3 justify-end">
-              
+            <div className="flex justify-end gap-3">
               <div>
-                <button className=" border text-white  bg-blue-700 rounded-md px-2 w-50 ">
+                <button className="px-2 text-white bg-blue-700 border rounded-md w-50">
                   Change Password
                 </button>
               </div>
@@ -73,11 +69,11 @@ const Password = () => {
     <>
       <button
         onClick={() => setShowPasswordModal(true)}
-        className="   text-black "
+        className="text-black "
       >
         Password
       </button>
-      {showPasswordModal && <PasswordModal />}
+      {showPasswordModal && <MySecurityModal />}
     </>
   );
 };

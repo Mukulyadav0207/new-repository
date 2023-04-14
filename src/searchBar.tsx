@@ -4,14 +4,14 @@ import { FC, InputHTMLAttributes } from "react";
 type SearchBarProps = InputHTMLAttributes<HTMLInputElement>;
 const SearchBar: FC<SearchBarProps> = (props) => {
   return (
-    <div className="relative ">
+    <div className="relative  flex flex  items-center  px-2 ">
+      <BsSearch className="absolute  text-xl " />
       <input
         {...props}
-        className=" "
+        className="text-right px-2 w-28 font-bold  "
         type="text"
         placeholder="Search"
       />
-      <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
     </div>
   );
 };

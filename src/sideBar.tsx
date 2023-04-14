@@ -25,93 +25,127 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = (props) => {
   return (
-    <div className="sidebar  bg-gray-100  w-36 h-924px flex flex-col gap-4 items-start  pl-4 pt-4 pb-10 ">
-      <SiAdobexd className="text-6xl text-amber-700" />
+    <>
+      <div className="flex flex-col w-40">
+        <div className="flex flex-col items-start pt-4 pb-8 gap-">
+          <SiAdobexd className="pl-2 text-8xl text-amber-700" />
+        </div>
+        <div className="flex flex-col items-start justify-start gap-2 ">
+          <Link
+            to="/"
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+          >
+            <div className="flex items-center gap-1 ">
+              <div>
+                <BsGraphUp />
+              </div>
+              <div>Dashboard</div>
+            </div>
+          </Link>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to="/employees"
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <BsFillPeopleFill />
+              </div>
+              <div>Employees</div>
+            </div>
+          </Link>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to="/projects"
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <CiViewTable />
+              </div>
+              <div>Projects</div>
+            </div>
+          </Link>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to={"/Departments"}
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <VscTypeHierarchySub />
+              </div>
+              <div>Departments</div>
+            </div>
+          </Link>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to={"/Clients"}
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <GrRestroomMen />
+              </div>
+              <div>Clients</div>
+            </div>
+          </Link>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to={"/Devices"}
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <BsLaptop />
+              </div>
+              <div>Devices</div>
+            </div>
+          </Link>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to={"/Calendar"}
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <FaCalendarAlt />
+              </div>
+              <div>Calendar</div>
+            </div>
+          </Link>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to={"/Leaves"}
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <GiUmbrella />
+              </div>
+              <div>Leaves</div>
+            </div>
+          </Link>
 
-      <Link to="/" className=" hover:text-red-200  ">
-    
-        <div className="flex flex items-center justify-center  gap-1">
-          <div>
-            <BsGraphUp />
-          </div>
-          <div>Dashboard</div>
-        </div>
-      </Link>
-      <Link className=" hover:text-red-200" to="/employees">
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <BsFillPeopleFill />
-          </div>
-          <div>Employees</div>
-        </div>
-      </Link>
-      <Link className=" hover:text-red-200" to="/projects">
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <CiViewTable />
-          </div>
-          <div>Projects</div>
-        </div>
-      </Link>
-      <Link className=" hover:text-red-200" to={"/Departments"}>
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <VscTypeHierarchySub />
-          </div>
-          <div>Departments</div>
-        </div>
-      </Link>
-      <Link className=" hover:text-red-200" to={"/Clients"}>
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <GrRestroomMen />
-          </div>
-          <div>Clients</div>
-        </div>
-      </Link>
-      <Link className=" hover:text-red-200" to={"/Devices"}>
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <BsLaptop />
-          </div>
-          <div>Devices</div>
-        </div>
-      </Link>
-      <Link className=" hover:text-red-200" to={"/Calendar"}>
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <FaCalendarAlt />
-          </div>
-          <div>Calendar</div>
-        </div>
-      </Link>
-      <Link className=" hover:text-red-200" to={"/Leaves"}>
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <GiUmbrella />
-          </div>
-          <div>Leaves</div>
-        </div>
-      </Link>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to={"/Invoices"}
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <FaFileInvoiceDollar />
+              </div>
+              <div>Invoices</div>
+            </div>
+          </Link>
 
-      <Link className=" hover:bgt-red-200" to={"/Invoices"}>
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <FaFileInvoiceDollar />
-          </div>
-          <div>Invoices</div>
+          <Link
+            className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
+            to={"/Reports"}
+          >
+            <div className="flex items-center gap-1">
+              <div>
+                <FaFileSignature />
+              </div>
+              <div>Reports</div>
+            </div>
+          </Link>
         </div>
-      </Link>
-
-      <Link className=" hover:text-red-200" to={"/Reports"}>
-        <div className="flex flex justify-center items-center gap-1">
-          <div>
-            <FaFileSignature />
-          </div>
-          <div>Reports</div>
-        </div>
-      </Link>
-    </div>
+      </div>
+    </>
   );
 };
 
