@@ -7,7 +7,7 @@ const Password = (  ) => {
   const PasswordModal = () => {
     return (
       <>
-        <div className="fixed right-20 top-40 bg-opacity-5">
+        <div className="fixed left-48 top-40 bg-opacity-5">
           <div className="p-3   bg-gray-100 w-[900px]  h-[400px]">
             <div className="flex justify-end text-black ">
               <div>

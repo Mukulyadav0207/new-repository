@@ -32,7 +32,7 @@ const MyNumberVrfy = () => {
     <>
       <div
         onClick={CloseModal1}
-        className=" fixed  right- top-10 flex items-center justify-center bg-black bg-opacity-20 w-[985px] h-[565px]"
+        className=" fixed left-40 top-14 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-[1px] w-[989px] h-[550px]"
       >
         <div className="p-2 bg-gray-100 w-fit h-fit">
           <div className="flex gap-40 ">
@@ -74,7 +74,7 @@ const MyNumberVrfy = () => {
 const MyEmlVrfy = () => {
   return (
     <>
-      <div className=" fixed  right-1/4 top-1/4 flex items-center justify-center bg-black bg-opacity-25 w-[990px] h-[581px]">
+      <div className="fixed  -left-56 top-14 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-[1px] w-[989px] h-[550px]">
         <div className="p-3 bg-gray-100 w-fit h-fit">
           <div className="flex gap-40 ">
             <div className="font-bold">Verify Your Email Address</div>
@@ -121,7 +121,7 @@ const MySecurity = () =>{
 return (
   <div
    
-    className=" absolute top-40  right-20 flex flex-col  p-6 space-y-4 bg-slate-200 w-[900px]  h-[400px]"
+    className=" absolute top-40  left-48 flex flex-col  p-6 space-y-4 bg-zinc-100 w-[900px]  h-[400px]"
   >
     <div className="flex space-x-96">
       <p className="text-lg font-medium">Two-Factor Authentication</p>

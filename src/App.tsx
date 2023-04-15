@@ -16,15 +16,21 @@ import Invoices from "./Invoices";
 import Reports from "./Reports";
 import Settings from "./account/Setting";
 import SetSecurity from "./account/Security";
+import Password from "./account/Password";
+
+
+
+
+
 const App: React.FC = () => {
   return (
     <>
-      <div className="relative flex items-center justify-center ">
+      <div className="relative flex items-center ">
         <div className="flex flex-row mt-4">
           <div>
             <Sidebar />
           </div>
-          <div className="  flex flex-col  bg-slate-300 w-[990px] h-[587px]">
+          <div className="  flex flex-col  bg-slate-300 w-[990px] h-[650px]">
             <div>
               <Header />
             </div>
@@ -48,13 +54,12 @@ const App: React.FC = () => {
                 <Route path="/invoices" element={<Invoices />}></Route>
                 <Route path="/reports" element={<Reports />}></Route>
                 <Route path="/settings" element={<Settings />}></Route>
+                <Route path="/settings/Password" element={<Password />}></Route>
               </Routes>
             </div>
           </div>
         </div>
       </div>
-
-     
     </>
   );
 };

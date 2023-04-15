@@ -34,7 +34,7 @@ const General = (MyGeneral) => {
   const MyGeneral = ({closeModal} ) => {
     return (
       <>
-        <div className="fixed flex right-10 top-40 bg-opacity-5">
+        <div className="fixed flex left-50 top-40 bg-opacity-5">
           <div className="p-3 bg-gray-100 w-[900px]  h-[400px]">
             <div className="flex text-black ">
               <div className="flex justify-end flex-grow">
@@ -96,7 +96,7 @@ const General = (MyGeneral) => {
             <label for="email" className="text-sm">
               E-mail Address
             </label>
-            <div ClassName="w-50 ">
+            <div className="w-50 ">
               <input
                 type="email address"
                 className="w-full mt-2 mb-2 border rounded-md"
