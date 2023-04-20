@@ -77,7 +77,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
           </Link>
           <Link
             className="w-32 py-1 pl-3 rounded-sm focus:bg-blue-700 focus:text-white"
-            to={"/Clients"}
+            to={"/clients"}
           >
             <div className="flex items-center gap-1">
               <div>

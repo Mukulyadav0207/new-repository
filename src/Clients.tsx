@@ -1,27 +1,29 @@
 import React from "react";
 import { AiFillEye } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
-import Modal from "./pops/AddClient";
-import Filter from "./pops/FilterClients";
-
-
+import Modal from "./modals/AddClient";
+import Filter from "./modals/FilterClients";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { GrAction } from "react-icons/gr";
+import ClientAction from "./client/Actions";
+import { Link } from "react-router-dom";
 
 function Client() {
   return (
     <>
-      <div className="flex   ">
+      <div className="flex ">
         <div>
           <h3 className="font-bold ">Clients</h3>
         </div>
 
-        <div className="flex   gap-4  flex-grow justify-end  ">
-          <div className="relative flex  justify-end ">
+        <div className="flex justify-end flex-grow gap-4 ">
+          <div className="relative flex justify-end ">
             <input
-              className=" rounded-md "
+              className="rounded-md "
               type="text"
               placeholder="Search keyword"
             />
-            <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
+            <BsSearch className="absolute -translate-y-1/2 right-1 top-1/2 " />
           </div>
           <div>
             <Filter />
@@ -33,7 +35,7 @@ function Client() {
       </div>
 
       <div>
-        <table className="table-auto border-collapse w-full  mt-4 mx-auto">
+        <table className="w-full mx-auto mt-4 border-collapse table-auto">
           <thead>
             <tr className="bg-slate-100">
               <th className="px-4 py-2 font-semibold">Client Name</th>
@@ -46,108 +48,113 @@ function Client() {
           </thead>
           <tbody className="bg-white">
             <tr>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <Link to="/actions">
+                  <button className="text-gray-500 hover:text-black">
+                    <AiFillEye />
+                  </button>
+                </Link>
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <AiFillEye className="text-gray-500 hover:text-black" />
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">abca</td>
-              <td className="border px-4 py-2">abca</td>
-              <td className="border px-4 py-2">abca</td>
-              <td className="border px-4 py-2">abca</td>
-              <td className="border px-4 py-2">abca</td>
+              <td className="px-4 py-2 border">abca</td>
+              <td className="px-4 py-2 border">abca</td>
+              <td className="px-4 py-2 border">abca</td>
+              <td className="px-4 py-2 border">abca</td>
+              <td className="px-4 py-2 border">abca</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <AiFillEye className="text-gray-500 hover:text-black" />
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">abcabc</td>
-              <td className="border px-4 py-2">abcabc</td>
-              <td className="border px-4 py-2">abcabc</td>
-              <td className="border px-4 py-2">abcabc</td>
-              <td className="border px-4 py-2">abcabc</td>
+              <td className="px-4 py-2 border">abcabc</td>
+              <td className="px-4 py-2 border">abcabc</td>
+              <td className="px-4 py-2 border">abcabc</td>
+              <td className="px-4 py-2 border">abcabc</td>
+              <td className="px-4 py-2 border">abcabc</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <AiFillEye className="text-gray-500 hover:text-black" />
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <AiFillEye className="text-gray-500 hover:text-black" />
               </td>
             </tr>
 
             <tr>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <AiFillEye className="text-gray-500 hover:text-black" />
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <AiFillEye className="text-gray-500 hover:text-black" />
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <AiFillEye className="text-gray-500 hover:text-black" />
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
-              <td className="border px-4 py-2">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
+              <td className="px-4 py-2 border">abc</td>
 
-              <td className="border px-4 py-2">
-                <AiFillEye />
+              <td className="px-4 py-2 border">
+                <AiFillEye className="text-gray-500 hover:text-black" />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
+      <Routes></Routes>
     </>
   );
 }

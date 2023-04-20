@@ -1,67 +1,97 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import General from "./General";
+import Password from "./Password";
+
+import SetSecurity from "./Security";
+import Notification from "./Notification";
+import AdminNotification from "./AdminNotification";
 import { IoMdInformationCircle } from "react-icons/io";
 import { MdNotifications } from "react-icons/Md";
 import { SiSpringsecurity } from "react-icons/si";
 import { GoKey } from "react-icons/go";
 
-import { MdArrowForwardIos } from "react-icons/Md";
-import Password from "./Password";
-import { General, MyGeneral } from "./General";
-import SetSecurity from "./Security";
-import Notification from "./Notification";
-import AdminNotification from "./AdminNotification";
+import { IoIosArrowForward } from "react-icons/io";
 
-const SettingsMenu = ({ currentModule, setCurrentModule }) => {
+
+
+
+function NavigationBar() {
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };
 
+  const [currentModule, setCurrentModule] = useState("Account Setting");
+
+  let settingsContent;
+    switch (currentModule) {
+      case "Password Setting":
+        settingsContent = <Password />;
+        break;
+      case "Security Setting":
+        settingsContent = <SetSecurity />;
+        break;
+      case "Notifications ":
+        settingsContent = <Notification />;
+        break;
+      case "Admin Notifications ":
+        settingsContent = <AdminNotification />;
+        break;
+      default:
+        settingsContent = <General/>;
+        break;
+    }
+
   return (
     <>
-      <div className="">
-        <p>Setting &gt; {currentModule}</p>
-        <div />
-        <div className="flex gap-5 ">
+      <div className="flex items-center">
+        <div> Settings</div>
+        <div className="text-xl">
+          <IoIosArrowForward />
+        </div>
+        <div className="text-blue-700">{currentModule}</div>
+      </div>
+
+      <div className="flex gap-4 mt-3 font-bold">
+        <Link to="/">
           <button
             onClick={() => {
-              handleModuleClick("General");
+              handleModuleClick("Account Setting");
             }}
             className={
-              currentModule === "General"
+              currentModule === "Account Setting"
                 ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-500 "
+                : "text-gray-400 "
             }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <IoMdInformationCircle />
               </div>
-              <div>
-                <General />
-              </div>
+              <div>General</div>
             </div>
           </button>
-
+        </Link>
+        <Link to="settings/password">
           <button
             onClick={() => {
               handleModuleClick("Password Setting");
             }}
             className={
-              currentModule == "Password Setting"
+              currentModule === "Password Setting"
                 ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-500"
+                : "text-gray-400"
             }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <GoKey />
               </div>
-              <div>
-                <Password />
-              </div>
+              <div>Password</div>
             </div>
           </button>
-
+        </Link>
+        <Link to="settings/security">
           <button
             onClick={() => {
               handleModuleClick("Security Setting");
@@ -69,19 +99,18 @@ const SettingsMenu = ({ currentModule, setCurrentModule }) => {
             className={
               currentModule === "Security Setting"
                 ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-500 "
+                : "text-gray-400 "
             }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <SiSpringsecurity />
               </div>
-              <div>
-                <SetSecurity />
-              </div>
+              <div>Security</div>
             </div>
           </button>
-
+        </Link>
+        <Link to="settings/notification">
           <button
             onClick={() => {
               handleModuleClick("Notifications ");
@@ -89,7 +118,7 @@ const SettingsMenu = ({ currentModule, setCurrentModule }) => {
             className={
               currentModule === "Notifications "
                 ? " border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold "
-                : "text-red-600 "
+                : "text-gray-400 "
             }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
@@ -97,10 +126,11 @@ const SettingsMenu = ({ currentModule, setCurrentModule }) => {
                 <MdNotifications />
               </div>
 
-              <div><Notification/></div>
+              <div>Notification</div>
             </div>
           </button>
-
+        </Link>
+        <Link to="settings/adminNotification">
           <button
             onClick={() => {
               handleModuleClick("Admin Notifications ");
@@ -108,7 +138,7 @@ const SettingsMenu = ({ currentModule, setCurrentModule }) => {
             className={
               currentModule === "Admin Notifications "
                 ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-48  font-bold"
-                : "text-gray-500 "
+                : "text-gray-400 "
             }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
@@ -116,48 +146,15 @@ const SettingsMenu = ({ currentModule, setCurrentModule }) => {
                 <MdNotifications />
               </div>
 
-              <div> <AdminNotification/></div>
+              <div>Admin Notification</div>
             </div>
           </button>
-        </div>
+        </Link>
       </div>
       <div className="items-start ">
-        <hr className="h-px bg-gray-100 border-0 " />
+        <hr className="h-px border-0 bg-zinc-400 " />
       </div>
-    </>
-  );
-};
-
-function Settings({ closeModal }) {
-  const [currentModule, setCurrentModule] = useState("Account Setting");
-
-  let settingsContent;
-  switch (currentModule) {
-    case "Password":
-      settingsContent = <Password />;
-      break;
-    case "SetSecurity":
-      settingsContent = <SetSecurity />;
-      break;
-    case "Notifications":
-      settingsContent = <Notification />;
-      break;
-    case " AdminNotifications":
-      settingsContent = <AdminNotification />;
-      break;
-    default:
-      settingsContent = <General />;
-      break;
-  }
-
-  return (
-    <>
-      <SettingsMenu
-        currentModule={currentModule}
-        setCurrentModule={setCurrentModule}
-      />
-      {settingsContent}
     </>
   );
 }
-export default Settings;
+export default NavigationBar;

@@ -5,12 +5,16 @@ import {Link} from "react-router-dom";
 import {IoMdSettings  } from "react-icons/io";
 import { GoSignOut } from "react-icons/go";
 
+
+
+
 const Profile = () => {
   const [showProfile, setShowProfile] = useState(false);
   const [showGeneral, setShowGeneral] = useState(false);
-  const setModal= () =>
-    setShowProfile(true);
+  const setModal= () => setShowProfile(true);
   
+
+
 
 
   
@@ -27,11 +31,7 @@ const Profile = () => {
                 <IoMdSettings />
               </div>
               <div>
-                <button
-                 
-                >
-                  Settings
-                </button>
+                <button >Settings</button>
               </div>
             </div>
           </Link>

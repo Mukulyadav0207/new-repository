@@ -1,7 +1,7 @@
 import React from "react";
-import {AiFillEye} from "react-icons/ai"
-import {BsSearch} from "react-icons/bs"
-import Modal from "./pops/AddDepartment";
+import { AiFillEye } from "react-icons/ai";
+import { BsSearch } from "react-icons/bs";
+import Modal from "./modals/AddDepartment";
 
 function Department() {
   return (
@@ -11,19 +11,19 @@ function Department() {
           <h3 className="font-bold ">Departments</h3>
         </div>
 
- <div className="flex   gap-4  flex-grow justify-end   ">
-        <div className="relative ml-36 ">
-          <input
-            className=" rounded-md "
-            type="text"
-            placeholder="Search keyword"
-          />
-          <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
+        <div className="flex   gap-4  flex-grow justify-end   ">
+          <div className="relative ml-36 ">
+            <input
+              className=" rounded-md "
+              type="text"
+              placeholder="Search keyword"
+            />
+            <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
+          </div>
+          <div>
+            <Modal />
+          </div>
         </div>
-        <div>
-          <Modal />
-        </div>
-      </div>
       </div>
       <div>
         <table className="table-auto border-collapse w-full  mt-4 mx-auto">
