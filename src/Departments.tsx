@@ -6,19 +6,19 @@ import Modal from "./modals/AddDepartment";
 function Department() {
   return (
     <>
-      <div className="flex  ">
+      <div className="flex ">
         <div>
           <h3 className="font-bold ">Departments</h3>
         </div>
 
-        <div className="flex   gap-4  flex-grow justify-end   ">
+        <div className="flex justify-end flex-grow gap-4 ">
           <div className="relative ml-36 ">
             <input
-              className=" rounded-md "
+              className="rounded-md "
               type="text"
               placeholder="Search keyword"
             />
-            <BsSearch className="absolute right-1 top-1/2 -translate-y-1/2 " />
+            <BsSearch className="absolute -translate-y-1/2 right-1 top-1/2 " />
           </div>
           <div>
             <Modal />
@@ -26,7 +26,7 @@ function Department() {
         </div>
       </div>
       <div>
-        <table className="table-auto border-collapse w-full  mt-4 mx-auto">
+        <table className="w-full mx-auto mt-4 border-collapse table-auto">
           <thead>
             <tr className="bg-slate-100">
               <th className="px-4 py-2 font-bold">Department Name</th>
@@ -37,26 +37,26 @@ function Department() {
           </thead>
           <tbody className="bg-white">
             <tr>
-              <td className="border px-4 py-2">IT</td>
-              <td className="border px-4 py-2">INR 13K</td>
-              <td className="border px-4 py-2">USD 9K</td>
-              <td className="border px-4 py-2">
+              <td className="px-4 py-2 border">IT</td>
+              <td className="px-4 py-2 border">INR 13K</td>
+              <td className="px-4 py-2 border">USD 9K</td>
+              <td className="px-4 py-2 border">
                 <AiFillEye />
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">Marketing and sales</td>
-              <td className="border px-4 py-2">INR 21K</td>
-              <td className="border px-4 py-2">USD 12K</td>
-              <td className="border px-4 py-2">
+              <td className="px-4 py-2 border">Marketing and sales</td>
+              <td className="px-4 py-2 border">INR 21K</td>
+              <td className="px-4 py-2 border">USD 12K</td>
+              <td className="px-4 py-2 border">
                 <AiFillEye />
               </td>
             </tr>
             <tr>
-              <td className="border px-4 py-2">Management</td>
-              <td className="border px-4 py-2">INR 20K</td>
-              <td className="border px-4 py-2">USD 21K</td>
-              <td className="border px-4 py-2">
+              <td className="px-4 py-2 border">Management</td>
+              <td className="px-4 py-2 border">INR 20K</td>
+              <td className="px-4 py-2 border">USD 21K</td>
+              <td className="px-4 py-2 border">
                 <AiFillEye />
               </td>
             </tr>

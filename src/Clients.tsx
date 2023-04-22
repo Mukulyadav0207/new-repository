@@ -154,7 +154,6 @@ function Client() {
           </tbody>
         </table>
       </div>
-      <Routes></Routes>
     </>
   );
 }

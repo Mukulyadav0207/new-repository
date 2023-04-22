@@ -7,7 +7,7 @@ import { FiCheckCircle } from "react-icons/fi";
 import AddImage from "./AddImages";
 import AddNotes from "react-icons/fa";
 import AddNote from "./AddNotes";
-
+import { AiFillEye } from "react-icons/ai";
 
 function General() {
   return (
@@ -24,6 +24,9 @@ function General() {
             </div>
 
             <div className="flex items-center mr-2 mb-11 justify-top ">
+              <button className=" hover:text-black">
+                <AiFillEye />
+              </button>
               <button className="p-1 ">
                 <FaEdit />
               </button>
@@ -150,10 +153,10 @@ function General() {
         <div className="font-bold">Past Owners</div>
         <div className="flex gap-2">
           <div>
-           <AddImage/>
+            <AddImage />
           </div>
           <div>
-         <AddNote/>
+            <AddNote />
           </div>
         </div>
       </div>

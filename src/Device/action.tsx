@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, } from "react-router-dom";
 import General from "./General";
 import Timeline from "./Timiline";
-
+import Incident from "./Incidents";
 import SetSecurity from "./Security";
 import Notification from "./Notification";
 import AdminNotification from "./AdminNotification";
@@ -45,7 +45,7 @@ function DeviceAction() {
       </div>
 
       <div className="flex gap-4 mt-3 font-bold">
-        <Link to="action/*">
+        <Link to="./">
           <button
             onClick={() => {
               handleModuleClick("General Detail");
@@ -67,10 +67,10 @@ function DeviceAction() {
         <Link to="action/timeline">
           <button
             onClick={() => {
-              handleModuleClick("Password Setting");
+              handleModuleClick("Timeline");
             }}
             className={
-              currentModule === "Password Setting"
+              currentModule === "Timeline"
                 ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
                 : "text-gray-400"
             }
@@ -89,10 +89,18 @@ function DeviceAction() {
       </div>
 
       <Routes>
-        <Route path="action/*" element={<General />}></Route>
-        <Route path="action/timeline" element={<Timeline/>}></Route>
+        <Route path="/" element={<General />}></Route>
+        <Route path="/action/timeline" element={<Timeline />}></Route>
+        <Route path="/action/timeline/" element={<Incident />}></Route>
       </Routes>
     </>
   );
 }
 export default DeviceAction;
+
+
+
+
+//  <Route path="/" element={<General />}></Route>
+//         <Route path="action/timeline" element={<Timeline />}></Route>
+//         <Route path="timeline/incident" element={<Incident />}></Route>

@@ -41,14 +41,12 @@ const App: React.FC = () => {
 
                 <Route path="/departments" element={<Departments />}></Route>
 
-                <Route path="/clients/*" element={<Clients />}></Route>
-                <Route path="/actions/*" element={<ClientAction />}></Route>
+                <Route path="/clients" element={<Clients />}></Route>
+                <Route path="/actions" element={<ClientAction />}></Route>
 
-                
-                <Route path="/devices/*" element={<Devices />}></Route>
+                <Route path="/devices" element={<Devices />}></Route>
                 <Route path="/action/*" element={<DeviceAction />}></Route>
-
-                
+              
                 <Route path="/calendar" element={<Calendar />}></Route>
 
                 <Route path="/leaves" element={<Leaves />}></Route>

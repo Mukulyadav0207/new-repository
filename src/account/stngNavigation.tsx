@@ -53,7 +53,7 @@ function NavigationBar() {
       </div>
 
       <div className="flex gap-4 mt-3 font-bold">
-        <Link to="/">
+        <Link to="./">
           <button
             onClick={() => {
               handleModuleClick("Account Setting");

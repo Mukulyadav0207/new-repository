@@ -33,7 +33,7 @@ let settingsContent = <General />;
      </div>
 
      <div className="flex gap-4 mt-3 font-bold">
-       <Link to="actions/*">
+       <Link to="./">
          <button
            onClick={() => {
              handleModuleClick("Project Detail");
@@ -58,7 +58,8 @@ let settingsContent = <General />;
      </div>
 
      <Routes>
-                <Route path="actions/*" element={<General/>}></Route></Routes>
+       <Route path="/" element={<General />}></Route>
+     </Routes>
    </>
  );
 };

@@ -9,7 +9,7 @@ const Filter = () => {
       <>
         <div className=" fixed inset-0 bg-black bg-opacity-25 w-[1150px] h-[665px] backdrop-blur-sm   flex justify-center items-center   ">
           <div className="p-2 bg-gray-100 ">
-            <div className="flex text-black  gap-60">
+            <div className="flex text-black gap-60">
               <div className="flex items-center justify-center gap-1 ">
                 <div className="text-sm">
                   <TiFilter />
@@ -67,7 +67,7 @@ const Filter = () => {
               Warranty Status
             </label>
             <div>
-              <select typ="Select Warranty" className="">
+              <select typeof="Select Warranty" className="">
                 <option>select </option>
                 <option>In force </option>
                 <option>Expired </option>
@@ -79,13 +79,13 @@ const Filter = () => {
               <div>
                 <button
                   onClick={() => setShowFilter(false)}
-                  className="px-2 text-blue-700 border border-blue-700 rounded-md  w-50"
+                  className="px-2 text-blue-700 border border-blue-700 rounded-md w-50"
                 >
                   Cancel
                 </button>
               </div>
               <div>
-                <button className="px-2 text-white bg-blue-700 border rounded-md  w-50">
+                <button className="px-2 text-white bg-blue-700 border rounded-md w-50">
                   Add
                 </button>
               </div>
@@ -100,7 +100,7 @@ const Filter = () => {
     <>
       <button
         onClick={() => setShowFilter(true)}
-        className="px-2 text-black bg-white border border-black rounded-md  w-50"
+        className="px-2 text-black bg-white border border-black rounded-md w-50"
       >
         <div className="flex items-center justify-center gap-1 ">
           <div className="text-sm">
