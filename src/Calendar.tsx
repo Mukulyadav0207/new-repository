@@ -16,20 +16,31 @@ import { BsFillPersonDashFill } from "react-icons/bs";
 import {} from "react-icons/fa";
 import Modal from "./modals/AddDepartment";
 
+import DetailList from "./CalendarDetailList.tsx/DetailList";
+
+
+
+
+
+
+
+
+
+
 function Calendar() {
   return (
     <>
       <div className="flex ">
         <div>
-          <h3 className="font-bold ">Leavess</h3>
+          <h3 className="font-bold ">Leaves</h3>
         </div>
 
         <div className="flex justify-end flex-grow gap-4 ">
           <div className="relative ml-36 ">
             <input
-              className="rounded-md "
+              className="px-3 py-1 text-sm border border-gray-500 rounded-md"
               type="text"
-              placeholder="Search keyword"
+              placeholder="Search keyword "
             />
             <BsSearch className="absolute -translate-y-1/2 right-1 top-1/2 " />
           </div>
@@ -123,25 +134,7 @@ function Calendar() {
               <td className="px-2 py-2 font-bold border">4</td>
               <td className="px-2 py-2 font-bold border">
                 5
-                <div className="flex-col items-center w-32 p-1 ml-4 -mt-3 bg-green-200 border-l-4 border-green-500 justify">
-                  <div className="flex gap-5">
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <FaBullhorn />
-                      <GiSandsOfTime />
-                      03
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsFillPersonPlusFill />
-                    <FaCheckCircle />
-                    04
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <FaFirstAid />
-                    <BsCircleFill />
-                    02
-                  </div>
-                </div>
+               <DetailList/>
               </td>
               <td className="px-2 py-2 font-bold border">6</td>
             </tr>

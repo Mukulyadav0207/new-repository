@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { Link, } from "react-router-dom";
-import General from "./General";
-import Timeline from "./Timiline";
-import Incident from "./Incidents";
-import SetSecurity from "./Security";
-import Notification from "./Notification";
-import AdminNotification from "./AdminNotification";
+import { Link } from "react-router-dom";
+import LeaveGeneral from "./LeaveGeneral";
+import LeaveTimeline from "./LeaveTimeline";
+// import Incident from "./Incidents";
+
 import { IoMdInformationCircle } from "react-icons/io";
 import { AiOutlineApartment } from "react-icons/ai";
 import { SiSpringsecurity } from "react-icons/si";
@@ -14,9 +12,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { IoIosArrowForward } from "react-icons/io";
 
-
-
-function DeviceAction() {
+function LeaveAction() {
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };
@@ -26,18 +22,18 @@ function DeviceAction() {
   let settingsContent;
   switch (currentModule) {
     case "Timeline":
-      settingsContent = <Timeline />;
+      settingsContent = <LeaveTimeline />;
       break;
-   
+
     default:
-      settingsContent = <General />;
+      settingsContent = <LeaveGeneral />;
       break;
   }
 
   return (
     <>
       <div className="flex items-center">
-        <div> Devices</div>
+        <div> Leaves</div>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
@@ -89,17 +85,14 @@ function DeviceAction() {
       </div>
 
       <Routes>
-        <Route path="/" element={<General />}></Route>
-        <Route path="/action/timeline" element={<Timeline />}></Route>
-        <Route path="/action/timeline/" element={<Incident />}></Route>
+        <Route path="/" element={<LeaveGeneral />}></Route>
+        <Route path="/action/timeline" element={<LeaveTimeline />}></Route>
+        {/* <Route path="/action/timeline/" element={<Incident />}></Route> */}
       </Routes>
     </>
   );
 }
-export default DeviceAction;
-
-
-
+export default LeaveAction;
 
 //  <Route path="/" element={<General />}></Route>
 //         <Route path="action/timeline" element={<Timeline />}></Route>

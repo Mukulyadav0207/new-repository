@@ -3,7 +3,7 @@ import Sidebar from "./sideBar";
 import Header from "./header";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard/dashboard";
 import Employees from "./Employees";
 
 import Projects from "./Projects";
@@ -11,12 +11,15 @@ import Departments from "./Departments";
 import Clients from "./Clients";
 import Devices from "./Devices";
 import Calendar from "./Calendar";
-import Leaves from "./Leaves";
-import Invoices from "./Invoices";
+import Leaves from "./Leave/CheckLeaves";
+import Invoices from "./Invoice/Invoices";
 import Reports from "./Reports";
 import SettingsMenu from "./account/SettingPage";
 import DeviceAction from "./Device/action";
 import ClientAction from "./client/Actions";
+import LeaveAction from "./Leave/LeaveActions";
+import InvoiceAction from "./Invoice/InvoiceAction";
+
 
 
 const App: React.FC = () => {
@@ -33,7 +36,7 @@ const App: React.FC = () => {
             </div>
             <div className="p-5">
               <Routes>
-                <Route path="/" element={<Dashboard />}></Route>
+                <Route path="/*" element={<Dashboard />}></Route>
 
                 <Route path="/employees" element={<Employees />}></Route>
 
@@ -46,11 +49,14 @@ const App: React.FC = () => {
 
                 <Route path="/devices" element={<Devices />}></Route>
                 <Route path="/action/*" element={<DeviceAction />}></Route>
-              
+
                 <Route path="/calendar" element={<Calendar />}></Route>
 
-                <Route path="/leaves" element={<Leaves />}></Route>
-                <Route path="/invoices" element={<Invoices />}></Route>
+                <Route path="/leaves/*" element={<Leaves />}></Route>
+                <Route path="/LeaveActions/*" element={<LeaveAction />}></Route>
+                
+                <Route path="/invoices/*" element={<Invoices />}></Route>
+                <Route path="/invoiceAction/*" element={<InvoiceAction />}></Route>
                 <Route path="/reports" element={<Reports />}></Route>
 
                 <Route path="/settings/*" element={<SettingsMenu />}></Route>

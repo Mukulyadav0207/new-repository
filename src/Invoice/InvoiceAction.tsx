@@ -1,22 +1,17 @@
 import React, { useState } from "react";
-import { Link, } from "react-router-dom";
-import General from "./General";
-import Timeline from "./Timiline";
-import Incident from "./Incidents";
-import SetSecurity from "./Security";
-import Notification from "./Notification";
-import AdminNotification from "./AdminNotification";
+import { Link } from "react-router-dom";
+import InvoiceGeneral from "./InvoiceGeneral";
+import InvoiceTimeline from "./InvoiceTimeline";
+import InvoiceLineItems from "./InvoiceLineItems";
 import { IoMdInformationCircle } from "react-icons/io";
 import { AiOutlineApartment } from "react-icons/ai";
 import { SiSpringsecurity } from "react-icons/si";
-import { GoKey } from "react-icons/go";
+import { FaReceipt } from "react-icons/fa";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { IoIosArrowForward } from "react-icons/io";
 
-
-
-function DeviceAction() {
+function InvoiceAction() {
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };
@@ -26,18 +21,18 @@ function DeviceAction() {
   let settingsContent;
   switch (currentModule) {
     case "Timeline":
-      settingsContent = <Timeline />;
+      settingsContent = <InvoiceTimeline />;
       break;
-   
+
     default:
-      settingsContent = <General />;
+      settingsContent = <InvoiceGeneral />;
       break;
   }
 
   return (
     <>
       <div className="flex items-center">
-        <div> Devices</div>
+        <div> Invoices</div>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
@@ -64,7 +59,26 @@ function DeviceAction() {
             </div>
           </button>
         </Link>
-        <Link to="action/timeline">
+        <Link to="InvoiceAction/lineItems">
+          <button
+            onClick={() => {
+              handleModuleClick("LineItems");
+            }}
+            className={
+              currentModule === "LineItems"
+                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
+                : "text-gray-400"
+            }
+          >
+            <div className="flex flex-row items-center justify-center gap-1 p-2 ">
+              <div>
+                <FaReceipt />
+              </div>
+              <div>Line Items</div>
+            </div>
+          </button>
+        </Link>
+        <Link to="InvoiceAction/timeline">
           <button
             onClick={() => {
               handleModuleClick("Timeline");
@@ -89,17 +103,17 @@ function DeviceAction() {
       </div>
 
       <Routes>
-        <Route path="/" element={<General />}></Route>
-        <Route path="/action/timeline" element={<Timeline />}></Route>
-        <Route path="/action/timeline/" element={<Incident />}></Route>
+        <Route path="/" element={<InvoiceGeneral />}></Route>
+        <Route
+          path="/InvoiceAction/timeline"
+          element={<InvoiceTimeline />}
+        ></Route>
+     <Route path="/InvoiceAction/lineItems/" element={<InvoiceLineItems />}></Route> 
       </Routes>
     </>
   );
 }
-export default DeviceAction;
-
-
-
+export default InvoiceAction;
 
 //  <Route path="/" element={<General />}></Route>
 //         <Route path="action/timeline" element={<Timeline />}></Route>

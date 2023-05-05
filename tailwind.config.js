@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.tsx", "./src/**/*.tsx"],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        x: "10px",
+    
+      },
+    },
   },
   plugins: [],
 };

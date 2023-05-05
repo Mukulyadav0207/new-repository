@@ -105,13 +105,13 @@ const Modal = () => {
               <div>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="px-2 text-blue-700 border border-blue-700 rounded-md  w-50"
+                  className="px-2 text-blue-700 border border-blue-700 rounded-md w-50"
                 >
                   Cancel
                 </button>
               </div>
               <div>
-                <button className="px-2 text-white bg-blue-700 border rounded-md  w-50">
+                <button className="px-2 text-white bg-blue-700 border rounded-md w-50">
                   Add
                 </button>
               </div>
@@ -126,7 +126,7 @@ const Modal = () => {
     <>
       <button
         onClick={() => setShowModal(true)}
-        className="px-2 text-white bg-blue-700 border rounded-md  w-50 hover:bg-blue-600"
+        className="px-2 text-white bg-blue-700 border rounded-md w-50 hover:bg-blue-600"
       >
         + Add Devices
       </button>
