@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import { IoMdInformationCircle } from "react-icons/io";
-import { MdNotifications } from "react-icons/Md";
-import { SiSpringsecurity } from "react-icons/si";
-import { GoKey } from "react-icons/go";
 
-import { MdArrowForwardIos } from "react-icons/Md";
 import Password from "./Password";
 import  General from "./General";
 import Security from "./Security";
 import Notification from "./Notification";
 import AdminNotification from "./AdminNotification";
-import { Link } from "react-router-dom";
+
  import NavigationBar from "./stngNavigation";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 

@@ -7,7 +7,7 @@ const Filter = () => {
   const MyFilter = () => {
     return (
       <>
-        <div className=" fixed inset-0 bg-black bg-opacity-25 w-[1150px] h-[665px] backdrop-blur-sm   flex justify-center items-center   ">
+        <div className=" fixed inset-0 bg-black bg-opacity-25 w-[1260px] h-[665px] backdrop-blur-sm   flex justify-center items-center   ">
           <div className="p-2 bg-gray-100 ">
             <div className="flex text-black gap-60">
               <div className="flex items-center justify-center gap-1 ">

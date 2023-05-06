@@ -12,9 +12,6 @@ import { FaFileInvoiceDollar } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { FaDollarSign } from "react-icons/fa";
 
-
-
-
 function Dashbord() {
   const handleModuleClick = (module) => {
     setCurrentModule(module);
@@ -155,7 +152,7 @@ function Dashbord() {
         <Route path="/financials" element={<Financials />}></Route>
         <Route path="/hr" element={<HR />}></Route>
         <Route path="/invoice" element={<Invoice />}></Route>
-        <Route path="/payroll" element={<Payroll/>}></Route>
+        <Route path="/payroll" element={<Payroll />}></Route>
       </Routes>
     </>
   );

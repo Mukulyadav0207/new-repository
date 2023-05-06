@@ -10,7 +10,7 @@ const Notification = () => {
   const [showNotificationModal, setShowNotificationModal] = useState(false);
 
   return (
-    <div className="p-3 pt-5 rounded-md bg-gray-100 w-[950px] mt-4  h-[470px] overflow-scroll">
+    <div className="p-3 pt-5 rounded-md bg-gray-100 w-[1060px] mt-4  h-[470px] overflow-scroll">
       <h1 className="flex items-center justify-start text-md">
         User Notification
       </h1>

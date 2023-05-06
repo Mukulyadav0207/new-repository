@@ -7,7 +7,7 @@ const Modal = () => {
   const Modal = () => {
     return (
       <>
-        <div className=" fixed inset-0 w-[1150px] h-[665px] bg-black bg-opacity-25  backdrop-blur-sm   flex justify-center items-center   ">
+        <div className=" fixed inset-0 w-[1260px] h-[665px] bg-black bg-opacity-25  backdrop-blur-sm   flex justify-center items-center   ">
           <div className="p-2 bg-gray-100 ">
             <div className="flex text-black ">
               <div className="font-bold"> Add Device</div>

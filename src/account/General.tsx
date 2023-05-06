@@ -10,27 +10,27 @@ const General = () => {
  
     return (
       <>
-        <div className="p-3 rounded-md bg-gray-100 w-[950px] mt-4  h-[470px]">
+        <div className="p-3 rounded-md bg-gray-100 w-[1060px] mt-4  h-[470px]">
           <div className="flex gap-3">
             <div>
-              <label for="text" className="text-sm">
+              <label  className="text-sm">
                 First Name
               </label>
               <div>
                 <input
                   type="text"
-                  className="border rounded-md w-[400px] mt-2 mb-2"
+                  className="border rounded-md w-[510px] mt-2 mb-2"
                 ></input>
               </div>
             </div>
             <div>
-              <label for="" className="text-sm">
+              <label className="text-sm">
                 Last Name
               </label>
               <div>
                 <input
                   type="text"
-                  className="border rounded-md w-[400px] mt-2 mb-2"
+                  className="border rounded-md w-[510px] mt-2 mb-2"
                 ></input>
               </div>
             </div>
@@ -38,29 +38,29 @@ const General = () => {
 
           <div className="flex gap-3">
             <div>
-              <label for="date" className="text-sm">
+              <label  className="text-sm">
                 Date Of Birth
               </label>
               <div>
                 <input
                   type="date"
-                  className="border rounded-md w-[400px] mt-2 mb-2"
+                  className="border rounded-md w-[510px] mt-2 mb-2"
                 ></input>
               </div>
             </div>
             <div>
-              <label for="" className="text-sm">
+              <label  className="text-sm">
                 Gender
               </label>
               <div>
                 <input
                   type="number"
-                  className="border rounded-md w-[400px]  mt-2 mb-2"
+                  className="border rounded-md w-[510px]  mt-2 mb-2"
                 ></input>
               </div>
             </div>
           </div>
-          <label for="email" className="text-sm">
+          <label  className="text-sm">
             E-mail Address
           </label>
           <div className="w-50 ">

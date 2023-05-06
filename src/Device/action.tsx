@@ -90,8 +90,8 @@ function DeviceAction() {
 
       <Routes>
         <Route path="/" element={<General />}></Route>
-        <Route path="/action/timeline" element={<Timeline />}></Route>
-        <Route path="/action/timeline/" element={<Incident />}></Route>
+        <Route path="/action/timeline/*" element={<Timeline />}></Route>
+        <Route path="/timeline/incident" element={<Incident />}></Route>
       </Routes>
     </>
   );

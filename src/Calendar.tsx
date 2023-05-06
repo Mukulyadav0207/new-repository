@@ -18,15 +18,6 @@ import Modal from "./modals/AddDepartment";
 
 import DetailList from "./CalendarDetailList.tsx/DetailList";
 
-
-
-
-
-
-
-
-
-
 function Calendar() {
   return (
     <>
@@ -134,7 +125,7 @@ function Calendar() {
               <td className="px-2 py-2 font-bold border">4</td>
               <td className="px-2 py-2 font-bold border">
                 5
-               <DetailList/>
+                <DetailList />
               </td>
               <td className="px-2 py-2 font-bold border">6</td>
             </tr>

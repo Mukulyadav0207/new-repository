@@ -7,7 +7,7 @@ const MyModal = ({closeModal}) => {
       
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm w-[1150px] h-[665px]">
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm w-[1260px] h-[665px]">
         <div className="  bg-gray-100 w-[350px] h-36  p-2  ">
           <div className="flex text-black gap-44">
             <div className="font-bold"> Add Department</div>

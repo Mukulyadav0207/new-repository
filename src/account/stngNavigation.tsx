@@ -7,7 +7,7 @@ import SetSecurity from "./Security";
 import Notification from "./Notification";
 import AdminNotification from "./AdminNotification";
 import { IoMdInformationCircle } from "react-icons/io";
-import { MdNotifications } from "react-icons/Md";
+import { MdNotifications } from "react-icons/md";
 import { SiSpringsecurity } from "react-icons/si";
 import { GoKey } from "react-icons/go";
 
@@ -17,7 +17,8 @@ import { IoIosArrowForward } from "react-icons/io";
 
 
 function NavigationBar() {
-  const handleModuleClick = (module) => {
+  
+  function handleModuleClick(module) {
     setCurrentModule(module);
   };
 
@@ -52,7 +53,7 @@ function NavigationBar() {
         <div className="text-blue-700">{currentModule}</div>
       </div>
 
-      <div className="flex gap-4 mt-3 font-bold">
+      <div className="flex gap-6 mt-3 font-bold">
         <Link to="./">
           <button
             onClick={() => {
@@ -60,7 +61,7 @@ function NavigationBar() {
             }}
             className={
               currentModule === "Account Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
+                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold"
                 : "text-gray-400 "
             }
           >
@@ -79,7 +80,7 @@ function NavigationBar() {
             }}
             className={
               currentModule === "Password Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
+                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-24  font-bold"
                 : "text-gray-400"
             }
           >
@@ -98,7 +99,7 @@ function NavigationBar() {
             }}
             className={
               currentModule === "Security Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
+                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold"
                 : "text-gray-400 "
             }
           >
@@ -117,7 +118,7 @@ function NavigationBar() {
             }}
             className={
               currentModule === "Notifications "
-                ? " border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold "
+                ? " border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-28  font-bold "
                 : "text-gray-400 "
             }
           >

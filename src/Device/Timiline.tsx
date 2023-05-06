@@ -9,7 +9,7 @@ function Timeline(){
   return (
     <>
       <div className="w-[1050px] h-[470px] bg-white p-6 overflow-y-scroll mt-4 ">
-        <Link to="/action/timeline/">
+        <Link to="/timeline/incident">
           <div className="flex justify-end">
             <button className="px-2 font-medium text-white bg-blue-700 border border-blue-500 rounded-md border- w-50 hover:bg-blue-600">
               + Incidents

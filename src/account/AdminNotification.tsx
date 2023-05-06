@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
-import { MdChatBubble } from "react-icons/Md";
+import { MdChatBubble } from "react-icons/md";
 import { HiGlobeAlt } from "react-icons/hi";
 import { FaEnvelope } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
@@ -9,7 +9,7 @@ const AdminNotification = () => {
  
  
     return (
-      <div className="p-3 rounded-md bg-gray-100 w-[950px] mt-4 h-[470px] overflow-scroll">
+      <div className="p-3 rounded-md bg-gray-100 w-[1060px] mt-4 h-[470px] overflow-scroll">
         <h1 className="flex items-center justify-start mt-2 text-md">
           Admin Notifications
         </h1>

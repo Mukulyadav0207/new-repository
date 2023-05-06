@@ -4,7 +4,7 @@ import Header from "./header";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Dashboard from "./Dashboard/dashboard";
-import Employees from "./Employees";
+import Employees from "./Employee/Employees";
 
 import Projects from "./Projects";
 import Departments from "./Departments";
@@ -20,9 +20,7 @@ import ClientAction from "./client/Actions";
 import LeaveAction from "./Leave/LeaveActions";
 import InvoiceAction from "./Invoice/InvoiceAction";
 
-
-
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
       <div className="absolute items-center justify-center overflow-hidden">
@@ -54,9 +52,12 @@ const App: React.FC = () => {
 
                 <Route path="/leaves/*" element={<Leaves />}></Route>
                 <Route path="/LeaveActions/*" element={<LeaveAction />}></Route>
-                
+
                 <Route path="/invoices/*" element={<Invoices />}></Route>
-                <Route path="/invoiceAction/*" element={<InvoiceAction />}></Route>
+                <Route
+                  path="/invoiceAction/*"
+                  element={<InvoiceAction />}
+                ></Route>
                 <Route path="/reports" element={<Reports />}></Route>
 
                 <Route path="/settings/*" element={<SettingsMenu />}></Route>
@@ -65,10 +66,10 @@ const App: React.FC = () => {
           </div>
         </div>
       </div>
+
+    
     </>
   );
 };
 
 export default App;
-
-

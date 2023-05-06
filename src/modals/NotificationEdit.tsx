@@ -13,7 +13,7 @@ const NotificationNotes = () => {
     const [isClicked,setIsClicked] = useState(true);
     return (
       <>
-        <div className="fixed inset-0 flex items-center justify-center w-[1150px]  h-[663px] bg-black bg-opacity-25 backdrop-blur-sm">
+        <div className="fixed inset-0 flex items-center justify-center w-[1260px]  h-[663px] bg-black bg-opacity-25 backdrop-blur-sm">
           <div className="p-2 bg-gray-100 ">
             <div className="flex text-black gap-60">
               <div className="flex items-center justify-center gap-1 ">

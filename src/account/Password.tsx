@@ -7,7 +7,7 @@ const Password = (  ) => {
   
     return (
       <>
-        <div className="p-3 rounded-md bg-gray-100 w-[950px] mt-4  h-[470px]">
+        <div className="p-3 rounded-md bg-gray-100 w-[1060px] mt-4  h-[470px]">
           <div className="flex flex-col items-start justify-start">
             <label for="" className="text-sm ">
               Old Password

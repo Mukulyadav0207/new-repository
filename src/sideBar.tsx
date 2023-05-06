@@ -4,34 +4,25 @@ import { Link, useLocation } from "react-router-dom";
 import { BsFillPeopleFill } from "react-icons/bs";
 
 import { BsGraphUp } from "react-icons/bs";
-import {CiViewTable  } from "react-icons/ci";
-import {VscTypeHierarchySub  } from "react-icons/vsc";
-import {GrRestroomMen  } from "react-icons/gr";
-import {BsLaptop  } from "react-icons/bs";
+import { CiViewTable } from "react-icons/ci";
+import { VscTypeHierarchySub } from "react-icons/vsc";
+import { GrRestroomMen } from "react-icons/gr";
+import { BsLaptop } from "react-icons/bs";
 import { FaCalendarAlt } from "react-icons/fa";
 
-import {GiUmbrella  } from "react-icons/gi";
+import { GiUmbrella } from "react-icons/gi";
 import { FaFileSignature } from "react-icons/fa";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 
+function Sidebar() {
+  const [activeLink, setActiveLink] = useState("");
 
+  const location = useLocation();
 
+  const handleClick = (link: string) => {
+    setActiveLink(link);
+  };
 
-
-function Sidebar  () {
-
- const [activeLink, setActiveLink] = useState("");
-
- const location = useLocation();
-
- const handleClick = (link: string) => {
-   setActiveLink(link);
- };
-
-
-
-
-  
   return (
     <>
       <div className="flex flex-col w-40">
@@ -173,7 +164,8 @@ function Sidebar  () {
             className={`w-32 py-1 pl-3 rounded-sm ${
               location.pathname === "/Invoices" || activeLink === "/Invoices"
                 ? "bg-blue-700 text-white"
-                : ""            }`}
+                : ""
+            }`}
             to="/Invoices"
             onClick={() => handleClick("/Invoices")}
           >
@@ -205,6 +197,6 @@ function Sidebar  () {
       </div>
     </>
   );
-};
+}
 
 export default Sidebar;
