@@ -1,24 +1,24 @@
 import React from "react";
-import Sidebar from "./sideBar";
-import Header from "./header";
+import Sidebar from "./app/sideBar";
+import Header from "./app/Header/HeaderList";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import Dashboard from "./Dashboard/dashboard";
-import Employees from "./Employee/Employees";
-
-import Projects from "./Projects";
-import Departments from "./Departments";
-import Clients from "./Clients";
-import Devices from "./Devices";
-import Calendar from "./Calendar";
-import Leaves from "./Leave/CheckLeaves";
-import Invoices from "./Invoice/Invoices";
-import Reports from "./Reports";
-import SettingsMenu from "./account/SettingPage";
-import DeviceAction from "./Device/action";
-import ClientAction from "./client/Actions";
-import LeaveAction from "./Leave/LeaveActions";
-import InvoiceAction from "./Invoice/InvoiceAction";
+import Dashboard from "./app/Dashboard/DashboardList";
+import Employees from "./app/Employees/EmployeesList";
+import EmployeeAction from "./app/Employees/EmployeesDetails";
+import Projects from "./app/Projects/ProjectsList";
+import Departments from "./app/Departments/DepartmentsList";
+import Clients from "./app/Clients/ClientsList";
+import Devices from "./app/Device/DevicesList";
+import Calendar from "./app/Calendar/CalendarList";
+import Leaves from "./app/Leaves/LeavesList";
+import Invoices from "./app/Invoices/Invoices";
+import Reports from "./app/Reports/ReportsList";
+import SettingsMenu from "./app/Settings/SettingsDetails";
+import DeviceAction from "./app/Device/DevicesDetails";
+import ClientAction from "./app/Clients/ClientsDetails";
+import LeaveAction from "./app/Leaves/LeavesDetails";
+import InvoiceAction from "./app/Invoices/InvoicesDetails";
 
 const App = () => {
   return (
@@ -37,7 +37,10 @@ const App = () => {
                 <Route path="/*" element={<Dashboard />}></Route>
 
                 <Route path="/employees" element={<Employees />}></Route>
-
+                <Route
+                  path="/employeeAction/*"
+                  element={<EmployeeAction />}
+                ></Route>
                 <Route path="/projects" element={<Projects />}></Route>
 
                 <Route path="/departments" element={<Departments />}></Route>
@@ -66,8 +69,6 @@ const App = () => {
           </div>
         </div>
       </div>
-
-    
     </>
   );
 };
