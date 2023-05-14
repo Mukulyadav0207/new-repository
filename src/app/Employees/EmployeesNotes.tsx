@@ -1,4 +1,4 @@
-function Note() {
+function EmployeesNote() {
   return <div> ort</div>;
 }
-export default Note;
+export default EmployeesNote;

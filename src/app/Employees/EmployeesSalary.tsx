@@ -1,4 +1,4 @@
-function Salary() {
+function EmployeesSalary() {
   return <div> sly</div>;
 }
-export default Salary;
+export default EmployeesSalary;

@@ -31,7 +31,7 @@ function InvoiceLineItems() {
             <p>Line Items</p> <FaEdit className="ml-[339px]" />
           </div>
 
-          <div className="items-center p-2 mt-2 space-y-1 border rounded-lg bg-cyan-100">
+          <div className="items-center p-2 mt-2 space-y-1 border rounded-lg bg-[#E9F8F8]">
             <div className="flex items-center gap-2">
               <AiFillFile />
               <p className="w-32 text-gray-400 "> Description</p>
@@ -70,7 +70,7 @@ function InvoiceLineItems() {
             <p>Line Items</p> <FaEdit className="ml-[339px]" />
           </div>
 
-          <div className="items-center p-2 mt-2 space-y-1 border rounded-lg bg-cyan-100 h-[254px]">
+          <div className="items-center p-2 mt-2 space-y-1 border rounded-lg bg-[#E9F8F8] h-[254px]">
             <div className="flex items-center gap-2">
               <AiFillFile />
               <p className="w-32 text-gray-400 "> Description</p>

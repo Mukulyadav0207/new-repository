@@ -10,18 +10,38 @@ import {} from "react-icons/bs";
 import Modal from "./ClientsEditModal";
 
 
+const features = [
+  {
+    title: "Ongoing Projects",
+    icon: BsGithub,
+    description1: "Git hub",
+    description2: "Git hub",
+    description3: "Git hub",
+  icon4: BsGithub,
+  },
+  {
+    title: "Past Projects",
+    icon: BsGithub,
+    description1: "ABCDE",
+    description2: "XYZDE",
+    description3: "SDFGH",
+    description4: "DFGRT",
+    icon4: BsGithub,
+  },
+];
 
 
-function General() {
+
+function ClientGeneral() {
 
 
 
 
   return (
     <>
-      <div className="flex gap-8 m-2 bg-slate-300">
-        <div className="flex m-2 ">
-          <div className="m-3 bg-white rounded-md ">
+      <div className="flex gap-8 ">
+        <div className="flex m-2 ml-0 ">
+          <div className="m-4 ml-0 bg-white rounded-md ">
             <div className="flex items-start mt-2 justify-self-end">
               <div className="flex-col gap-2 ml-32 w-max">
                 <Bs0Square className="flex ml-10 text-5xl text-gray-400 " />
@@ -31,13 +51,13 @@ function General() {
                 <p className="flex justify-center mb-2">Client Name</p>
               </div>
               <div className="flex items-center justify-end gap-2 mt-2 mr-2 text-2xl ml-28">
-               <Modal/>
+                <Modal />
                 <button className="p-1 text-sm text-white bg-green-500 border rounded-full ">
                   Ongoing
                 </button>
               </div>
             </div>
-            <div className="p-2 m-2 rounded-md bg-cyan-100 ">
+            <div className="p-4 m-4 rounded-md bg-[#E9F8F8] ">
               <p className="text-gray-400">Company Name</p>
               <p className="font-semibold">Abc Pvt. Ltd.</p>
               <div className="flex">
@@ -75,40 +95,46 @@ function General() {
             </div>
           </div>
 
-          <div>
-            <div className="p-3 mt-2 ml-3 mr-3 bg-white rounded-md ">
-              <h1 className="font-semibold"> Ongoing Projects</h1>
-              <div className="flex gap-16 mt-3">
-                <div className="flex items-center gap-4">
-                  <BsGithub className="text-blue-700" /> Git Hub
-                </div>
-                <div className="flex items-center gap-4">
-                  <BsGithub className="text-blue-700" />
-                  Git Hub
-                </div>
-              </div>
+          <div className=" gap-y-30">
+            <div>
+              {features.map((feature, index) => (
+                <div className="p-2 pl-3 pr-3 bg-[#FFFFFF] border rounded-lg  w-[311px] h-[146px] mt-4">
+                  <p className="text-[#413F3F] font-bold text-[18px]">
+                    {feature.title}
+                  </p>
+                  <div className="flex items-center justify-between mt-5">
+                    <div className="flex items-center gap-x-3">
+                      {<feature.icon className="text-[#0000FF] text-3xl " />}
+                      <p className="text-[#413F3F] tracking-tight text-[16px] font-semibold ">
+                        {feature.description1}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-x-3">
+                      {<feature.icon className="text-[#0000FF] text-3xl " />}
+                      <p className="text-[#413F3F] tracking-tight text-[16px] font-semibold ">
+                        {feature.description2}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between mt-5">
+                    <div className="flex items-center gap-x-3">
+                      {<feature.icon className="text-[#0000FF] text-3xl " />}
+                      <p className="text-[#413F3F] tracking-tight text-[16px] font-semibold ">
+                        {feature.description3}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-x-3">
+                      {index === 1 ? (
+                        <feature.icon4 className="text-[#0000FF] text-3xl" />
+                      ) : null}
 
-              <div className="flex items-center gap-4 mt-3">
-                <BsGithub className="text-blue-700" />
-                Git Hub
-              </div>
-            </div>
-            <div className="p-3 m-4 bg-white rounded-md w-max">
-              <h1 className="font-semibold">Past Projects</h1>
-              <div className="flex gap-16 mt-3">
-                <div className="flex items-center gap-4 ">
-                  <BsGithub className="text-blue-700" /> Git Hub
+                      <p className="text-[#413F3F] tracking-tight text-[16px] font-semibold ">
+                        {feature.description4}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <BsGithub className="text-blue-700" />
-                  Git Hub
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 mt-3">
-                <BsGithub className="text-blue-700" />
-                Git Hub
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -121,4 +147,4 @@ function General() {
     </>
   );
 }
-export default General;
+export default ClientGeneral;

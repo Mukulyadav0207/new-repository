@@ -81,7 +81,7 @@ function Employees() {
               </td>
               <td className="px-2 py-2 ">
                 <div className="flex items-center justify-center gap-1">
-                  <Link to="/EmployeeAction">
+                  <Link to="/employees/details/1">
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
@@ -125,7 +125,7 @@ function Employees() {
               </td>
               <td className="px-2 py-2 ">
                 <div className="flex items-center justify-center gap-1">
-                  <Link to="/LeaveActions">
+                  <Link to="/employees/details/2">
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
@@ -164,7 +164,7 @@ function Employees() {
               </td>
               <td className="px-2 py-2 ">
                 <div className="flex items-center justify-center gap-1">
-                  <Link to="/LeaveActions">
+                  <Link to="/employees/details/3">
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
@@ -207,7 +207,7 @@ function Employees() {
               </td>
               <td className="px-2 py-2 ">
                 <div className="flex items-center justify-center gap-1">
-                  <Link to="/LeaveActions">
+                  <Link to="/employees/details/4">
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>

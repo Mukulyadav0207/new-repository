@@ -18,11 +18,9 @@ import {} from "react-icons/fa";
 
 // import DetailList from "./CalendarDetailList.tsx/DetailList";
 
-function Calendar() {
+function EmployeesCalendar() {
   return (
     <>
-    
-
       <div className="flex mt-5  gap-[795px] ">
         <div className="font-bold">April,2023</div>
         <div>
@@ -109,8 +107,7 @@ function Calendar() {
               <td className="px-2 py-2 font-bold border">3</td>
               <td className="px-2 py-2 font-bold border">4</td>
               <td className="px-2 py-2 font-bold border">
-                5
-                {/* <DetailList /> */}
+                5{/* <DetailList /> */}
               </td>
               <td className="px-2 py-2 font-bold border">6</td>
             </tr>
@@ -293,4 +290,4 @@ function Calendar() {
     </>
   );
 }
-export default Calendar;
+export default EmployeesCalendar;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import { Routes,NavLink } from "react-router-dom";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaReceipt } from "react-icons/fa";
 import { FaFileInvoiceDollar } from "react-icons/fa";
@@ -14,57 +14,20 @@ import { AiOutlineApartment } from "react-icons/ai";
 
 import { FaDollarSign } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
-import General from "./EmployeesGeneral" ;
-import Note from "./EmployeesNotes" ;
-import Performance from "./EmployeesPerformance" ;
-import Financials from "./EmployeesFinancials" ;
-import Salary from "./EmployeesSalary" ;
-import Calendar from "./EmployeesCalendar" ;
-import Timeline from "./EmployeesTimeline" ;
-import Document from "./EmployeesDocuments" ;
-import Feedbacks from "./EmployeesFeedback" ;
+import { NavLinkCSS } from "../Dashboard/DashboardList";
 
 
 
 
 
-function EmployeeAction() {
+function EmployeesDetails() {
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };
 
   const [currentModule, setCurrentModule] = useState("Account Setting");
 
-  let settingsContent;
-  switch (currentModule) {
-    case "Notes":
-      settingsContent = <Note />;
-      break;
-    case "Performance":
-      settingsContent = <Performance />;
-      break;
-    case "Financials":
-      settingsContent = <Financials />;
-      break;
-    case "Salary":
-      settingsContent = <Salary />;
-      break;
-    case "Calendar":
-      settingsContent = <Calendar />;
-      break;
-    case "Timeline":
-      settingsContent = <Timeline />;
-      break;
-    case "Documents":
-      settingsContent = <Document />;
-      break;
-    case "Feedbacks":
-      settingsContent = <Feedbacks />;
-      break;
-    default:
-      settingsContent = <General />;
-      break;
-  }
+  
 
   return (
     <>
@@ -81,16 +44,11 @@ function EmployeeAction() {
       </div>
 
       <div className="flex gap-4 mt-3 font-bold">
-        <Link to="./">
+        <NavLink to="general" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("General Detail");
             }}
-            className={
-              currentModule === "General Detail"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -99,17 +57,12 @@ function EmployeeAction() {
               <div>General</div>
             </div>
           </button>
-        </Link>
-        <Link to="employeeAction/notes">
+        </NavLink>
+        <NavLink to="notes" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Notes");
             }}
-            className={
-              currentModule === "Notes"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold"
-                : "text-gray-400"
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -118,17 +71,12 @@ function EmployeeAction() {
               <div>Notes</div>
             </div>
           </button>
-        </Link>
-        <Link to="employeeAction/performance">
+        </NavLink>
+        <NavLink to="performance" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Performance");
             }}
-            className={
-              currentModule === "Performance"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -137,17 +85,13 @@ function EmployeeAction() {
               <div>Performance</div>
             </div>
           </button>
-        </Link>
-        <Link to="employeeAction/financials">
+        </NavLink>
+        <NavLink to="financials" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Financials");
             }}
-            className={
-              currentModule === "Financials"
-                ? " border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold "
-                : "text-gray-400 "
-            }
+         
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -157,17 +101,12 @@ function EmployeeAction() {
               <div>Financials</div>
             </div>
           </button>
-        </Link>
-        <Link to="employeeAction/salary">
+        </NavLink>
+        <NavLink to="salary" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Salary");
             }}
-            className={
-              currentModule === "Salary"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20 font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -177,18 +116,13 @@ function EmployeeAction() {
               <div>Salary</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
 
-        <Link to="employeeAction/calendar">
+        <NavLink to="calendar" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Calendar");
             }}
-            className={
-              currentModule === "Calendar"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20 font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -198,18 +132,13 @@ function EmployeeAction() {
               <div>Calendar</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
 
-        <Link to="employeeAction/timline">
+        <NavLink to="timeline" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Timeline");
             }}
-            className={
-              currentModule === "Timeline"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20 font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -219,18 +148,13 @@ function EmployeeAction() {
               <div>Timeline</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
 
-        <Link to="employeeAction/document">
+        <NavLink to="document" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Documents");
             }}
-            className={
-              currentModule === "Documents"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-24 font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -240,18 +164,13 @@ function EmployeeAction() {
               <div>Documents</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
 
-        <Link to="employeeAction/feedback">
+        <NavLink to="feedback" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Feedbacks");
             }}
-            className={
-              currentModule === "Feedbacks"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20 font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -261,30 +180,14 @@ function EmployeeAction() {
               <div>Feedbacks</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
       </div>
       <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />
       </div>
-
-      <Routes>
-        <Route path="/" element={<General />}></Route>
-        <Route path="employeeAction/notes" element={<Note />}></Route>
-        <Route
-          path="employeeAction/performance"
-          element={<Performance />}
-        ></Route>
-        <Route
-          path="employeeAction/financials"
-          element={<Financials />}
-        ></Route>
-        <Route path="employeeAction/document" element={<Document />}></Route>
-        <Route path="employeeAction/salary" element={<Salary />}></Route>
-        <Route path="employeeAction/calendar" element={<Calendar />}></Route>
-        <Route path="employeeAction/timeline" element={<Timeline />}></Route>
-        <Route path="employeeAction/feedback" element={<Feedbacks />}></Route>
-      </Routes>
+      <Outlet />
+      <Routes></Routes>
     </>
   );
 }
-export default EmployeeAction;
+export default EmployeesDetails;

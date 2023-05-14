@@ -16,6 +16,36 @@ import { AiFillForward } from "react-icons/ai";
 import { FaFirstdraft } from "react-icons/fa";
 import { IoMdPaperPlane } from "react-icons/io";
 
+const features = [
+  {
+    invoices: "Current Skipped Invoices",
+    numberOfTimes: "15",
+    icon1: AiFillForward,
+    icon2: TbArrowUpRight,
+    number: "-5",
+  },
+  {
+    invoices: "Current Draft Invoices",
+    numberOfTimes: "08",
+    icon1: FaFirstdraft,
+    icon2: TbArrowUpRight,
+    number: "+08",
+  },
+  {
+    invoices: "Total Sent Invoices",
+    numberOfTimes: "10",
+    icon1: IoMdPaperPlane,
+    icon2: TbArrowUpRight,
+    number: "-02",
+  },
+  {
+    invoices: "Average TTL",
+    numberOfTimes: "09 Days",
+    icon1: RxCounterClockwiseClock,
+    icon2: TbArrowUpRight,
+    number: "-02",
+  },
+];
 
 
 
@@ -95,79 +125,41 @@ import { IoMdPaperPlane } from "react-icons/io";
  ];
 
 
-function Invoice() {
+function DashboardInvoice() {
   return (
     <>
-      <div className="flex gap-4">
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <AiFillForward />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-red-500" />
+      <div className="mt-4 ">
+        <dl className="grid max-w-xl grid-cols-4 gap-x-40 ">
+          {features.map((feature,index) => (
+            <div
+              key={feature.invoices}
+              className="relative bg-white border rounded-lg pl-9 w-[160px]"
+            >
+              <dt className="mt-3 mb-2 text-gray-900 text-x">
+                <div className="absolute flex items-center justify-center w-6 h-6 mb-2 bg-blue-100 rounded-md left-2 ">
+                  <feature.icon1
+                    className="w-4 h-4 text-[#1A13CB]"
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="font-semibold text-center text-gray-600 ">
+                
+                  {feature.invoices}
+                </div>
+              </dt>
+              <dd className="font-bold text-center text-black leading-">
+                {feature.numberOfTimes}
+              </dd>
 
-              <p className="text-gray-400">-5</p>
+              <div className="flex items-center justify-start mx-2 mb-3 text-x -ml-7">
+                <feature.icon2
+                  className={index === 1 ? "text-green-500" : "text-red-500"}
+                />
+                <span className="text-gray-400">{feature.number}</span>
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Current Skipped Invoices</p>
-            <p className="text-2xl font-semibold ">15</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <FaFirstdraft />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-green-500" />
-
-              <p className="text-gray-400">+08</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Current Draft Invoices</p>
-            <p className="text-2xl font-semibold ">08</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <IoMdPaperPlane />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-red-500" />
-
-              <p className="text-gray-400">-02</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Total Sent Invoices</p>
-            <p className="text-2xl font-semibold ">10</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <RxCounterClockwiseClock />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-red-500" />
-
-              <p className="text-gray-400">-02</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Average TTL</p>
-            <p className="text-2xl font-semibold ">09 Days</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
+          ))}
+        </dl>
       </div>
 
       <div className="flex mt-3 gap-7">
@@ -184,11 +176,8 @@ function Invoice() {
               bottom: 5,
             }}
           >
-            <CartesianGrid
-              strokeDasharray="5 5"
-           
-            />
-            <XAxis dataKey="month" tick={{ fontSize: 10 }}  />
+            <CartesianGrid strokeDasharray="5 5" />
+            <XAxis dataKey="month" tick={{ fontSize: 10 }} />
             <YAxis tick={{ fontSize: 10 }} ticks={[0, 5, 10, 15, 20, 25]} />
             <Tooltip />
             <Legend iconSize={15} />
@@ -201,4 +190,93 @@ function Invoice() {
     </>
   );
 }
-export default Invoice;
+export default DashboardInvoice;
+
+
+
+// import {
+//   ArrowPathIcon,
+//   CloudArrowUpIcon,
+//   FingerPrintIcon,
+//   LockClosedIcon,
+// } from "@heroicons/react/24/outline";
+
+
+//  const features = [
+//    {
+//      name: "Push to deploy",
+//      description:
+//        "Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.",
+//      icon: CloudArrowUpIcon,
+//    },
+//    {
+//      name: "SSL certificates",
+//      description:
+//        "Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.",
+//      icon: LockClosedIcon,
+//    },
+//    {
+//      name: "Simple queues",
+//      description:
+//        "Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.",
+//      icon: ArrowPathIcon,
+//    },
+//    {
+//      name: "Advanced security",
+//      description:
+//        "Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.",
+//      icon: FingerPrintIcon,
+//    },
+//  ];
+
+// function FirstUserInterface() {
+ 
+
+//   return (
+//     <>
+     
+
+//       <div className="py-24 bg-blue-200 sm:py-32">
+//         <div className="mx-auto bg-red-100 max-w-7xl lg:px-8">
+//           <div className="max-w-2xl mx-auto bg-green-100 lg:text-center">
+//             <h2 className="text-base font-semibold leading-7 text-indigo-600">
+//               Deploy faster
+//             </h2>
+//             <p className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+//               Everything you need to deploy your app
+//             </p>
+//             <p className="mt-6 text-lg leading-8 text-gray-600">
+//               Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
+//               Suspendisse eget egestas a elementum pulvinar et feugiat blandit
+//               at. In mi viverra elit nunc.
+//             </p>
+//           </div>
+
+
+          
+//           <div className="max-w-2xl mx-auto mt-16 bg-yellow-100 sm:mt-20 lg:mt-24 lg:max-w-4xl">
+//             <dl className="grid max-w-xl grid-cols-1 bg-pink-200 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+//               {features.map((feature) => (
+//                 <div key={feature.name} className="relative pl-16 bg-orange-100">
+//                   <dt className="text-base font-semibold leading-7 text-gray-900">
+//                     <div className="absolute top-0 left-0 flex items-center justify-center w-10 h-10 bg-indigo-600 rounded-lg">
+//                       <feature.icon
+//                         className="w-6 h-6 text-white"
+//                         aria-hidden="true"
+//                       />
+//                     </div>
+//                     {feature.name}
+//                   </dt>
+//                   <dd className="mt-2 text-base leading-7 text-gray-600">
+//                     {feature.description}
+//                   </dd>
+//                 </div>
+//               ))}
+//             </dl>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+// export default FirstUserInterface;

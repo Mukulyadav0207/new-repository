@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet,NavLink } from "react-router-dom";
 import InvoiceGeneral from "./InvoicesGeneral";
 import InvoiceTimeline from "./InvoiceTimeline";
 import InvoiceLineItems from "./InvoicesLineItems";
@@ -8,26 +8,17 @@ import { AiOutlineApartment } from "react-icons/ai";
 import { SiSpringsecurity } from "react-icons/si";
 import { FaReceipt } from "react-icons/fa";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-
+import { NavLinkCSS } from "../Dashboard/DashboardList";
 import { IoIosArrowForward } from "react-icons/io";
 
-function InvoiceAction() {
+function InvoiceDetails() {
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };
 
   const [currentModule, setCurrentModule] = useState("General Detail");
 
-  let settingsContent;
-  switch (currentModule) {
-    case "Timeline":
-      settingsContent = <InvoiceTimeline />;
-      break;
-
-    default:
-      settingsContent = <InvoiceGeneral />;
-      break;
-  }
+  
 
   return (
     <>
@@ -40,16 +31,11 @@ function InvoiceAction() {
       </div>
 
       <div className="flex gap-4 mt-3 font-bold">
-        <Link to="./">
+        <NavLink to="general" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("General Detail");
             }}
-            className={
-              currentModule === "General Detail"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -58,17 +44,12 @@ function InvoiceAction() {
               <div>General</div>
             </div>
           </button>
-        </Link>
-        <Link to="InvoiceAction/lineItems">
+        </NavLink>
+        <NavLink to="lineItems" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("LineItems");
             }}
-            className={
-              currentModule === "LineItems"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-400"
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -77,17 +58,12 @@ function InvoiceAction() {
               <div>Line Items</div>
             </div>
           </button>
-        </Link>
-        <Link to="InvoiceAction/timeline">
+        </NavLink>
+        <NavLink to="timeline" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Timeline");
             }}
-            className={
-              currentModule === "Timeline"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-400"
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -96,24 +72,17 @@ function InvoiceAction() {
               <div>Timeline</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
       </div>
       <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />
       </div>
-
-      <Routes>
-        <Route path="/" element={<InvoiceGeneral />}></Route>
-        <Route
-          path="/InvoiceAction/timeline"
-          element={<InvoiceTimeline />}
-        ></Route>
-     <Route path="/InvoiceAction/lineItems/" element={<InvoiceLineItems />}></Route> 
-      </Routes>
+      <Outlet />
+      <Routes></Routes>
     </>
   );
 }
-export default InvoiceAction;
+export default InvoiceDetails;
 
 //  <Route path="/" element={<General />}></Route>
 //         <Route path="action/timeline" element={<Timeline />}></Route>

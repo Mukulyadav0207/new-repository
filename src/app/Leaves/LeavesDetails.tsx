@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,Outlet } from "react-router-dom";
 import LeaveGeneral from "./LeavesGeneral";
 import LeaveTimeline from "./LeavesTimeline";
 // import Incident from "./Incidents";
@@ -7,27 +7,22 @@ import LeaveTimeline from "./LeavesTimeline";
 import { IoMdInformationCircle } from "react-icons/io";
 import { AiOutlineApartment } from "react-icons/ai";
 
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 
 import { IoIosArrowForward } from "react-icons/io";
+import { NavLinkCSS } from "../Dashboard/DashboardList";
 
-function LeaveAction() {
+
+
+
+function LeaveDetails() {
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };
 
   const [currentModule, setCurrentModule] = useState("General Detail");
 
-  let settingsContent;
-  switch (currentModule) {
-    case "Timeline":
-      settingsContent = <LeaveTimeline />;
-      break;
-
-    default:
-      settingsContent = <LeaveGeneral />;
-      break;
-  }
+  
 
   return (
     <>
@@ -40,16 +35,11 @@ function LeaveAction() {
       </div>
 
       <div className="flex gap-4 mt-3 font-bold">
-        <Link to="./">
+        <NavLink to="general" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("General Detail");
             }}
-            className={
-              currentModule === "General Detail"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -58,17 +48,12 @@ function LeaveAction() {
               <div>General</div>
             </div>
           </button>
-        </Link>
-        <Link to="action/timeline">
+        </NavLink>
+        <NavLink to="timeline" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Timeline");
             }}
-            className={
-              currentModule === "Timeline"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-400"
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -77,22 +62,17 @@ function LeaveAction() {
               <div>Timeline</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
       </div>
       <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />
       </div>
-
-      <Routes>
-        <Route path="/" element={<LeaveGeneral />}></Route>
-        <Route path="/action/timeline" element={<LeaveTimeline />}></Route>
-        {/* <Route path="/action/timeline/" element={<Incident />}></Route> */}
-      </Routes>
+      <Outlet />
+      <Routes></Routes>
     </>
   );
 }
-export default LeaveAction;
+export default LeaveDetails;
 
-//  <Route path="/" element={<General />}></Route>
-//         <Route path="action/timeline" element={<Timeline />}></Route>
+//  
 //         <Route path="timeline/incident" element={<Incident />}></Route>

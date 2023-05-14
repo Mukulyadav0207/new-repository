@@ -1,22 +1,19 @@
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet,NavLink } from "react-router-dom";
 import { IoMdInformationCircle } from "react-icons/io";
-import General from "./ClientsGeneral"
+import ClientGeneral from "./ClientsGeneral";
 import { IoIosArrowForward } from "react-icons/io";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { NavLinkCSS } from "../Dashboard/DashboardList";
 
 
 
 
 
-
-const ClientAction = () => {
-     const handleModuleClick = (module) => {
-      setCurrentModule(module);
-      };
-
+const ClientDetails = () => {
+  
  const [currentModule, setCurrentModule] = useState("Project Detail");
-let settingsContent = <General />;
+let settingsContent = <ClientGeneral />;
  
  return (
    <>
@@ -33,16 +30,9 @@ let settingsContent = <General />;
      </div>
 
      <div className="flex gap-4 mt-3 font-bold">
-       <Link to="./">
+        <NavLink style={NavLinkCSS} to="general">
          <button
-           onClick={() => {
-             handleModuleClick("Project Detail");
-           }}
-           className={
-             currentModule === "Project Detail"
-               ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-               : "text-gray-400 "
-           }
+          
          >
            <div className="flex flex-row items-center justify-center gap-1 p-2 ">
              <div>
@@ -51,16 +41,16 @@ let settingsContent = <General />;
              <div>General</div>
            </div>
          </button>
-       </Link>
+       </NavLink>
      </div>
      <div className="items-start ">
        <hr className="h-px border-0 bg-zinc-400 " />
      </div>
-
+<Outlet/>
      <Routes>
-       <Route path="/" element={<General />}></Route>
+      
      </Routes>
    </>
  );
 };
-export default ClientAction;
+export default ClientDetails;

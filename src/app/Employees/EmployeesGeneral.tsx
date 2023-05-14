@@ -1,4 +1,4 @@
-function General() {
+function EmployeesGeneral() {
   return <div> df</div>;
 }
-export default General;
+export default EmployeesGeneral;

@@ -1,4 +1,4 @@
-function Payroll() {
+function DashboardPayroll() {
   return <div> payroll</div>;
 }
-export default Payroll;
+export default DashboardPayroll;

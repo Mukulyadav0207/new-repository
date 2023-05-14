@@ -63,7 +63,7 @@ function Device() {
                 </td>
                 <td className="px-4 py-2 border">abc</td>
                 <td className="px-4 py-2 border">
-                  <Link to="/action">
+                  <Link to="/devices/details/1">
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
@@ -84,7 +84,11 @@ function Device() {
                 </td>
                 <td className="px-4 py-2 border">abc</td>
                 <td className="px-4 py-2 border">
-                  <AiFillEye />
+                  <Link to="/devices/details/2">
+                    <button className="text-gray-500 hover:text-black">
+                      <AiFillEye />
+                    </button>
+                  </Link>
                 </td>
               </tr>
               <tr>
@@ -101,7 +105,11 @@ function Device() {
                 </td>
                 <td className="px-4 py-2 border">abc</td>
                 <td className="px-4 py-2 border">
-                  <AiFillEye />
+                  <Link to="/devices/details/3">
+                    <button className="text-gray-500 hover:text-black">
+                      <AiFillEye />
+                    </button>
+                  </Link>
                 </td>
               </tr>
               <tr>

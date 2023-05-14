@@ -1,4 +1,4 @@
-function Document() {
+function EmployeesDocument() {
   return <div> re</div>;
 }
-export default Document;
+export default EmployeesDocument;

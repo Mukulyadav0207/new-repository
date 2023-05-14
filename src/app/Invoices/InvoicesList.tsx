@@ -75,7 +75,7 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/InvoiceAction">
+                  <Link to="/invoices/details/1">
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
@@ -108,11 +108,11 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/LeaveActions">
+                 
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
-                  </Link>
+          
                   <button className="text-xs ">
                     <FaEdit />
                   </button>
@@ -142,11 +142,11 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/LeaveActions">
+                 
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
-                  </Link>
+            
                   <button className="text-xs ">
                     <FaEdit />
                   </button>
@@ -176,11 +176,11 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/LeaveActions">
+              
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
-                  </Link>
+              
                   <button className="text-xs ">
                     <FaEdit />
                   </button>
@@ -211,11 +211,11 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/LeaveActions">
+                
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
-                  </Link>
+                
                   <button className="text-xs ">
                     <FaEdit />
                   </button>
@@ -247,11 +247,11 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/LeaveActions">
+                 
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
-                  </Link>
+                  
                   <button className="text-xs ">
                     <FaEdit />
                   </button>
@@ -281,11 +281,11 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/LeaveActions">
+                  
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
-                  </Link>
+           
                   <button className="text-xs ">
                     <FaEdit />
                   </button>
@@ -316,11 +316,11 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/LeaveActions">
+               
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
-                  </Link>
+             
                   <button className="text-xs ">
                     <FaEdit />
                   </button>
@@ -351,11 +351,11 @@ function Invoices() {
 
               <td className="px-2 py-2 border">
                 <div className="flex items-center gap-1">
-                  <Link to="/LeaveActions">
+                
                     <button className="text-gray-500 hover:text-black">
                       <AiFillEye />
                     </button>
-                  </Link>
+               
                   <button className="text-xs ">
                     <FaEdit />
                   </button>

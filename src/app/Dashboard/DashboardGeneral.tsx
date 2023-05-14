@@ -17,7 +17,45 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-
+const features = [
+  {
+    title: "Average Daily Hours",
+    numberOfTimes: "9 Hours",
+    icon1: RxCounterClockwiseClock,
+    icon2: TbArrowUpRight,
+    number: "+10",
+    per: "per employee",
+  },
+  {
+    title: "Average Daily Hours",
+    numberOfTimes: "9 Hours",
+    icon1: RxCounterClockwiseClock,
+    icon2: TbArrowUpRight,
+    number: "+10",
+    per: "per intern",
+  },
+  {
+    title: "Average Projects",
+    numberOfTimes: "91",
+    icon1: FaListAlt,
+    icon2: TbArrowUpRight,
+    number: "+4",
+  },
+  {
+    title: "Average Employees",
+    numberOfTimes: "91",
+    icon1: RiGroupFill,
+    icon2: TbArrowDownRight,
+    number: "-06",
+  },
+  {
+    title: "Average interns",
+    numberOfTimes: "09 ",
+    icon1: FaUserClock,
+    icon2: TbArrowDownRight,
+    number: "-05",
+  },
+];
 
 const data = [
   {
@@ -238,106 +276,45 @@ const EmployeesData = [
 ];
 
 
-function General() {
-
-
-
-
-
-  
+function DashboardGeneral() {
   return (
     <>
-      <div className="flex gap-4">
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <RxCounterClockwiseClock />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-green-500" />
-              <BiPlus className="font-bold text-gray-400" />
-              <p className="text-gray-400">10</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Average Daily Hours</p>
-            <p className="text-2xl font-semibold ">9 Hours</p>
-            <p className="text-gray-400 text-x">per employee</p>
-          </div>
-        </div>
+      <div className="mt-4 ">
+        <dl className="grid max-w-xl grid-cols-5 gap-x-48 ">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="relative bg-white border rounded-lg pl-9 w-[160px]"
+            >
+              <dt className="mt-3 mb-2 text-gray-900 text-x">
+                <div className="absolute flex items-center justify-center w-6 h-6 mb-2 bg-blue-100 rounded-md left-2 ">
+                  <feature.icon1
+                    className="w-4 h-4 text-[#1A13CB]"
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="font-semibold text-center text-gray-600 ">
+                  {feature.title}
+                </div>
+              </dt>
+              <dd className="font-bold text-center text-black leading-">
+                {feature.numberOfTimes}
+              </dd>
 
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <RxCounterClockwiseClock />
+              <div className="flex items-center justify-start mx-2 mb-3 text-x -ml-7">
+                <feature.icon2
+                  className={
+                    index === 1 || index === 2 || index === 0
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }
+                />
+                <span className="text-gray-400">{feature.number}</span>
+                <p className="ml-10 text-gray-400">{feature.per}</p>
+              </div>
             </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-green-500" />
-              <BiPlus className="font-bold text-gray-400" />
-              <p className="text-gray-400">10</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Average Daily Hours</p>
-            <p className="text-2xl font-semibold ">9 Hours</p>
-            <p className="text-gray-400 text-x">per intern</p>
-          </div>
-        </div>
-
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <FaListAlt />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-green-500" />
-              <BiPlus className="font-bold text-gray-400" />
-              <p className="text-gray-400">4</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Average Projects</p>
-            <p className="text-2xl font-semibold ">91</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <RiGroupFill />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowDownRight className="text-red-500" />
-              <BsDash className="font-bold text-gray-400" />
-              <p className="text-gray-400">6</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Average Employees</p>
-            <p className="text-2xl font-semibold ">91</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <FaUserClock />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowDownRight className="text-red-500" />
-              <BsDash className="font-bold text-gray-400" />
-              <p className="text-gray-400">5</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Average Interns</p>
-            <p className="text-2xl font-semibold ">09 </p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
+          ))}
+        </dl>
       </div>
 
       <div className="flex gap-3 mt-3">
@@ -407,40 +384,38 @@ function General() {
         </div>
         <div className="  mt-4 bg-white w-[340px] text-sm border rounded-md ">
           <p className="m-2 font-bold">Number Of Employees, Intern</p>
-          
-          
-            <LineChart
-              width={350}
-              height={300}
-              data={EmployeesData}
-              margin={{
-                top: 5,
-                right: 30,
 
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="5 5" />
-              <XAxis dataKey="month" tick={{ fontSize: 7 }} />
-              <YAxis ticks={[10, 20, 30, 40, 50, 60]} />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="Employee"
-                stroke="#0C1866"
-                dot={false}
-              />
-              <Line
-                type="monotone"
-                dataKey="Intern"
-                stroke="#4E7FD2"
-                dot={false}
-              />
-            </LineChart>
-         
+          <LineChart
+            width={350}
+            height={300}
+            data={EmployeesData}
+            margin={{
+              top: 5,
+              right: 30,
+
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="5 5" />
+            <XAxis dataKey="month" tick={{ fontSize: 7 }} />
+            <YAxis ticks={[10, 20, 30, 40, 50, 60]} />
+            <Legend />
+            <Line
+              type="monotone"
+              dataKey="Employee"
+              stroke="#0C1866"
+              dot={false}
+            />
+            <Line
+              type="monotone"
+              dataKey="Intern"
+              stroke="#4E7FD2"
+              dot={false}
+            />
+          </LineChart>
         </div>
       </div>
     </>
   );
 }
-export default General;
+export default DashboardGeneral;

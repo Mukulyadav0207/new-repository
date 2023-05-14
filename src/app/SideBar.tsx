@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SiAdobexd } from "react-icons/si";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, NavLink } from "react-router-dom";
 import { BsFillPeopleFill } from "react-icons/bs";
 
 import { BsGraphUp } from "react-icons/bs";
@@ -15,184 +15,120 @@ import { FaFileSignature } from "react-icons/fa";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 
 function Sidebar() {
-  const [activeLink, setActiveLink] = useState("");
+  const NavLinkCSS = ({ isActive }) => {
+    return {
+      border: isActive ? "solid" : "",
 
-  const location = useLocation();
-
-  const handleClick = (link: string) => {
-    setActiveLink(link);
+      borderColor: isActive ? "#1A13CB" : "",
+      width: isActive ? "140px" : "",
+      color: isActive ? "white" : "",
+      backgroundColor: isActive ? "#1A13CB" : "",
+      paddingTop: isActive ? "1px" : "",
+      paddingLeft: isActive ? "10px" : "10px",
+      paddingRight: isActive ? "3px" : "",
+      borderRadius: isActive ? "0px 5px 5px 0px" : "",
+    };
   };
 
   return (
     <>
-      <div className="flex flex-col w-40">
-        <div className="flex flex-col items-start pt-4 pb-8 gap-">
-          <SiAdobexd className="pl-2 text-8xl text-amber-700" />
+      <div className="flex flex-col w-40 text-sm font-semibold tracking-tight ">
+        <div className="flex flex-col items-start pt-4 pb-8 ">
+          <SiAdobexd className="pl-2 ml-4 text-8xl text-amber-700" />
         </div>
-        <div className="flex flex-col items-start justify-start gap-2 ">
-          <Link
-            to="/"
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/" || activeLink === "/"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            onClick={() => handleClick("/")}
-          >
+
+        <div className="flex flex-col items-start gap-4 ">
+          <NavLink style={NavLinkCSS} to="/dashboard">
             <div className="flex items-center gap-1 ">
               <div>
                 <BsGraphUp />
               </div>
               <div>Dashboard</div>
             </div>
-          </Link>
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/employees" || activeLink === "/employees"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/employees"
-            onClick={() => handleClick("/employees")}
-          >
+          </NavLink>
+          <NavLink style={NavLinkCSS} to="/employees">
             <div className="flex items-center gap-1">
               <div>
                 <BsFillPeopleFill />
               </div>
               <div>Employees</div>
             </div>
-          </Link>
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/projects" || activeLink === "/projects"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/projects"
-            onClick={() => handleClick("/projects")}
-          >
+          </NavLink>
+          <NavLink style={NavLinkCSS} to="/projects">
             <div className="flex items-center gap-1">
               <div>
                 <CiViewTable />
               </div>
               <div>Projects</div>
             </div>
-          </Link>
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/Departments" ||
-              activeLink === "/Departments"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/Departments"
-            onClick={() => handleClick("/Departments")}
-          >
+          </NavLink>
+          <NavLink style={NavLinkCSS} to="/departments">
             <div className="flex items-center gap-1">
               <div>
                 <VscTypeHierarchySub />
               </div>
               <div>Departments</div>
             </div>
-          </Link>
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/clients" || activeLink === "/clients"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/clients"
-            onClick={() => handleClick("/clients")}
-          >
+          </NavLink>
+          <NavLink style={NavLinkCSS} to="/clients">
             <div className="flex items-center gap-1">
               <div>
                 <GrRestroomMen />
               </div>
               <div>Clients</div>
             </div>
-          </Link>
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/Devices" || activeLink === "/Devices"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/Devices"
-            onClick={() => handleClick("/Devices")}
-          >
+          </NavLink>
+          <NavLink style={NavLinkCSS} to="/devices">
             <div className="flex items-center gap-1">
               <div>
                 <BsLaptop />
               </div>
               <div>Devices</div>
             </div>
-          </Link>
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/Calendar" || activeLink === "/Calendar"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/Calendar"
-            onClick={() => handleClick("/Calendar")}
-          >
+          </NavLink>
+          <NavLink style={NavLinkCSS} to="/calendar">
             <div className="flex items-center gap-1">
               <div>
                 <FaCalendarAlt />
               </div>
               <div>Calendar</div>
             </div>
-          </Link>
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/Leaves" || activeLink === "/Leaves"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/Leaves"
-            onClick={() => handleClick("/Leaves")}
-          >
+          </NavLink>
+          <NavLink style={NavLinkCSS} to="/leaves">
             <div className="flex items-center gap-1">
               <div>
                 <GiUmbrella />
               </div>
               <div>Leaves</div>
             </div>
-          </Link>
+          </NavLink>
 
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/Invoices" || activeLink === "/Invoices"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/Invoices"
-            onClick={() => handleClick("/Invoices")}
-          >
+          <NavLink style={NavLinkCSS} to="/invoices">
             <div className="flex items-center gap-1">
               <div>
                 <FaFileInvoiceDollar />
               </div>
               <div>Invoices</div>
             </div>
-          </Link>
+          </NavLink>
 
-          <Link
-            className={`w-32 py-1 pl-3 rounded-sm ${
-              location.pathname === "/Reports" || activeLink === "/Reports"
-                ? "bg-blue-700 text-white"
-                : ""
-            }`}
-            to="/Reports"
-            onClick={() => handleClick("/Reports")}
+          <NavLink
+            // className={`w-32 py-1 pl-3 rounded-sm ${
+            //   location.pathname === "/reports" || activeLink === "/reports"
+            //     ? "bg-blue-700 text-white"
+            //     : ""
+            // }`}
+            style={NavLinkCSS}
+            to="/reports"
+            // onClick={() => handleClick("/reports")}
           >
             <div className="flex items-center gap-1">
               <div>
                 <FaFileSignature />
               </div>
-              <div>Reports</div>
+              <div>Repots</div>
             </div>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </>

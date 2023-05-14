@@ -1,4 +1,4 @@
-function Feedback() {
+function EmployeesFeedback() {
   return <div> dfgv</div>;
 }
-export default Feedback;
+export default EmployeesFeedback;

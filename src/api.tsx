@@ -1,0 +1,77 @@
+import GeneralDetails from "./app/Employees/EmployeesDetails"
+import {IoIosEye} from "react-icons/io";
+
+export const EmployeesData = [
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: GeneralDetails,
+  },
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: GeneralDetails,
+  },
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: IoIosEye,
+  },
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: IoIosEye,
+  },
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: IoIosEye,
+  },
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: IoIosEye,
+  },
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: IoIosEye,
+  },
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: IoIosEye,
+  },
+  {
+    "Client Name": "ABC",
+    "Project Name": "Project Name",
+    "Company Name": "Abc",
+    "Email Address": "abc@domain.com",
+    "Start Date": "02/06/2022",
+    Actions: IoIosEye,
+  },
+];

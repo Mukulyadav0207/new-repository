@@ -9,144 +9,115 @@ import AddNotes from "react-icons/fa";
 import AddNote from "./DevicesAddNotesModal";
 import { AiFillEye } from "react-icons/ai";
 
+const data1 = [
+  {
+    title1: "Model Name",
+    icon1: BsLaptop,
+    icon2: FaEdit,
+    icon3: AiFillEye,
+    data2: [
+      {
+        Brand: "abc",
+        "Model Number": "XXXXXXXXX",
+        "Serail Number": "XXXXXXX",
+        Status: "Functional",
+      },
+    ],
+  },
+  {
+    title1: "Employee Name",
+    title3: "Current Assignee",
+    icon1: BsExclamationCircle,
+    icon2: FaEdit,
+    data2: [
+      {
+        Department: "IT",
+        "Assigned On": "01/02/2020",
+      },
+    ],
+  },
+  {
+    title1: "[In Force] ",
+    title2: " Warranty",
+    icon1: FiCheckCircle,
+    icon2: FaEdit,
+    data2: [
+      {
+        "Expired On": "01/02/2026",
+        Type: "Limited Warranty/ADP",
+      },
+    ],
+  },
+  {
+    title1: " [Expired]",
+    title2: "Warranty",
+    icon1: BiXCircle,
+    icon2: FaEdit,
+    data2: [
+      {
+        "Expired On": "01/02/2026",
+        Type: "Limited Warranty/ADP",
+      },
+    ],
+  },
+];
+
+
+
+
+
+
+
+
+
+
 function General() {
   return (
     <>
-      <div className="flex gap-5 mt-4">
-        <div className="mt-3 bg-white rounded-md w-[250px] text-xs">
-          <div className="flex mt-2 ml-20 gap-14">
-            <div className="flex-col gap-2 ">
-              <div>
-                <BsLaptop className="text-6xl" />
+      <div className="flex gap-5 mt-4 bg-red-300s">
+        {data1.map((data, index) => (
+          <div className="mt-3 bg-white rounded-lg p-1 w-[292px] h-[255px] text-xs ">
+            <div className="flex items-start justify-end mt-4 mb-12 gap-11">
+              <div className=" flex flex-col items-center justify-center  gap-y-1 w-[120px] ">
+                <div>
+                  <data.icon1 className="text-6xl " />
+                </div>
+
+                <div className="flex font-bold ">
+                  <p className=" text-[#A59F9F]">{data.title2}</p>
+                  <p className="text-[#413F3F]">{data.title1}</p>
+                </div>
               </div>
 
-              <div className="flex w-20 font-bold ">Model Name</div>
-            </div>
-
-            <div className="flex items-center mr-2 mb-11 justify-top ">
-              <button className=" hover:text-black">
-                <AiFillEye />
-              </button>
-              <button className="p-1 ">
-                <FaEdit />
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-col p-2 m-1 rounded-md h-[82px] bg-cyan-100 gap-y-0.5">
-            <div className="flex gap-10">
-              <div className="w-32">Brand</div>
-              <div>abc</div>
-            </div>
-
-            <div className="flex gap-10 ">
-              <p className="w-32 ">Model Number</p>
-              <p>xxxxxxxxx</p>
-            </div>
-
-            <div className="flex gap-10 ">
-              <p className="w-32 ">Serial Number</p>
-              <p>xxxxxxxxx</p>
-            </div>
-
-            <div className="flex gap-5 ">
-              <p className="w-32 ">Status</p>
-              <button className="w-20 text-xs bg-green-400 border rounded-lg h- font-extralight">
-                Functional
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-3 bg-white rounded-md w-[250px] text-xs">
-          <div className="flex mt-2 ml-20 gap-14">
-            <div className="flex-col space-y-2 ">
-              <div>
-                <BsExclamationCircle className="text-5xl" />
+              <div className="flex items-center mr-2 mb-11 justify-top ">
+                <button className=" hover:text-black">
+                  {index === 0 ? <data.icon3 /> : null}
+                </button>
+                <button className="p-1 ">
+                  <data.icon2  />
+                </button>
               </div>
-
-              <div className="flex w-24 font-bold ">Employee Name</div>
             </div>
 
-            <div className="flex items-center mr-2 mb-11 justify-top ">
-              <button className="p-1 ">
-                <FaEdit />
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-col p-1 m-1 rounded-md mt-2.5 h-[80px] bg-cyan-100 gap-y-1">
-            <div className="">
-              <div className="w-32 text-base">Current Assignee</div>
-            </div>
+            {data.data2.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col p-2 m-1 rounded-md h-[95px] w-[238px] bg-[#E9F8F8] gap-y-1.5 "
+              >
+                <p>{data.title3}</p>
+                {Object.entries(item).map(([key, value]) => {
+                  return (
+                    <p key={key} className="flex justify-between" >
+                      <p className="text-[#A59F9F]"> {key}</p>
 
-            <div className="flex gap-16 ">
-              <p className="w-32 ">Department</p>
-              <p>IT</p>
-            </div>
-
-            <div className="flex gap-10 ">
-              <p className="w-32 ">Assigned</p>
-              <p>01/02/2020</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-3 bg-white rounded-md w-[250px] text-xs">
-          <div className="flex gap-10 mt-2 ml-20">
-            <div className="flex-col space-y-2 ">
-              <div>
-                <FiCheckCircle className="text-5xl text-green-500" />
+                      <p className="text-[#4B5563]"> {value}</p>
+                    </p>
+                  );
+                })}
               </div>
-
-              <div className="flex font-bold w-28 ">Warranty [In Force]</div>
-            </div>
-
-            <div className="flex items-center mr-2 mb-11 justify-top ">
-              <button className="p-1 ">
-                <FaEdit />
-              </button>
-            </div>
+            ))}
           </div>
-          <div className="flex flex-col p-2 m-1 rounded-md mt-2.5 bg-cyan-100 gap-y-2 h-[80px]">
-            <div className="flex gap-10">
-              <div className="w-32">Expires On</div>
-              <div>-1/02/2026</div>
-            </div>
-
-            <div className="flex gap-10 ">
-              <p className="w-16">Type</p>
-              <p>Limited Warranty/ ADP</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-3 bg-white rounded-md w-[250px] text-xs">
-          <div className="flex gap-10 mt-2 ml-20">
-            <div className="flex-col space-y-2 ">
-              <div>
-                <BiXCircle className="text-5xl text-red-500" />
-              </div>
-
-              <div className="flex font-bold w-28 ">Warranty [Expired]</div>
-            </div>
-
-            <div className="flex items-center mr-2 mb-11 justify-top ">
-              <button className="p-1 ">
-                <FaEdit />
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-col p-2 m-1 mt-2.5 rounded-md bg-cyan-100 gap-y-2 h-[80px]">
-            <div className="flex gap-10">
-              <div className="w-32">Expired On</div>
-              <div>01/02/2021</div>
-            </div>
-
-            <div className="flex gap-10 ">
-              <p className="w-16 ">Type</p>
-              <p>Limited Warranty/ADP</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
       <div className="flex mt-6  gap-[730px]">

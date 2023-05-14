@@ -55,7 +55,7 @@ function Client() {
               <td className="px-4 py-2 border">abc</td>
 
               <td className="px-4 py-2 border">
-                <Link to="/actions">
+                <Link to="/clients/details/1">
                   <button className="text-gray-500 hover:text-black">
                     <AiFillEye />
                   </button>
@@ -70,7 +70,11 @@ function Client() {
               <td className="px-4 py-2 border">abc</td>
 
               <td className="px-4 py-2 border">
-                <AiFillEye className="text-gray-500 hover:text-black" />
+                <Link to="/clients/details/2">
+                  <button className="text-gray-500 hover:text-black">
+                    <AiFillEye />
+                  </button>
+                </Link>
               </td>
             </tr>
             <tr>

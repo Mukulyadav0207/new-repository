@@ -20,7 +20,45 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-
+const features = [
+  {
+    title: "Pending Requests",
+    numberOfTimes: "91",
+    icon1: GiSandsOfTime,
+    icon2: TbArrowUpRight,
+    number: "-5",
+   
+  },
+  {
+    title: "Accepted Requests",
+    numberOfTimes: "09",
+    icon1: IoMdCheckbox,
+    icon2: TbArrowUpRight,
+    number: "+08",
+    
+  },
+  {
+    title: "Rejected Leaves",
+    numberOfTimes: "09",
+    icon1: RxCrossCircled,
+    icon2: TbArrowUpRight,
+    number: "-02",
+  },
+  {
+    title: "Late Leave Submissions",
+    numberOfTimes: "91",
+    icon1: GiSandsOfTime,
+    icon2: TbArrowDownRight,
+    number: "-6",
+  },
+  {
+    title: "Reaction time",
+    numberOfTimes: "2 Hrs ",
+    icon1: AiFillClockCircle,
+    icon2: TbArrowDownRight,
+    number: "-2",
+  },
+];
 
  const LeavesData = [
    {
@@ -101,96 +139,45 @@ import {
 
 
 
-function HR() {
+function DashboardHR() {
   return (
     <>
-      <div className="flex gap-4">
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <GiSandsOfTime />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-red-500" />
+      <div className="mt-4 ">
+        <dl className="grid max-w-xl grid-cols-5 gap-x-48 ">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="relative bg-white border rounded-lg pl-9 w-[160px]"
+            >
+              <dt className="mt-3 mb-2 text-gray-900 text-x">
+                <div className="absolute flex items-center justify-center w-6 h-6 mb-2 bg-blue-100 rounded-md left-2 ">
+                  <feature.icon1
+                    className="w-4 h-4 text-[#1A13CB]"
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="font-semibold text-center text-gray-600 ">
+                  {feature.title}
+                </div>
+              </dt>
+              <dd className="font-bold text-center text-black leading-">
+                {feature.numberOfTimes}
+              </dd>
 
-              <p className="text-gray-400">-5</p>
+              <div className="flex items-center justify-start mx-2 mb-3 text-x -ml-7">
+                <feature.icon2
+                  className={
+                     index === 2 
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }
+                />
+                <span className="text-gray-400">{feature.number}</span>
+                <p className="ml-10 text-gray-400">{feature.per}</p>
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Pending Requests</p>
-            <p className="text-2xl font-semibold ">91</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <IoMdCheckbox />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-green-500" />
-
-              <p className="text-gray-400">+08</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Accepted request</p>
-            <p className="text-2xl font-semibold ">09</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <RxCrossCircled />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowUpRight className="text-red-500" />
-
-              <p className="text-gray-400">-02</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Rejected Leaves</p>
-            <p className="text-2xl font-semibold ">09</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <GiSandsOfTime />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowDownRight className="text-red-500" />
-
-              <p className="text-gray-400">-6</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Late Leave Submissions</p>
-            <p className="text-2xl font-semibold ">91</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
-        <div className="flex gap-3 p-2 mt-3 bg-white border rounded-lg w-fit">
-          <div className="flex-col space-y-4">
-            <div className="flex items-center justify-center p-2 ml-2 text-blue-600 bg-indigo-100 border rounded-lg w-fit">
-              <AiFillClockCircle />
-            </div>
-            <div className="flex items-center justify-center ">
-              <TbArrowDownRight className="text-red-500" />
-
-              <p className="text-gray-400">-2</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center space-y-1">
-            <p className="text-x">Reaction Time</p>
-            <p className="text-2xl font-semibold ">2 Hrs</p>
-            <p className="text-gray-400 text-x"></p>
-          </div>
-        </div>
+          ))}
+        </dl>
       </div>
 
       <div className="flex mt-3 gap-7">
@@ -209,10 +196,7 @@ function HR() {
           >
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="month" tick={{ fontSize: 10 }} />
-            <YAxis
-              tick={{ fontSize: 10 }}
-              ticks={[0, 5, 10, 15, 20, 25]}
-            />
+            <YAxis tick={{ fontSize: 10 }} ticks={[0, 5, 10, 15, 20, 25]} />
             <Tooltip />
             <Legend />
             <Bar dataKey="Pending Leaves" stackId="" fill="#1446CD" />
@@ -224,4 +208,4 @@ function HR() {
     </>
   );
 }
-export default HR;
+export default DashboardHR;

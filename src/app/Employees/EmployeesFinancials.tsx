@@ -163,11 +163,9 @@ const SalariesData = [
   },
 ];
 
-function Financials() {
+function EmployeesFinancials() {
   return (
     <>
-    
-
       <div className="flex mt-3 gap-7">
         <div className="mt-4 bg-white w-[500px] text-sm border rounded-md ">
           <p className="m-3 mb-1 font-bold">Revenue</p>
@@ -227,4 +225,4 @@ function Financials() {
     </>
   );
 }
-export default Financials;
+export default EmployeesFinancials;

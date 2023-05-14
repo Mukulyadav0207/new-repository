@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import General from "./DashboardGeneral";
-import Financials from "./DashboardFinancials";
-import HR from "./DashboardHr";
-import Invoice from "./DashboardInvoices";
-import Payroll from "./DashboardPayroll";
+import { Link, Outlet, NavLink, useLocation } from "react-router-dom";
+
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaReceipt } from "react-icons/fa";
@@ -12,50 +8,36 @@ import { FaFileInvoiceDollar } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { FaDollarSign } from "react-icons/fa";
 
-function Dashbord() {
-  const handleModuleClick = (module) => {
-    setCurrentModule(module);
-  };
+export const NavLinkCSS = ({ isActive }) => {
+   return {
+     fontWeight: isActive ? "bold" : "",
+     border: isActive ? "solid" : "",
+     borderWidth: isActive ? "0px 0px 2px 0px" : "",
+     borderColor: isActive ? "#1A13CB" : "",
+     padding: isActive ? "0px -2px -2px -2px" : "",
+     width: isActive ? "fit" : "",
+     color: isActive ? "black" : " #00000029",
+     margin: isActive ? "-1px" : "",
+   };
+ };
+
+
+function Dashboard() {
+
 
   const [currentModule, setCurrentModule] = useState("Account Setting");
 
-  let settingsContent;
-  switch (currentModule) {
-    case "Password Setting":
-      settingsContent = <Financials />;
-      break;
-    case "Security Setting":
-      settingsContent = <HR />;
-      break;
-    case "Notifications ":
-      settingsContent = <Invoice />;
-      break;
-    case "Admin Notifications ":
-      settingsContent = <Payroll />;
-      break;
-    default:
-      settingsContent = <General />;
-      break;
-  }
+  
 
   return (
     <>
-      <div className="flex items-center font-bold ">
+      <div className="flex items-center font-bold">
         <div> Dashbord</div>
       </div>
 
-      <div className="flex gap-4 mt-3 font-bold">
-        <Link to="./">
-          <button
-            onClick={() => {
-              handleModuleClick("Account Setting");
-            }}
-            className={
-              currentModule === "Account Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold"
-                : "text-gray-400 "
-            }
-          >
+      <div className="flex gap-4 mt-3 font-semibold tracking-tight">
+        <NavLink style={NavLinkCSS} to="general">
+          <button>
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <IoMdInformationCircle />
@@ -63,18 +45,9 @@ function Dashbord() {
               <div>General</div>
             </div>
           </button>
-        </Link>
-        <Link to="/financials">
-          <button
-            onClick={() => {
-              handleModuleClick("Password Setting");
-            }}
-            className={
-              currentModule === "Password Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-24  font-bold"
-                : "text-gray-400"
-            }
-          >
+        </NavLink>
+        <NavLink to="financials" style={NavLinkCSS}>
+          <button>
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <FaDollarSign />
@@ -82,18 +55,9 @@ function Dashbord() {
               <div>Financials</div>
             </div>
           </button>
-        </Link>
-        <Link to="/hr">
-          <button
-            onClick={() => {
-              handleModuleClick("Security Setting");
-            }}
-            className={
-              currentModule === "Security Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-14  font-bold"
-                : "text-gray-400 "
-            }
-          >
+        </NavLink>
+        <NavLink to="hr" style={NavLinkCSS}>
+          <button>
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <MdGroups />
@@ -101,18 +65,9 @@ function Dashbord() {
               <div>HR</div>
             </div>
           </button>
-        </Link>
-        <Link to="/invoice">
-          <button
-            onClick={() => {
-              handleModuleClick("Notifications ");
-            }}
-            className={
-              currentModule === "Notifications "
-                ? " border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold "
-                : "text-gray-400 "
-            }
-          >
+        </NavLink>
+        <NavLink to="invoice" style={NavLinkCSS}>
+          <button>
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <FaFileInvoiceDollar />
@@ -121,18 +76,9 @@ function Dashbord() {
               <div>Invoices</div>
             </div>
           </button>
-        </Link>
-        <Link to="/payroll">
-          <button
-            onClick={() => {
-              handleModuleClick("Admin Notifications ");
-            }}
-            className={
-              currentModule === "Admin Notifications "
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20 font-bold"
-                : "text-gray-400 "
-            }
-          >
+        </NavLink>
+        <NavLink to="payroll" style={NavLinkCSS}>
+          <button>
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <FaReceipt />
@@ -141,20 +87,14 @@ function Dashbord() {
               <div>Payroll</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
       </div>
       <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />
       </div>
-
-      <Routes>
-        <Route path="/" element={<General />}></Route>
-        <Route path="/financials" element={<Financials />}></Route>
-        <Route path="/hr" element={<HR />}></Route>
-        <Route path="/invoice" element={<Invoice />}></Route>
-        <Route path="/payroll" element={<Payroll />}></Route>
-      </Routes>
+      <Outlet />
+      <Routes></Routes>
     </>
   );
 }
-export default Dashbord;
+export default Dashboard;

@@ -4,14 +4,54 @@ import { } from "react-icons/ai";
 import {
   BarChart,
   Bar,
-  Cell,
+
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
+
 } from "recharts";
+
+
+
+
+
+
+const features = [
+  {
+    title: "Maximum Revenue This Month",
+    revenue: "ABC",
+    icon1: AiTwotoneStar,
+    inr: " 1.1L INR ",
+    icon2: BsBoxArrowUpRight,
+  },
+  {
+    title: "Maximum Revenue This Quarter",
+    revenue: "XYZ",
+    icon1: AiTwotoneStar,
+    icon2: BsBoxArrowUpRight,
+    inr: "11L INR",
+  },
+  {
+    title: "Maximum Revenue This Half",
+    revenue: "ABC",
+    icon1: AiTwotoneStar,
+    icon2: BsBoxArrowUpRight,
+    inr: "11L INR  ",
+  },
+  {
+    title: "Maximum Revenue This Year",
+    revenue: "XYZ",
+    icon1: AiTwotoneStar,
+    icon2: BsBoxArrowUpRight,
+    inr: "1.12Cr INR",
+  },
+];
+
+
+
+
 
 
 const RevenueData = [
@@ -171,10 +211,41 @@ const SalariesData = [
 
 
 
-function Financials() {
+function DashboardFinancials() {
   return (
     <>
-      <div className="flex gap-4">
+      <div className="mt-4 ">
+        <dl className="grid max-w-xl grid-cols-5 gap-x-48 ">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="relative bg-white border rounded-lg pl-9 w-[160px]"
+            >
+              <dt className="mt-3 text-gray-900 mb- text-x">
+                <div className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-md left-2 ">
+                  <feature.icon1
+                    className="w-4 h-4 text-[#1A13CB] "
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="font-semibold text-center text-gray-600 ">
+                  {feature.title}
+                </div>
+              </dt>
+              <dd className="font-bold text-center text-black leading-">
+                {feature.revenue}
+              </dd>
+
+              <div className="flex items-center justify-between mx-2 mb-3 font-bold text-x -ml-7">
+                <p >{feature.inr}</p>
+                <feature.icon2 className="" />
+              </div>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      {/* <div className="flex gap-4">
         <div className="flex-col gap-1 p-2 mt-3 bg-white border rounded-lg w-[170px]">
           <div className="flex gap-5">
             <div className="flex-col space-y-4">
@@ -254,7 +325,7 @@ function Financials() {
             <BsBoxArrowUpRight className="font-bold text-black" />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex mt-3 gap-7">
         <div className="mt-4 bg-white w-[500px] text-sm border rounded-md ">
@@ -305,7 +376,7 @@ function Financials() {
             />
             <Tooltip />
             <Legend />
-             
+
             <Bar dataKey="Management" stackId="" fill="#EC3215" />
             <Bar dataKey="Marketing And Sales" stackId="" fill="#EC7915" />
             <Bar dataKey="IT" stackId="" fill="#ECAC15" />
@@ -315,6 +386,6 @@ function Financials() {
     </>
   );
 }
-export default Financials;
+export default DashboardFinancials;
 
  

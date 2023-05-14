@@ -7,7 +7,7 @@ import Notification from "./SettingsNotification";
 import AdminNotification from "./SettingsAdminNotification";
 
 import NavigationBar from "./SettingsNavbar";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 const SettingsMenu = () => {
   return (
@@ -17,15 +17,13 @@ const SettingsMenu = () => {
       </div>
       <div>
         <Routes>
-          <Route path="/" element={<General />}></Route>
-          <Route path="settings/password" element={<Password />}></Route>
-          <Route path="settings/security" element={<Security />}></Route>
+          <Route path="/" element={<Navigate to="general" />}></Route>
+          <Route path="general" element={<General />}></Route>
+          <Route path="password" element={<Password />}></Route>
+          <Route path="security" element={<Security />}></Route>
+          <Route path="notification" element={<Notification />}></Route>
           <Route
-            path="settings/notification"
-            element={<Notification />}
-          ></Route>
-          <Route
-            path="settings/adminNotification"
+            path="adminNotification"
             element={<AdminNotification />}
           ></Route>
         </Routes>
@@ -35,7 +33,7 @@ const SettingsMenu = () => {
 };
 export default SettingsMenu;
 
-// import React, { useState } from "react";
+
 // import { IoMdInformationCircle } from "react-icons/io";
 // import { MdNotifications } from "react-icons/Md";
 // import { SiSpringsecurity } from "react-icons/si";

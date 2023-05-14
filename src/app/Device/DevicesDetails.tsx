@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { Link, } from "react-router-dom";
+import { Link,NavLink, Outlet } from "react-router-dom";
 import General from "./DevicesGeneral";
 import Timeline from "./DevicesTimiline";
 import Incident from "./DevicesIncidents";
-import SetSecurity from "./Security";
-import Notification from "./Notification";
-import AdminNotification from "./AdminNotification";
+
 import { IoMdInformationCircle } from "react-icons/io";
 import { AiOutlineApartment } from "react-icons/ai";
 import { SiSpringsecurity } from "react-icons/si";
@@ -13,26 +11,20 @@ import { GoKey } from "react-icons/go";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { IoIosArrowForward } from "react-icons/io";
+import { NavLinkCSS } from "../Dashboard/DashboardList";
 
 
+function DeviceDetails() {
 
-function DeviceAction() {
+
+  
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };
 
-  const [currentModule, setCurrentModule] = useState("General Detail");
+  const [currentModule, setCurrentModule] = useState("");
 
-  let settingsContent;
-  switch (currentModule) {
-    case "Timeline":
-      settingsContent = <Timeline />;
-      break;
-   
-    default:
-      settingsContent = <General />;
-      break;
-  }
+ 
 
   return (
     <>
@@ -45,16 +37,11 @@ function DeviceAction() {
       </div>
 
       <div className="flex gap-4 mt-3 font-bold">
-        <Link to="./">
+        <NavLink to="general" style={NavLinkCSS} >
           <button
             onClick={() => {
-              handleModuleClick("General Detail");
+              handleModuleClick("General Details");
             }}
-            className={
-              currentModule === "General Detail"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -63,17 +50,12 @@ function DeviceAction() {
               <div>General</div>
             </div>
           </button>
-        </Link>
-        <Link to="action/timeline">
+        </NavLink>
+        <NavLink to="timeline" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Timeline");
             }}
-            className={
-              currentModule === "Timeline"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-32  font-bold"
-                : "text-gray-400"
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -82,25 +64,19 @@ function DeviceAction() {
               <div>Timeline</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
       </div>
       <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />
       </div>
-
+      <Outlet />
       <Routes>
-        <Route path="/" element={<General />}></Route>
-        <Route path="/action/timeline/*" element={<Timeline />}></Route>
-        <Route path="/timeline/incident" element={<Incident />}></Route>
+        <Route path="incident" element={<Incident />}></Route>
       </Routes>
     </>
   );
 }
-export default DeviceAction;
+export default DeviceDetails;
 
 
 
-
-//  <Route path="/" element={<General />}></Route>
-//         <Route path="action/timeline" element={<Timeline />}></Route>
-//         <Route path="timeline/incident" element={<Incident />}></Route>

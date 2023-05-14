@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import General from "./SettingsGeneral";
 import Password from "./SettingsPassword";
 
@@ -12,6 +12,10 @@ import { SiSpringsecurity } from "react-icons/si";
 import { GoKey } from "react-icons/go";
 
 import { IoIosArrowForward } from "react-icons/io";
+import { NavLinkCSS } from "../Dashboard/DashboardList";
+
+
+
 
 function NavigationBar() {
   function handleModuleClick(module) {
@@ -20,24 +24,7 @@ function NavigationBar() {
 
   const [currentModule, setCurrentModule] = useState("Account Setting");
 
-  let settingsContent;
-  switch (currentModule) {
-    case "Password Setting":
-      settingsContent = <Password />;
-      break;
-    case "Security Setting":
-      settingsContent = <SetSecurity />;
-      break;
-    case "Notifications ":
-      settingsContent = <Notification />;
-      break;
-    case "Admin Notifications ":
-      settingsContent = <AdminNotification />;
-      break;
-    default:
-      settingsContent = <General />;
-      break;
-  }
+ 
 
   return (
     <>
@@ -50,16 +37,11 @@ function NavigationBar() {
       </div>
 
       <div className="flex gap-6 mt-3 font-bold">
-        <Link to="./">
+        <NavLink to="general" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Account Setting");
             }}
-            className={
-              currentModule === "Account Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -68,17 +50,12 @@ function NavigationBar() {
               <div>General</div>
             </div>
           </button>
-        </Link>
-        <Link to="settings/password">
+        </NavLink>
+        <NavLink to="password" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Password Setting");
             }}
-            className={
-              currentModule === "Password Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-24  font-bold"
-                : "text-gray-400"
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -87,17 +64,12 @@ function NavigationBar() {
               <div>Password</div>
             </div>
           </button>
-        </Link>
-        <Link to="settings/security">
+        </NavLink>
+        <NavLink to="security" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Security Setting");
             }}
-            className={
-              currentModule === "Security Setting"
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-20  font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -106,17 +78,12 @@ function NavigationBar() {
               <div>Security</div>
             </div>
           </button>
-        </Link>
-        <Link to="settings/notification">
+        </NavLink>
+        <NavLink to="notification" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Notifications ");
             }}
-            className={
-              currentModule === "Notifications "
-                ? " border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-28  font-bold "
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -126,17 +93,12 @@ function NavigationBar() {
               <div>Notification</div>
             </div>
           </button>
-        </Link>
-        <Link to="settings/adminNotification">
+        </NavLink>
+        <NavLink to="adminNotification" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("Admin Notifications ");
             }}
-            className={
-              currentModule === "Admin Notifications "
-                ? "border border-b-4 border-t-0 border-r-0 border-l-0 border-blue-700 w-48  font-bold"
-                : "text-gray-400 "
-            }
           >
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
@@ -146,7 +108,7 @@ function NavigationBar() {
               <div>Admin Notification</div>
             </div>
           </button>
-        </Link>
+        </NavLink>
       </div>
       <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />
