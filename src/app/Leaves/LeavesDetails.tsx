@@ -16,6 +16,9 @@ import { NavLinkCSS } from "../Dashboard/DashboardList";
 
 
 function LeaveDetails() {
+ 
+
+  
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };

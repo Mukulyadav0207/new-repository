@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiFillEye } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
@@ -6,8 +6,136 @@ import AddInvoice from "./InvoicesAddInvoiceModal";
 import Filter from "./InvoicesFilterModal";
 import { GoDiffAdded } from "react-icons/go";
 import { FaEdit } from "react-icons/fa";
+import { IoIosEye } from "react-icons/io";
+import { useSelector, useDispatch } from "react-redux";
+
+import { receiveInvoicesData } from "../../redux/actions/invoicesActions";
+
 
 function Invoices() {
+
+const invoices = useSelector((state) => state.data);
+const dispatch = useDispatch(); 
+
+
+ useEffect(() => {
+   const invoices = [
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Invoice Sent",
+       ttl: "02 Days",
+       reason:
+         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur",
+     },
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Draft",
+       ttl: "02 Days",
+     },
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Invoice Sent",
+       ttl: "02 Days",
+       reason:
+         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur",
+     },
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Payment Received In Bank",
+       ttl: "02 Days",
+       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+     },
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Payment Received In Account",
+       ttl: "02 Days",
+       reason:
+         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur",
+     },
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Skipped",
+       ttl: "02 Days",
+       reason:
+         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit",
+     },
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Payment Defaulted",
+       ttl: "02 Days",
+       reason:
+         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit",
+     },
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Payment Released By Client",
+       ttl: "02 Days",
+       reason:
+         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit",
+     },
+     {
+       invoiceNumber: "XXXXXXXXXX",
+       project: "ABC",
+       amount: "12,412 INR",
+       dueDate: "20/12/2022",
+       sentOn: "30/12/2022",
+       sentBy: "Pratik Singh",
+       status: "Invoice Sent",
+       ttl: "02 Days",
+       reason:
+         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit",
+     },
+   ];
+
+   dispatch(receiveInvoicesData(invoices));
+ }, [dispatch]);
+
+
+
+
+
+
+  
   return (
     <div>
       <div className="flex ">
@@ -50,318 +178,58 @@ function Invoices() {
               <th className="px-2 py-2 font-semibold">Actions</th>
             </tr>
           </thead>
-          <tbody className="bg-white">
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
+          <tbody className="bg-white text-[#A59F9F]">
+            {invoices.map((invoice, index) => (
+              <tr key={index}>
+                <td className="flex items-center justify-center gap-1">
+                  <GoDiffAdded />
+                  {invoice.invoiceNumber}
+                </td>
+                <td className="px-2 py-2 border "> {invoice.project}</td>
+                <td className="px-2 py-2 border">{invoice.amount}</td>
+                <td className="px-1 py-2 font-light border">
+                  {invoice.dueDate}
+                </td>
+                <td className="px-2 py-2 border">{invoice.sentOn}</td>
 
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center px-2 py-4 border">
-                <button className="px-2 bg-green-400 border rounded-full ">
-                  Invoice Sent
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border w-[260px]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur
-              </td>
-
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-                  <Link to="/invoices/details/1">
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
-                    </button>
-                  </Link>
-                  <button className="text-xs ">
-                    <FaEdit />
+                <td className="px-2 py-2 border">{invoice.sentBy}</td>
+                <td className="flex items-center justify-center px-2 py-4 border">
+                  <button
+                    className={`px-2 py-0.5  border rounded-full 
+              ${
+                index === 0 || index === 2 || index === 8
+                  ? "bg-[#00D100] text-white"
+                  : index === 6
+                  ? "bg-[#FFFF00] text-black "
+                  : index === 4
+                  ? "bg-[#D5D5D5] text-black "
+                  : index === 3
+                  ? "bg-[#003D80]  "
+                  : index === 5
+                  ? "bg-[#FFA500] text-black "
+                  : "bg-[#FE0012] text-white"
+              } `}
+                  >
+                    {invoice.status}
                   </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center w-auto px-2 py-4 border">
-                <button className="px-2 text-black bg-red-500 border rounded-full ">
-                  Draft
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </td>
+                </td>
+                <td className="px-1 py-2 font-light border">{invoice.ttl}</td>
+                <td className="px-2 py-2 border w-[260px]">{invoice.reason}</td>
 
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-                 
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
+                <td className="px-2 py-2 border">
+                  <div className="flex items-center gap-1">
+                    <Link to="/invoices/details/1">
+                      <button className="text-gray-500 hover:text-black">
+                        <AiFillEye />
+                      </button>
+                    </Link>
+                    <button className="text-xs ">
+                      <FaEdit />
                     </button>
-          
-                  <button className="text-xs ">
-                    <FaEdit />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center px-2 py-4 border">
-                <button className="px-2 text-white bg-green-500 border rounded-full ">
-                  Invoice Sent
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur
-              </td>
-
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-                 
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
-                    </button>
-            
-                  <button className="text-xs ">
-                    <FaEdit />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
-
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center w-auto px-2 py-4 border">
-                <button className="px-2 text-black border rounded-full bg-violet-600 ">
-                  Payment Received In Account
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </td>
-
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-              
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
-                    </button>
-              
-                  <button className="text-xs ">
-                    <FaEdit />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
-
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center px-2 py-4 border">
-                <button className="px-2 text-white bg-orange-500 border rounded-full ">
-                  Skipped
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur
-              </td>
-
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-                
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
-                    </button>
-                
-                  <button className="text-xs ">
-                    <FaEdit />
-                  </button>
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
-
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center px-2 py-4 border">
-                <button className="px-2 bg-yellow-400 border rounded-full ">
-                  Payment Defaulted
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur
-              </td>
-
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-                 
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
-                    </button>
-                  
-                  <button className="text-xs ">
-                    <FaEdit />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
-
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center px-2 py-4 border">
-                <button className="px-2 text-white border rounded-full bg-violet-800 ">
-                  Payment Released By Client
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </td>
-
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-                  
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
-                    </button>
-           
-                  <button className="text-xs ">
-                    <FaEdit />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
-
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center w-auto px-2 py-4 border">
-                <button className="w-32 px-2 text-black bg-yellow-400 border rounded-full">
-                  Limited functionality
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur
-              </td>
-
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-               
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
-                    </button>
-             
-                  <button className="text-xs ">
-                    <FaEdit />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="flex items-center gap-1 px-2 py-2 border">
-                <GoDiffAdded />
-                XXXXXXXXXX
-              </td>
-              <td className="px-2 py-2 border ">ABC</td>
-              <td className="px-2 py-2 border">12,412 INR</td>
-              <td className="px-1 py-2 font-light border">20/12/2022</td>
-              <td className="px-2 py-2 border">30/12/2022</td>
-
-              <td className="px-2 py-2 border">Pratik Singh</td>
-              <td className="flex items-center justify-center w-auto px-2 py-4 border">
-                <button className="w-32 px-2 text-black bg-green-400 border rounded-full">
-                  Invoice Sent
-                </button>
-              </td>
-              <td className="px-1 py-2 font-light border">02 Days</td>
-              <td className="px-2 py-2 border ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur
-              </td>
-
-              <td className="px-2 py-2 border">
-                <div className="flex items-center gap-1">
-                
-                    <button className="text-gray-500 hover:text-black">
-                      <AiFillEye />
-                    </button>
-               
-                  <button className="text-xs ">
-                    <FaEdit />
-                  </button>
-                </div>
-              </td>
-            </tr>
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
