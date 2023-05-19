@@ -1,4 +1,4 @@
-import { RECEIVE_INVOICES_DATA } from "../actions/invoicesActions";
+import { RECEIVE_INVOICES_DATA } from "../actions/InvoicesActions";
 
 const initialState = {
   data: [],

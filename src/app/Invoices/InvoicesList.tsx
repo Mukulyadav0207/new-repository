@@ -9,12 +9,12 @@ import { FaEdit } from "react-icons/fa";
 import { IoIosEye } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 
-import { receiveInvoicesData } from "../../redux/actions/invoicesActions";
+import { receiveInvoicesData } from "../../redux/actions/InvoicesActions";
 
 
 function Invoices() {
 
-const invoices = useSelector((state) => state.data);
+const invoices = useSelector((state) => state.invoices.data);
 const dispatch = useDispatch(); 
 
 

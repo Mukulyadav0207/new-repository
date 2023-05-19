@@ -1,4 +1,4 @@
-import { RECEIVE_CLIENTS_DATA } from "../actions/ClientActions";
+import { RECEIVE_CLIENTS_DATA } from "../actions/ClientsActions";
 
 const initialState = {
   data: [],

@@ -17,7 +17,7 @@ import { receiveLeavesData } from "../../redux/actions/LeavesActions";
 
 
 function AllLeaves(){
- const leaves = useSelector((state) => state.data);
+ const leaves = useSelector((state) => state.leaves.data);
  const dispatch = useDispatch(); 
 
 

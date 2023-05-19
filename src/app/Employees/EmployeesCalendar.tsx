@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { FaUmbrella } from "react-icons/fa";
@@ -7,8 +7,8 @@ import { FaTshirt } from "react-icons/fa";
 import { FaFirstAid } from "react-icons/fa";
 import { FaMedal } from "react-icons/fa";
 import { BsCircleFill } from "react-icons/bs";
-import { RxCircleBackslash } from "react-icons/rx";
-import { FaBullhorn } from "react-icons/fa";
+import { RxCrossCircled } from "react-icons/rx";
+import { RxHalf2 } from "react-icons/rx";
 import { GiSandsOfTime } from "react-icons/gi";
 import { FaCheckCircle } from "react-icons/fa";
 import { BsFillPersonPlusFill } from "react-icons/bs";
@@ -17,8 +17,79 @@ import {} from "react-icons/fa";
 // import Modal from "./modals/AddDepartment";
 
 // import DetailList from "./CalendarDetailList.tsx/DetailList";
+import { useSelector, useDispatch } from "react-redux";
+import { receiveEmployeesCalendarData } from "../../redux/actions/EmployeesCalendarActions";
+import CreateLeave from "./EmployeesCalendarCreateLeaveModal";
+
+
+
+
 
 function EmployeesCalendar() {
+
+const calendar = useSelector((state) => state.employeesCalendar.data);
+const dispatch = useDispatch(); 
+
+
+
+useEffect(() => {
+  const calendar = [
+    {
+      Sunday: "",
+      Monday: "1",
+      Tuesday: "",
+      Wednesday: "3",
+      Thursday: "4",
+      Friday: "5",
+      Satday: "6",
+    },
+    {
+      Sunday: "7",
+      Monday: "8",
+      Tuesday: "9",
+      Wednesday: "10",
+      Thursday: "11",
+      Friday: "12",
+      Satday: "13",
+    },
+    {
+      Sunday: "14",
+      Monday: "15",
+      Tuesday: "16",
+      Wednesday: "17",
+      Thursday: "18",
+      Friday: "19",
+      Satday: "20",
+    },
+    {
+      Sunday: "21",
+      Monday: "22",
+      Tuesday: "23",
+      Wednesday: "24",
+      Thursday: "25",
+      Friday: "26",
+      Satday: "27",
+    },
+    {
+      Sunday: "28",
+      Monday: "29",
+      Tuesday: "30",
+      Wednesday: "31",
+      Thursday: "",
+      Friday: "",
+      Satday: "",
+    },
+  ];
+
+  dispatch(receiveEmployeesCalendarData(calendar));
+}, [dispatch]);
+
+
+
+
+
+
+
   return (
     <>
       <div className="flex mt-5  gap-[795px] ">
@@ -61,9 +132,9 @@ function EmployeesCalendar() {
       </div>
 
       <div>
-        <table className="w-full mx-auto mt-6 text-xs font-semibold border-collapse table-auto ">
+        <table className="w-full mx-auto mt-6 text-xs font-semibold border-collapse table-auto h-[420px] ">
           <thead>
-            <tr className="bg-violet-200">
+            <tr className="bg-[#e4dfec]">
               <th className="px-2 py-3 font-semibold">Sunday</th>
               <th className="px-2 py-3 font-semibold">Monday</th>
               <th className="px-2 py-3 font-semibold">Tuesday</th>
@@ -73,217 +144,85 @@ function EmployeesCalendar() {
               <th className="px-2 py-3 font-semibold">Saturday</th>
             </tr>
           </thead>
-          <tbody className="bg-white">
-            <tr>
-              <td className="px-2 py-2 border"></td>
-              <td className="px-2 py-2 font-semibold border">1</td>
-              <td className="px-2 py-2 font-semibold border">
-                2
-                <div className="flex-col items-center w-32 p-1 ml-4 -mt-3 bg-green-200 border-l-4 border-green-500 justify">
-                  <div className="flex gap-5">
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsCircleHalf />
-                      <FaTshirt />
-                      10
-                    </div>
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsFillPersonPlusFill />
-                      <RxCircleBackslash />
-                      04
-                    </div>
+          <tbody className="bg-white align-top">
+            {calendar.map((data, index) => (
+              <tr className="">
+                <td
+                  className={`px-2  border w-[160px] ${
+                    index === 0 ? "bg-[#E9F8F8]" : ""
+                  }   `}
+                >
+                  {data.Sunday}
+                </td>
+                <td className="px-2 py- font-semibold border w-[160px]">
+                  <div>{data.Monday}</div>
+                  <div className="mt-6 text-[#FE0012] ">
+                    {index === 0 ? (
+                      <div className="flex items-center pl-3 gap-1 text-xs w-32 p-1  bg-red-200 border-l-4 border-[#FE0012]">
+                        <BsCircleHalf />
+                        <RxCrossCircled />
+                        Previlege
+                      </div>
+                    ) : null}
                   </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleHalf />
-                    <FaMedal />
-                    02
+                </td>
+                <td className="px-2 py-2 font-semibold border w-[160px] ">
+                  {data.Tuesday}
+                  <div className="mt-6 text-[#000000] ">
+                    {index===0 ? (<CreateLeave />): null}
+                    {index === 3 ? (
+                      <div className="flex items-center pl-3 gap-1 text-xs mt-6 w-32 p-1  bg-[#A59F9F] border-l-4 border-[#000000]">
+                        <BsCircleFill />
+                        <GiSandsOfTime />
+                        Casual
+                      </div>
+                    ) : null}
                   </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleFill />
-                    <FaTshirt />
-                    02
+                </td>
+                <td className="px-2 py-2 font-bold border w-[160px]">
+                  {data.Wednesday}
+                  <div className="mt-6 ">
+                    {index === 1 ? (
+                      <div className="flex items-center pl-3 gap-1  text-xs w-32 p-1  bg-green-200 border-l-4 border-green-500 ">
+                        <RxHalf2 />
+                        <FaCheckCircle />
+                        Medical
+                      </div>
+                    ) : null}
                   </div>
-                </div>
-              </td>
-              <td className="px-2 py-2 font-bold border">3</td>
-              <td className="px-2 py-2 font-bold border">4</td>
-              <td className="px-2 py-2 font-bold border">
-                5{/* <DetailList /> */}
-              </td>
-              <td className="px-2 py-2 font-bold border">6</td>
-            </tr>
-            <tr>
-              <td className="px-2 py-2 font-bold border">7</td>
-              <td className="px-2 py-2 font-bold border">8</td>
-              <td className="px-2 py-2 font-bold border">9</td>
-              <td className="px-2 py-2 font-bold border">10</td>
-              <td className="px-2 py-2 font-bold border">
-                11
-                <div className="flex-col items-center w-32 p-1 ml-4 -mt-3 bg-green-200 border-l-4 border-green-500 justify">
-                  <div className="flex gap-5">
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsCircleHalf />
-                      <FaTshirt />
-                      10
-                    </div>
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsFillPersonPlusFill />
-                      <RxCircleBackslash />
-                      04
-                    </div>
+                </td>
+                <td
+                  className={`px-2  border w-[160px] ${
+                    index === 4 ? "bg-[#E9F8F8]" : ""
+                  }   `}
+                >
+                  {data.Thursday}
+                  <div className="mt-6 text-[#1A13CB] ">
+                    {index === 1 ? (
+                      <div className="flex items-center pl-3 gap-1 mt-6 text-xs w-32 p-1  border-[#1A13CB] border-l-4  bg-[#E9F8F8]">
+                        <FaUmbrella />
+                        Holiday
+                      </div>
+                    ) : null}
                   </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleHalf />
-                    <FaTshirt />
-                    10
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleHalf />
-                    <FaTshirt />
-                    10
-                  </div>
-                </div>
-              </td>
-              <td className="px-2 py-2 font-bold border">12</td>
-              <td className="px-2 py-2 font-bold border">13</td>
-            </tr>
-            <tr>
-              <td className="px-2 py-2 font-bold border">
-                14
-                <div className="flex-col items-center w-32 p-1 ml-4 -mt-3 bg-green-200 border-l-4 border-green-500 justify">
-                  <div className="flex gap-5">
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <FaBullhorn />
-                      <GiSandsOfTime />
-                      Samarth Singh
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsFillPersonPlusFill />
-                    <FaCheckCircle />
-                    Shreya Verma
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <FaFirstAid />
-                    <BsCircleFill />
-                    Sahil Soni
-                  </div>
-                </div>
-              </td>
-              <td className="px-2 py-2 font-bold border">
-                15
-                <div className="flex items-center justify-center text-3xl text-blue-700 ">
-                  <FaUmbrella />
-                </div>
-              </td>
-              <td className="px-2 py-2 font-bold border">16</td>
-              <td className="px-2 py-2 font-bold border">
-                17
-                <div className="flex-col items-center w-32 p-1 ml-4 -mt-3 bg-green-200 border-l-4 border-green-500 justify">
-                  <div className="flex gap-5">
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsCircleHalf />
-                      <FaTshirt />
-                      08
-                    </div>
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <FaBullhorn />
-                      <GiSandsOfTime />
-                      01
-                    </div>
-                  </div>
-                  <div className="flex gap-5">
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsCircleHalf />
-                      <FaTshirt />
-                      02
-                    </div>
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsFillPersonPlusFill />
-                      <RxCircleBackslash />
-                      02
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleHalf />
-                    <FaTshirt />
-                    02
-                  </div>
-                </div>
-              </td>
-              <td className="px-2 py-2 font-bold border">18</td>
-              <td className="px-2 py-2 font-bold border">19</td>
-              <td className="px-2 py-2 font-bold border">20</td>
-            </tr>
-            <tr>
-              <td className="px-2 py-2 font-bold border">21</td>
-              <td className="px-2 py-2 font-bold border">22</td>
-              <td className="px-2 py-2 font-bold border">23</td>
-              <td className="px-2 py-2 font-bold border">24</td>
-              <td className="px-2 py-2 font-bold border">25</td>
-              <td className="px-2 py-2 font-bold border">
-                26
-                <div className="flex-col items-center w-32 p-1 ml-6 -mt-3 bg-green-200 border-l-4 border-green-500">
-                  <div className="flex gap-5">
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsCircleHalf />
-                      <FaTshirt />
-                      10
-                    </div>
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsFillPersonPlusFill />
-                      <RxCircleBackslash />
-                      04
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleHalf />
-                    <FaTshirt />
-                    10
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleHalf />
-                    <FaTshirt />
-                    10
-                  </div>
-                </div>
-              </td>
-              <td className="px-2 py-2 font-bold border">27</td>
-            </tr>
-            <tr>
-              <td className="px-2 py-2 font-bold border">28</td>
-              <td className="px-2 py-2 font-bold border">
-                29
-                <div className="flex-col items-center w-32 p-1 ml-6 -mt-3 bg-green-200 border-l-4 border-green-500">
-                  <div className="flex gap-5">
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsCircleHalf />
-                      <FaTshirt />
-                      10
-                    </div>
-                    <div className="flex items-center justify-center gap-1 text-xs">
-                      <BsFillPersonPlusFill />
-                      <RxCircleBackslash />
-                      04
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleHalf />
-                    <FaTshirt />
-                    10
-                  </div>
-                  <div className="flex items-center gap-1 text-xs">
-                    <BsCircleHalf />
-                    <FaTshirt />
-                    10
-                  </div>
-                </div>
-              </td>
-              <td className="px-2 py-2 font-bold border">30</td>
-              <td className="px-2 py-2 font-bold border">31</td>
-              <td className="px-2 py-2 font-bold border"></td>
-              <td className="px-2 py-2 font-bold border"></td>
-              <td className="px-2 py-2 font-bold border"></td>
-            </tr>
+                </td>
+                <td
+                  className={`px-2  border w-[160px] ${
+                    index === 4 ? "bg-[#E9F8F8]" : ""
+                  }   `}
+                >
+                  {data.Friday}
+                  {/* <DetailList /> */}
+                </td>
+                <td
+                  className={`px-2  border w-[160px] ${
+                    index === 4 ? "bg-[#E9F8F8]" : ""
+                  }   `}
+                >
+                  {data.Satday}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

@@ -5,15 +5,10 @@ import { IoMdInformationCircle } from "react-icons/io";
 import { FaUmbrella } from "react-icons/fa";
 import { FaBusinessTime } from "react-icons/fa";
 import { BsCalculatorFill } from "react-icons/bs";
-import {
-  Routes,
- NavLink,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { Routes, NavLink, Navigate, Outlet } from "react-router-dom";
 import { IoMdSettings } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
-import { NavLinkCSS } from "../Dashboard/DashboardList";
+import { NavLinkCSS } from "../dashboard/DashboardList";
 
 function Leaves() {
   const handleModuleClick = (module) => {
@@ -21,7 +16,6 @@ function Leaves() {
   };
 
   const [currentModule, setCurrentModule] = useState("Account Setting");
-
 
   return (
     <>
@@ -108,7 +102,7 @@ function Leaves() {
         </NavLink>
       </div>
 
-      <div className="items-start " >
+      <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />
       </div>
       <Outlet />

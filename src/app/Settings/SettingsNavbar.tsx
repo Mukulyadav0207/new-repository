@@ -12,10 +12,7 @@ import { SiSpringsecurity } from "react-icons/si";
 import { GoKey } from "react-icons/go";
 
 import { IoIosArrowForward } from "react-icons/io";
-import { NavLinkCSS } from "../Dashboard/DashboardList";
-
-
-
+import { NavLinkCSS } from "../dashboard/DashboardList";
 
 function NavigationBar() {
   function handleModuleClick(module) {
@@ -23,8 +20,6 @@ function NavigationBar() {
   }
 
   const [currentModule, setCurrentModule] = useState("Account Setting");
-
- 
 
   return (
     <>

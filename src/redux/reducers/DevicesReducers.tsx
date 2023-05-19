@@ -1,4 +1,4 @@
-import { RECEIVE_DEVICES_DATA } from "../actions/DeviceActions";
+import { RECEIVE_DEVICES_DATA } from "../actions/DevicesActions";
 
 const initialState = {
   data: [],

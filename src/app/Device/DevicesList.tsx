@@ -4,13 +4,13 @@ import { BsSearch } from "react-icons/bs";
 import Modal from "./DevicesAddModal";
 import Filter from "./DevicesFilterModal";
 import { Link } from "react-router-dom";
-import { receiveDevicesData } from "../../redux/actions/DeviceActions";
+import { receiveDevicesData } from "../../redux/actions/DevicesActions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { IoIosEye } from "react-icons/io";
 
 function Device() {
-  const devices = useSelector((state) => state.data);
+  const devices = useSelector((state) => state.devices.data);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -127,7 +127,7 @@ function Device() {
 
     dispatch(receiveDevicesData(devices));
   }, [dispatch]);
-  
+
   return (
     <>
       <div className=" h-[600px]">

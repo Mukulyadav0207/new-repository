@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Outlet,NavLink } from "react-router-dom";
+import { Link, Outlet, NavLink } from "react-router-dom";
 import InvoiceGeneral from "./InvoicesGeneral";
 import InvoiceTimeline from "./InvoiceTimeline";
 import InvoiceLineItems from "./InvoicesLineItems";
@@ -8,7 +8,7 @@ import { AiOutlineApartment } from "react-icons/ai";
 import { SiSpringsecurity } from "react-icons/si";
 import { FaReceipt } from "react-icons/fa";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { NavLinkCSS } from "../Dashboard/DashboardList";
+import { NavLinkCSS } from "../dashboard/DashboardList";
 import { IoIosArrowForward } from "react-icons/io";
 
 function InvoiceDetails() {
@@ -17,8 +17,6 @@ function InvoiceDetails() {
   };
 
   const [currentModule, setCurrentModule] = useState("General Detail");
-
-  
 
   return (
     <>

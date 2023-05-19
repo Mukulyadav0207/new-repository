@@ -5,16 +5,15 @@ import Modal from "./ClientAdd";
 import Filter from "./ClientsFilter";
 
 import { Link } from "react-router-dom";
-import { receiveClientsData } from "../../redux/actions/ClientActions";
+import { receiveClientsData } from "../../redux/actions/ClientsActions";
 import { useSelector, useDispatch } from "react-redux";
 import { IoIosEye } from "react-icons/io";
 
 function Clients() {
-  const clients = useSelector((state) => state.data);
+  const clients = useSelector((state) => state.clients.data);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
     const clients = [
       {
         "Client Name": "ABC",
@@ -139,7 +138,9 @@ function Clients() {
                   <td className="px-2 py-2 border">{client["Client Name"]}</td>
                   <td className="px-1 py-2 border">{client["Project Name"]}</td>
                   <td className="px-2 py-2 border">{client["Company Name"]}</td>
-                  <td className="px-2 py-2 border">{client["Email Address"]}</td>
+                  <td className="px-2 py-2 border">
+                    {client["Email Address"]}
+                  </td>
                   <td className="px-2 py-2 border">{client["Start Date"]}</td>
                   <td className="px-4 py-2 border">
                     <Link to="/clients/details/1">

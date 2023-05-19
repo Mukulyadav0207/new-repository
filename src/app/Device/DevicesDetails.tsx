@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link,NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import General from "./DevicesGeneral";
 import Timeline from "./DevicesTimiline";
 import Incident from "./DevicesIncidents";
@@ -11,20 +11,14 @@ import { GoKey } from "react-icons/go";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { IoIosArrowForward } from "react-icons/io";
-import { NavLinkCSS } from "../Dashboard/DashboardList";
-
+import { NavLinkCSS } from "../dashboard/DashboardList";
 
 function DeviceDetails() {
-
-
-  
   const handleModuleClick = (module) => {
     setCurrentModule(module);
   };
 
   const [currentModule, setCurrentModule] = useState("");
-
- 
 
   return (
     <>
@@ -37,7 +31,7 @@ function DeviceDetails() {
       </div>
 
       <div className="flex gap-4 mt-3 font-bold">
-        <NavLink to="general" style={NavLinkCSS} >
+        <NavLink to="general" style={NavLinkCSS}>
           <button
             onClick={() => {
               handleModuleClick("General Details");
@@ -77,6 +71,3 @@ function DeviceDetails() {
   );
 }
 export default DeviceDetails;
-
-
-

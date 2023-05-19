@@ -1,17 +1,22 @@
-import { createStore } from "redux";
- import { rootReducer } from "./reducers/RootReducer";
-import clientsReducer from "./reducers/ClientsReducer";
-import devicesReducer from "./reducers/DeviceReducer";
-import leavesReducer from "./reducers/LeavesReducer";
-import invoicesReducer from "./reducers/InvoicesReducer";
+import { createStore, combineReducers } from "redux";
+
+import clientsReducer from "./reducers/ClientsReducers";
+import devicesReducer from "./reducers/DevicesReducers";
+import leavesReducer from "./reducers/LeavesReducers";
+import invoicesReducer from "./reducers/InvoicesReducers";
+import employeesReducer from "./reducers/EmployeesReducers";
+
+import {rootReducer} from "./reducers/RootReducer"
+
+
+ 
+
 
 
 
 const store = createStore(
-  invoicesReducer,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-
-
 
 export default store;
