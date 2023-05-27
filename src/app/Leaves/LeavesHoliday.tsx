@@ -65,12 +65,12 @@ function Holidays() {
                       return (
                         <p key={key} className="flex justify-between ">
                           <p className="text-[#A59F9F] font-semibold w-[100px] h-fit">
-                            {" "}
+                        
                             {key}
                           </p>
 
                           <p className="text-[#000000] font-semibold  w-[200px] h-fit">
-                            {" "}
+                        
                             {value}
                           </p>
                         </p>

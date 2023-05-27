@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillEye } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
-import Modal from "./DepartmentAdd";
+import Modal from "./DepartmentsAddDepartmentModal";
 
 function Department() {
   return (

@@ -41,7 +41,10 @@ const dispatch = useDispatch();
        sentBy: "Pratik Singh",
        status: "Draft",
        ttl: "02 Days",
-     },
+         reason:
+       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur",
+   },
+     
      {
        invoiceNumber: "XXXXXXXXXX",
        project: "ABC",

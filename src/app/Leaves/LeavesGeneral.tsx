@@ -20,13 +20,13 @@ function LeaveGeneral() {
             <EditLeave />
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center font-bold">
             <p>12/02/2023</p>
-            <CgArrowLongRight className="text-3xl w-[250px] " />
+            <CgArrowLongRight className="text-3xl w-[270px] " />
             <p>12/02/2023</p>
           </div>
 
-          <div className="items-center p-2 border rounded-lg bg-cyan-100">
+          <div className="items-center p-2 border rounded-lg bg-[#E9F8F8] text-sm space-y-3">
             <div className="flex items-center gap-2">
               <FaUser />
               <p className="w-32 text-gray-400 "> Employee Name</p>
@@ -55,7 +55,7 @@ function LeaveGeneral() {
             <p className="ml-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nam
               rerum molestiae quam quibusdam, fugit labore enim doloremque
-              perspiciatis veritatis explicabo exercitationem eum.
+              perspiciatis .
             </p>
 
             <div className="flex items-center gap-2">
@@ -65,7 +65,7 @@ function LeaveGeneral() {
             <p className="ml-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nam
               rerum molestiae quam quibusdam, fugit labore enim doloremque
-              perspiciatis veritatis explicabo exercitationem eum.
+              perspiciatis veritatis .
             </p>
           </div>
         </div>
@@ -73,7 +73,7 @@ function LeaveGeneral() {
         <div className="ml-4">
           <div className="flex gap-4 ">
             <div className="p-2 text-sm bg-white border rounded-lg">
-              <div className="p-2 mt-5 font-semibold border rounded-lg bg-cyan-100 ">
+              <div className="p-2 mt-6 font-semibold border rounded-lg bg-[#E9F8F8] ">
                 After Alteration
                 <div className="flex">
                   <p className="text-gray-400"> From Date</p>
@@ -96,7 +96,7 @@ function LeaveGeneral() {
             </div>
             <div className="p-2 text-sm font-semibold bg-white border rounded-lg">
               Rejected Alteration
-              <div className="p-2 mt-1 font-semibold border rounded-lg bg-cyan-100">
+              <div className="p-2 mt-1 font-semibold border rounded-lg bg-[#E9F8F8]">
                 After Alteration
                 <div className="flex">
                   <p className="text-gray-400"> From Date</p>
@@ -118,10 +118,10 @@ function LeaveGeneral() {
               </div>
             </div>
           </div>
-          <div className="flex gap-4 mt-4">
+          <div className="flex gap-4 mt-9">
             <div className="p-2 text-sm font-semibold bg-white border rounded-lg">
               Alteration Pending
-              <div className="p-2 mt-1 font-semibold border rounded-lg bg-cyan-100">
+              <div className="p-2 mt-1 font-semibold border rounded-lg bg-[#E9F8F8]">
                 After Alteration
                 <div className="flex">
                   <p className="text-gray-400"> From Date</p>
@@ -144,12 +144,12 @@ function LeaveGeneral() {
             </div>
             <div className="p-2 text-sm font-semibold bg-white border rounded-lg ">
               Status Changed
-              <div className="p-2 mt-1 font-semibold border rounded-lg bg-cyan-100 w-[175px] h-[135px]">
+              <div className="p-2 mt-1.5 font-semibold border rounded-lg bg-[#E9F8F8] w-[175px] h-[144px]">
                 <div>
                   <p>After Alteration</p>
                   <p className="font-normal">Pending</p>
                 </div>
-                <div className="mt-2">
+                <div className="mt-6">
                   <p>Before Alteration</p>
                   <p className="font-normal">Rejected</p>
                 </div>

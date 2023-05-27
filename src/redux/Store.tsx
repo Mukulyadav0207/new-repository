@@ -1,10 +1,6 @@
-import { createStore, combineReducers } from "redux";
+import { createStore} from "redux";
 
-import clientsReducer from "./reducers/ClientsReducers";
-import devicesReducer from "./reducers/DevicesReducers";
-import leavesReducer from "./reducers/LeavesReducers";
-import invoicesReducer from "./reducers/InvoicesReducers";
-import employeesReducer from "./reducers/EmployeesReducers";
+
 
 import {rootReducer} from "./reducers/RootReducer"
 

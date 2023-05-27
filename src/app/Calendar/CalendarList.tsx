@@ -14,7 +14,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BsFillPersonDashFill } from "react-icons/bs";
 import {} from "react-icons/fa";
-import Modal from "../departments/DepartmentAdd";
+import Modal from "../departments/DepartmentsAddDepartmentModal";
 
 import DetailList from "./CalendarDetailListModal";
 

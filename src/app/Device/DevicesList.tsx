@@ -170,7 +170,7 @@ function Device() {
                 <th className="px-4 py-2 font-semibold">Actions</th>
               </tr>
             </thead>
-            <tbody className="bg-white text-[#A59F9F]">
+            <tbody className="bg-white text-[#A59F9F] text-center">
               {devices.map((device, index) => (
                 <tr key={index}>
                   <td className="px-4 py-2 border">{device["Model Name"]}</td>
@@ -187,7 +187,7 @@ function Device() {
                   <td className="px-4 py-2 border">
                     {device["Current Assignee"]}
                   </td>
-                  <td className="px-4 py-2 border">
+                  <td className="px-1 py-2 border w-[120px]">
                     <button
                       className={`px-2   border rounded-full 
               ${

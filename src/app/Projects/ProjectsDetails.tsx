@@ -1,14 +1,14 @@
-import React,  { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Routes, NavLink } from "react-router-dom";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaReceipt } from "react-icons/fa";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { FaStickyNote } from "react-icons/fa";
-import { BiTrendingUp } from "react-icons/bi";
+import { MdAccountTree } from "react-icons/md";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
-import { FaFolderOpen } from "react-icons/fa";
+import { MdLocalHospital } from "react-icons/md";
 import { IoMdChatbubbles } from "react-icons/io";
 import { AiOutlineApartment } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
@@ -16,76 +16,61 @@ import { FaDollarSign } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { NavLinkCSS } from "../dashboard/DashboardList";
 
-function EmployeesDetails() {
- const [showOverlay, setShowOverlay] = useState(false);
- const location = useLocation();
+function ProjectsDetails() {
+  const [showOverlay, setShowOverlay] = useState(false);
+  const location = useLocation();
 
- useEffect(() => {
-   setShowOverlay(location.pathname === "/employees/details/1/general"); 
- }, [location]);
+  useEffect(() => {
+    setShowOverlay(location.pathname === "/projects/details/1/general");
+  }, [location]);
 
+  const currentPath = location.pathname;
+  const [currentModule, setCurrentModule] = useState("Performance");
 
+  useEffect(() => {
+    setCurrentModule(getModuleNameFromPath(currentPath));
+  }, [currentPath]);
 
+  const getModuleNameFromPath = (path) => {
+    switch (path) {
+      case "general":
+        return "General Detail";
 
-
-const currentPath = location.pathname;
-const [currentModule, setCurrentModule] = useState("Performance");
-
-   useEffect(() => {
-     setCurrentModule(getModuleNameFromPath(currentPath));
-   }, [currentPath]);
-
-   const getModuleNameFromPath = (path) => {
-     switch (path) {
-       case "general":
-       
-         return "General Detail";
-
-
-
-       case "/notes":
-       
-         return "Notes";
-       case "/performance":
-       
-         return "Performance";
-       case "/financials":
-       case "/employees/financials":
-         return "Financials";
-       case "/salary":
-       case "/employees/salary":
-         return "Salary";
-       case "/calendar":
-       case "/employees/calendar":
-         return "Calendar";
-       case "/timeline":
-       case "/employees/timeline":
-         return "Timeline";
-       case "/document":
-       case "/employees/document":
-         return "Documents";
-       case "/feedback":
-       case "/employees/feedback":
-         return "Feedbacks";
-       default:
-         return "";
-     }
-   };
-
-
-
-
-
-  
+      case "/notes":
+        return "Notes";
+      case "/performance":
+        return "Performance";
+      case "/financials":
+      case "/employees/financials":
+        return "Financials";
+      case "/salary":
+      case "/employees/salary":
+        return "Salary";
+      case "/calendar":
+      case "/employees/calendar":
+        return "Calendar";
+      case "/timeline":
+      case "/employees/timeline":
+        return "Timeline";
+      case "/document":
+      case "/employees/document":
+        return "Documents";
+      case "/feedback":
+      case "/employees/feedback":
+        return "Feedbacks";
+      default:
+        return "";
+    }
+  };
 
   return (
     <>
       <div className="flex items-center mt-4 text-sm">
-        <div>Employees </div>
+        <div>Projects </div>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
-        <div className="font-semibold"> Employees ID</div>
+        <div className="font-semibold"> Projects Name</div>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
@@ -94,7 +79,7 @@ const [currentModule, setCurrentModule] = useState("Performance");
         </div>
       </div>
 
-      <div className="flex gap-3 mt- font-bold">
+      <div className="flex gap-4 mt- font-bold">
         <NavLink to="general" style={NavLinkCSS}>
           <div className="flex flex-row items-center justify-center gap-1 p-2 ">
             <div>
@@ -111,12 +96,12 @@ const [currentModule, setCurrentModule] = useState("Performance");
             <div>Notes</div>
           </div>
         </NavLink>
-        <NavLink to="performance" style={NavLinkCSS}>
+        <NavLink to="resourceTree" style={NavLinkCSS}>
           <div className="flex flex-row items-center justify-center gap-1 p-2 ">
             <div>
-              <BiTrendingUp />
+              <MdAccountTree />
             </div>
-            <div>Performance</div>
+            <div>Resource Tree</div>
           </div>
         </NavLink>
         <NavLink to="financials" style={NavLinkCSS}>
@@ -128,23 +113,13 @@ const [currentModule, setCurrentModule] = useState("Performance");
             <div>Financials</div>
           </div>
         </NavLink>
-        <NavLink to="salary" style={NavLinkCSS}>
+        <NavLink to="invoices" style={NavLinkCSS}>
           <div className="flex flex-row items-center justify-center gap-1 p-2 ">
             <div>
-              <FaMoneyBillWave />
+              <FaFileInvoiceDollar />
             </div>
 
-            <div>Salary</div>
-          </div>
-        </NavLink>
-
-        <NavLink to="calendar" style={NavLinkCSS}>
-          <div className="flex flex-row items-center justify-center gap-1 p-2 ">
-            <div>
-              <FaCalendarAlt />
-            </div>
-
-            <div>Calendar</div>
+            <div>Invoices</div>
           </div>
         </NavLink>
 
@@ -158,28 +133,23 @@ const [currentModule, setCurrentModule] = useState("Performance");
           </div>
         </NavLink>
 
-        <NavLink to="document" style={NavLinkCSS}>
+        <NavLink to="helthChecks" style={NavLinkCSS}>
           <div className="flex flex-row items-center justify-center gap-1 p-2 ">
             <div>
-              <FaFolderOpen />
+              <MdLocalHospital />
             </div>
 
-            <div>Documents</div>
+            <div>Health Checks</div>
           </div>
         </NavLink>
 
-        <NavLink to="feedback" style={NavLinkCSS}>
-          <div className="flex flex-row items-center justify-center gap-1 p-2 ">
-            <div>
-              <IoMdChatbubbles />
-            </div>
-
-            <div>Feedbacks</div>
-          </div>
-        </NavLink>
         {showOverlay && (
           <div className="fixed top-[56px] left-[160px] w-[1100px] h-[26px] bg-[#FE0012] font-normal  z-10 text-white pl-5 flex justify-between pr-6 text-sm items-center">
-            <p>Salary increment due in 2 weeks.</p> <p>x</p>
+            <p>
+              Project is ongoing but last invoice was sent more than a month ago
+              (INV-001).
+            </p>{" "}
+            <p>x</p>
           </div>
         )}
       </div>
@@ -190,4 +160,4 @@ const [currentModule, setCurrentModule] = useState("Performance");
     </>
   );
 }
-export default EmployeesDetails;
+export default ProjectsDetails;

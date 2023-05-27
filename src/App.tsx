@@ -6,7 +6,23 @@ import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Dashboard from "./app/dashboard/DashboardList";
 import Employees from "./app/employees/EmployeesList";
 import EmployeesDetails from "./app/employees/EmployeesDetails";
+
 import Projects from "./app/projects/ProjectsList";
+import ProjectsDetails from "./app/projects/ProjectsDetails";
+import ProjectsGeneral from "./app/projects/ProjectsGeneral";
+import ProjectsNotes from "./app/projects/ProjectsNotes";
+import ProjectsResourceTree from "./app/projects/ProjectsResourceTree";
+import ProjectsFinancials from "./app/projects/ProjectsFinancials";
+import ProjectsTimeline from "./app/projects/ProjectsTimeline";
+import ProjectsInvoices from "./app/projects/ProjectsInvoices";
+import ProjectsHealthChecks from "./app/projects/ProjectsHealthChecks";
+
+
+
+
+
+
+
 import Departments from "./app/departments/DepartmentsList";
 import Clients from "./app/clients/ClientsList";
 import Devices from "./app/device/DevicesList";
@@ -158,8 +174,42 @@ const App = () => {
                       element={<EmployeesFeedbacks />}
                     ></Route>
                   </Route>
+                  {/*  */}
                   <Route path="/projects" element={<Projects />}></Route>
+                  <Route
+                    path="/projects/details/:id"
+                    element={<ProjectsDetails />}
+                  >
+                    <Route
+                      path="/projects/details/:id"
+                      element={<Navigate to="general" />}
+                    ></Route>
 
+                    <Route path="general" element={<ProjectsGeneral />}></Route>
+                    <Route path="notes" element={<ProjectsNotes />}></Route>
+                    <Route
+                      path="resourceTree"
+                      element={<ProjectsResourceTree />}
+                    ></Route>
+                    <Route
+                      path="financials"
+                      element={<ProjectsFinancials />}
+                    ></Route>
+                    <Route
+                      path="invoices"
+                      element={<ProjectsInvoices />}
+                    ></Route>
+
+                    <Route
+                      path="timeline"
+                      element={<ProjectsTimeline />}
+                    ></Route>
+                    <Route
+                      path="healthChecks"
+                      element={<ProjectsHealthChecks />}
+                    ></Route>
+                  </Route>
+                  {/*  */}
                   <Route path="/departments" element={<Departments />}></Route>
 
                   <Route path="/clients" element={<Clients />}></Route>

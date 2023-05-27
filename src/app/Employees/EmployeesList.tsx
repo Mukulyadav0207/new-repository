@@ -165,29 +165,29 @@ const dispatch = useDispatch();
             </tr>
           </thead>
           <tbody className="bg-white">
-            { employees.map((employee, index) => (
-                <tr
-                  key={index}
-                  className="border border-gray-200 text-[#A59F9F] "
-                >
-                  <td className="flex items-center justify-center py-4 ">
-                    {employee.ID}
-                  </td>
-                  <td className="font-light w-[250px] text-center">
-                    <div className="flex items-center justify-center  text-black ">
-                      <img
-                        className="object-cover w-6 h-6 border-black rounded-xl"
-                        src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                      />
-                      <div className="flex-col">
-                        <p className="w-32 font-normal"> {employee.fullName}</p>
-                        <p className="text-x"> {employee.emailId}</p>
-                      </div>
+            {employees.map((employee, index) => (
+              <tr
+                key={index}
+                className="border border-gray-200 text-[#A59F9F] "
+              >
+                <td className="flex items-center justify-center py-4 ">
+                  {employee.ID}
+                </td>
+                <td className="font-light w-[250px] text-center">
+                  <div className="flex items-center justify-center  text-black ">
+                    <img
+                      src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"
+                      className="w-6 h-6 rounded-full object-cover overflow-hidden"
+                    />
+                    <div className="flex-col">
+                      <p className="w-32 font-normal"> {employee.fullName}</p>
+                      <p className="text-x"> {employee.emailId}</p>
                     </div>
-                  </td>
-                  <td className="flex items-center justify-center px-2 py-4 ">
-                    <button
-                      className={`px-4 py-0.5  border rounded-full 
+                  </div>
+                </td>
+                <td className="flex items-center justify-center px-2 py-4 ">
+                  <button
+                    className={`px-4 py-0.5  border rounded-full 
               ${
                 index === 0 ||
                 index === 2 ||
@@ -197,20 +197,20 @@ const dispatch = useDispatch();
                   ? "bg-[#00D100] text-white"
                   : "bg-[#FFFF00] text-black"
               } `}
-                    >
-                      {employee.projects}
+                  >
+                    {employee.projects}
+                  </button>
+
+                  {index === 4 || index === 7 ? (
+                    <button className="px-4 py-0.5 border rounded-full bg-[#00D100] text-white">
+                      {employee.project2}
                     </button>
+                  ) : null}
+                </td>
 
-                    {index === 4 || index === 7 ? (
-                      <button className="px-4 py-0.5 border rounded-full bg-[#00D100] text-white">
-                        {employee.project2}
-                      </button>
-                    ) : null}
-                  </td>
-
-                  <td className="justify-center px-1 py-2 font-light text-center">
-                    <button
-                      className={`px-4 py-0.5  border rounded-full 
+                <td className="justify-center px-1 py-2 font-light text-center">
+                  <button
+                    className={`px-4 py-0.5  border rounded-full 
               ${
                 index === 0 || index === 4 || index === 7
                   ? "bg-[#00D100] text-white"
@@ -220,37 +220,37 @@ const dispatch = useDispatch();
                   ? "bg-[#FFA500] text-white "
                   : "bg-[#FE0012] text-white"
               } `}
-                    >
-                      {employee.hoursEngagement}
-                    </button>
-                  </td>
-                  <td className="flex items-center justify-center px-2 py-4 ">
-                    {employee.role}
-                  </td>
-                  <td className="px-2 py-2 ">
-                    <div className="flex items-center justify-center gap-1">
-                      <Link to="/employees/details/1">
-                        <button className=" hover:text-black">
-                          <AiFillEye />
-                        </button>
-                      </Link>
-                      <button
-                        className={`text-sm ${
-                          index === 0 ||
-                          index === 1 ||
-                          index === 4 ||
-                          index === 6 ||
-                          index === 7
-                            ? "text-[#00D100] "
-                            : " "
-                        }`}
-                      >
-                        <employee.icon />
+                  >
+                    {employee.hoursEngagement}
+                  </button>
+                </td>
+                <td className="flex items-center justify-center px-2 py-4 ">
+                  {employee.role}
+                </td>
+                <td className="px-2 py-2 ">
+                  <div className="flex items-center justify-center gap-1">
+                    <Link to="/employees/details/1">
+                      <button className=" hover:text-black">
+                        <AiFillEye />
                       </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                    </Link>
+                    <button
+                      className={`text-sm ${
+                        index === 0 ||
+                        index === 1 ||
+                        index === 4 ||
+                        index === 6 ||
+                        index === 7
+                          ? "text-[#00D100] "
+                          : " "
+                      }`}
+                    >
+                      <employee.icon />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

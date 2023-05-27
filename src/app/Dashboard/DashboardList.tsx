@@ -16,7 +16,7 @@ export const NavLinkCSS = ({ isActive }) => {
      borderColor: isActive ? "#1A13CB" : "",
      padding: isActive ? "0px -2px -2px -2px" : "",
      width: isActive ? "fit" : "",
-     color: isActive ? "black" : " #00000029",
+     color: isActive ? "black" : " #A59F9F",
      margin: isActive ? "-1px" : "",
    };
  };
