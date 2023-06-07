@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { BsFillCloudArrowUpFill } from "react-icons/bs";
+import { AiOutlinePlus } from "react-icons/ai";
+import Button from "../sharedComponents/ButtonComponent";
+
 
 const AddNote = () => {
   const [showModal, setShowModal] = useState(false);
@@ -55,12 +58,14 @@ const AddNote = () => {
 
   return (
     <>
-      <button
+      <Button
         onClick={() => setShowModal(true)}
-        className="px-2 text-white bg-blue-700 border rounded-md w-50 hover:bg-blue-600"
-      >
-        + Add Notes
-      </button>
+        backgroundColor="#1A13CB"
+        textColor="white"
+        padding="8px 8px"
+        label="  Add Notes"
+        icon={<AiOutlinePlus />}
+      />
       {showModal && <AddMyNote />}
     </>
   );

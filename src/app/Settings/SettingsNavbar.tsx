@@ -1,11 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import General from "./SettingsGeneral";
-import Password from "./SettingsPassword";
-
-import SetSecurity from "./SettingsSecurity";
-import Notification from "./SettingsNotification";
-import AdminNotification from "./SettingsAdminNotification";
 import { IoMdInformationCircle } from "react-icons/io";
 import { MdNotifications } from "react-icons/md";
 import { SiSpringsecurity } from "react-icons/si";
@@ -13,13 +7,42 @@ import { GoKey } from "react-icons/go";
 
 import { IoIosArrowForward } from "react-icons/io";
 import { NavLinkCSS } from "../dashboard/DashboardList";
+import { useLocation } from "react-router-dom";
+
+
 
 function NavigationBar() {
-  function handleModuleClick(module) {
-    setCurrentModule(module);
-  }
+ const location = useLocation();
+ const currentPath = location.pathname;
+const [currentModule, setCurrentModule] = useState("Account Setting");
 
-  const [currentModule, setCurrentModule] = useState("Account Setting");
+
+useEffect(() => {
+  setCurrentModule(getModuleNameFromPath(currentPath));
+}, [currentPath]);
+
+
+const getModuleNameFromPath = (currentPath) => {
+  switch (currentPath) {
+    case "/app/settings/general":
+      return "Account Setting";
+    case "/app/settings/password":
+      return "Password Setting";
+    case "/app/settings/security":
+      return "Security Setting";
+    case "/app/settings/notification":
+      return "Notifications";
+    case "/app/settings/adminNotification":
+      return "Admin Notifications";
+
+    default:
+      return "";
+  }
+};
+
+
+
+
 
   return (
     <>
@@ -28,58 +51,42 @@ function NavigationBar() {
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
-        <div className="text-blue-700">{currentModule}</div>
+        <div className="text-blue-700 font-semibold">{currentModule}</div>
       </div>
 
       <div className="flex gap-6 mt-3 font-bold">
         <NavLink to="general" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("Account Setting");
-            }}
-          >
+         
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <IoMdInformationCircle />
               </div>
               <div>General</div>
             </div>
-          </button>
+         
         </NavLink>
         <NavLink to="password" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("Password Setting");
-            }}
-          >
+         
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <GoKey />
               </div>
               <div>Password</div>
             </div>
-          </button>
+         
         </NavLink>
         <NavLink to="security" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("Security Setting");
-            }}
-          >
+          
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <SiSpringsecurity />
               </div>
               <div>Security</div>
             </div>
-          </button>
+         
         </NavLink>
         <NavLink to="notification" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("Notifications ");
-            }}
-          >
+         
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <MdNotifications />
@@ -87,14 +94,10 @@ function NavigationBar() {
 
               <div>Notification</div>
             </div>
-          </button>
+         
         </NavLink>
         <NavLink to="adminNotification" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("Admin Notifications ");
-            }}
-          >
+         
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <MdNotifications />
@@ -102,7 +105,7 @@ function NavigationBar() {
 
               <div>Admin Notification</div>
             </div>
-          </button>
+        
         </NavLink>
       </div>
       <div className="items-start ">

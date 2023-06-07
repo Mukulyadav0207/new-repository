@@ -10,6 +10,7 @@ import { IoIosEye } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 
 import { receiveInvoicesData } from "../../redux/actions/InvoicesActions";
+import DumbChip from "../sharedComponents/ChipComponent";
 
 
 function Invoices() {
@@ -149,7 +150,7 @@ const dispatch = useDispatch();
         <div className="flex justify-end flex-grow gap-4 ">
           <div className="relative flex justify-end ">
             <input
-              className="rounded-md "
+              className="rounded-md p-2 w-[400px]"
               type="text"
               placeholder="Search keyword"
             />
@@ -196,33 +197,34 @@ const dispatch = useDispatch();
                 <td className="px-2 py-2 border">{invoice.sentOn}</td>
 
                 <td className="px-2 py-2 border">{invoice.sentBy}</td>
-                <td className="flex items-center justify-center px-2 py-4 border">
-                  <button
-                    className={`px-2 py-0.5  border rounded-full 
-              ${
-                index === 0 || index === 2 || index === 8
-                  ? "bg-[#00D100] text-white"
-                  : index === 6
-                  ? "bg-[#FFFF00] text-black "
-                  : index === 4
-                  ? "bg-[#D5D5D5] text-black "
-                  : index === 3
-                  ? "bg-[#003D80]  "
-                  : index === 5
-                  ? "bg-[#FFA500] text-black "
-                  : "bg-[#FE0012] text-white"
-              } `}
-                  >
-                    {invoice.status}
-                  </button>
+                <td className="flex items-center justify-center px-2 py-[15px] border">
+                  <DumbChip
+                    label={invoice.status}
+                    backgroundColor={
+                      index === 0 || index === 2 || index === 8
+                        ? "#00D100"
+                        : index === 6
+                        ? "#FFFF00"
+                        : index === 7
+                        ? "#0062CC"
+                        : index === 4
+                        ? "#D5D5D5"
+                        : index === 3
+                        ? "#003D80 "
+                        : index === 5
+                        ? "#FFA500"
+                        : "#FE0012"
+                    }
+                    textColor={index === 6 || index === 4 ? "black " : "white"}
+                  />
                 </td>
                 <td className="px-1 py-2 font-light border">{invoice.ttl}</td>
                 <td className="px-2 py-2 border w-[260px]">{invoice.reason}</td>
 
                 <td className="px-2 py-2 border">
-                  <div className="flex items-center gap-1">
-                    <Link to="/invoices/details/1">
-                      <button className="text-gray-500 hover:text-black">
+                  <div className="flex items-center  justify-center gap-1">
+                    <Link to="/app/invoices/details/1">
+                      <button className="text-gray-500 hover:text-black mt-1.5">
                         <AiFillEye />
                       </button>
                     </Link>

@@ -20,11 +20,12 @@ import {  BiLinkExternal} from "react-icons/bi";
  import { AiFillGithub } from "react-icons/ai";
  import {  } from "react-icons/si";
  import {  } from "react-icons/si";
- import { useLocation } from 'react-router-dom';
+ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import LeaveEdit from '../leaves/LeavesEditLeavesModal';
  import upcomingLeaves from './EmployeesUpcomingLeavesModal';
 import EditLeaveModal from './EmployeesEditEmployeesModal';
+import DumbChip from '../sharedComponents/ChipComponent';
  
  
  
@@ -34,7 +35,7 @@ import EditLeaveModal from './EmployeesEditEmployeesModal';
  
  
  function EmployeesGeneral() {
-
+const navigate = useNavigate();
 
  
 
@@ -56,7 +57,8 @@ import EditLeaveModal from './EmployeesEditEmployeesModal';
 
    const one= [
    { icon: FaEnvelopeSquare, label: "Company Email", value: "abc@domain.com" },
-   {  label: "Personal Email", value: "xyz@domain.com" },];
+   {  label: "Personal Email", value: "xyz@domain.com" },
+  ];
 
 
     const two = [
@@ -225,8 +227,8 @@ const projects = [
 
   return (
     <>
-      <div className="flex gap-[14px]">
-        <div className="bg-white w-fit border rounded-md p-3 mt-3 text-x">
+      <div className="flex gap-[14px] ">
+        <div className="bg-white w-fit border rounded-md p-3  text-x mt-3">
           <div className="flex-col text-center">
             <div className=" flex justify-start  ml-[95px] gap-x-[53px]  ">
               <div className="">
@@ -236,9 +238,9 @@ const projects = [
                 />
               </div>
               <div className=" flex items-top gap-1 text-sm ">
-                <p>
-                  <BsLaptopFill className="text- mt-[3px]" />
-                </p>
+                <button onClick={() => navigate("/app/devices")}>
+                  <BsLaptopFill className="text -mt-[18px] " />
+                </button>
                 <p>
                   <EditLeaveModal />
                 </p>
@@ -257,8 +259,8 @@ const projects = [
                 <div className="ticket-icon">
                   <detail.icon />
                 </div>
-                <div className="flex gap-6 justify-end ">
-                  <div className="  text-[#A59F9F]  w-[60px]">
+                <div className="flex gap-5 justify-end ">
+                  <div className="  text-[#A59F9F]  w-[61px]">
                     {detail.label}
                   </div>
                   <div className="  font-semibold  w-[105px]  text-end">
@@ -268,7 +270,7 @@ const projects = [
               </div>
             ))}
 
-            <div className="flex gap-5">
+            <div className="flex gap-4">
               {one.map((detail, index) => (
                 <div key={index} className={` flex gap-1 text-x items-center `}>
                   <div className="ticket-icon">
@@ -286,14 +288,14 @@ const projects = [
               ))}
             </div>
 
-            <div className="flex gap-1">
+            <div className="flex gap-4">
               {two.map((detail, index) => (
                 <div key={index} className={` flex gap-1 text-x items-center `}>
                   <div className="ticket-icon">
                     <detail.icon />
                   </div>
                   <div className="flex-col  items-center">
-                    <div className="ticket-label text-[#A59F9F]  w-[85px]">
+                    <div className={`ticket-label text-[#A59F9F] `}>
                       {detail.label}
                     </div>
                     <div className="ticket-value font-semibold ">
@@ -306,7 +308,7 @@ const projects = [
           </div>
         </div>
 
-        <div className="bg-white p-3 mt-3 border rounded-md">
+        <div className="bg-white p-3 mt-3 border rounded-md ">
           {leaves.map((leave, index) => (
             <>
               <div
@@ -341,7 +343,10 @@ const projects = [
               </div>
             </>
           ))}
-          <button className="border rounded-md bg-[#1A13CB] text-white px-[59px] py-0.5 mt-4">
+          <button
+            onClick={() => navigate("/app/leaves")}
+            className="border rounded-md bg-[#1A13CB] text-white px-[59px] py-0.5 mt-4"
+          >
             View All Leaves
           </button>
         </div>
@@ -365,10 +370,10 @@ const projects = [
                 {leave.data.map((item, itemIndex) => (
                   <div
                     key={itemIndex}
-                    className="flex justify-between items-center gap-[23px]   "
+                    className="flex justify-between items-center gap-[17px]   "
                   >
                     <p
-                      className={`text-[#A59F9F] font-semibold  items-center  
+                      className={`text-[#A59F9F] font-semibold  items-center   
                       `}
                     >
                       {item.label}
@@ -407,8 +412,10 @@ const projects = [
                       <p className="w-[50px]">{item.title}</p>
                       <div className="ml-[96px] text-">
                         <button
-                          className={`rounded-full bg-gray-400 w-[24px] h-[12px] flex items-center  focus:outline-none ${
-                            toggledStates[itemIndex] ? "bg-[#1A13CC]" : ""
+                          className={`rounded-full  w-[24px] h-[12px] flex items-center  focus:outline-none ${
+                            toggledStates[itemIndex]
+                              ? "bg-[#1A13CB]"
+                              : "bg-gray-400"
                           }`}
                           onClick={() => handleToggle(itemIndex)}
                         >
@@ -429,7 +436,10 @@ const projects = [
       </div>
       <div className="flex  items-center justify-between mt-2">
         <p className="font-bold">Projects</p>
-        <button className="border rounded-lg bg-[#1A13CC] text-white px-4 py-2 flex items-center gap-2 font-semibold">
+        <button
+          onClick={() => navigate("/app/projects")}
+          className="border rounded-lg bg-[#1A13CC] text-white px-4 py-2 flex items-center gap-2 font-semibold"
+        >
           <BiLinkExternal />
           View All
         </button>
@@ -442,22 +452,35 @@ const projects = [
                 <project.icon1 className="text-[#1A13CC] text-lg" />
                 {project.heading}
               </div>
-              <div className="flex gap-1 items-center">
-                <project.icon2 className="text-sm" />
+              <div className="flex  gap-1 items-start">
                 <button
-                  className={` rounded-full px-2 w-[55px] flex items-center justify-center ${
-                    index === 0
-                      ? "bg-[#FFFF00]"
-                      : index === 1
-                      ? "bg-[#FE0012] text-white"
-                      : "bg-[#00D100] text-white"
-                  }`}
+                  onClick={() => navigate("/app/projects")}
+                  className="flex gap-1 items-center"
                 >
-                  {project.time}
+                  <project.icon2 className="text-lg" />
                 </button>
-                <button className=" rounded-full px-2 bg-[#00D100] text-white w-[55px] flex items-center justify-center">
-                  {project.status}
-                </button>
+                <DumbChip
+                  backgroundColor={
+                    index === 0
+                      ? "#FFFF00"
+                      : index === 1
+                      ? "#FE0012"
+                      : "#00D100"
+                  }
+                  label={project.time}
+                  width={55}
+                  size="small"
+                  fontSize={8}
+                  textColor={index === 0 ? "black" : "white"}
+                />
+                <DumbChip
+                  label={project.status}
+                  textColor="white"
+                  backgroundColor="#00D100"
+                  width={55}
+                  size="small"
+                  fontSize={8}
+                />
               </div>
             </div>
             <div className="bg-[#E9F8F8] p-2 space-y-2 w-[213px] text-x rounded-md">
@@ -473,52 +496,52 @@ const projects = [
                     }`}
                   >
                     {index === 0 ? (
-                      <div className="isolate flex space-x-1 overflow-hidden ">
+                      <div className=" flex space-x-1 overflow-hidden ">
                         <img
                           src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"
                           alt=""
-                          className="relative z-30 inline-block h-5 w-5 rounded-full ring-1 ring-gray-200 object-cover"
+                          className="  h-5 w-5 rounded-full ring-1 ring-gray-200 object-cover overflow-hidden"
                         />
                       </div>
                     ) : index === 2 ? (
-                      <div className="isolate flex -space-x-1.5 overflow-hidden">
+                      <div className=" flex -space-x-1.5 overflow-hidden">
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU"
                           alt=""
-                          className="relative z-20 object-cover inline-block h-5 w-5 rounded-full ring-1 ring-white"
+                          className=" object-cover inline-block h-5 w-5 rounded-full ring-1 ring-white"
                         />
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYH_VDaGfxQ_cPhkgDPyoxXJgnnKHzEw7kdg&usqp=CAU"
                           alt=""
-                          className="relative z-10 object-cover inline-block h-5 w-5 rounded-full ring-1 ring-white"
+                          className=" object-cover inline-block h-5 w-5 rounded-full ring-1 ring-white"
                         />
                       </div>
                     ) : index === 3 ? (
-                      <div className="isolate flex -space-x-1.5 overflow-hidden">
+                      <div className=" flex -space-x-1.5 overflow-hidden">
                         <img
                           src="https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-260nw-1714666150.jpg"
                           alt=""
-                          className="relative z-50 object-cover inline-block h-5 w-5 rounded-full ring-1 ring-white"
+                          className="object-cover inline-block h-5 w-5 rounded-full ring-1 ring-white"
                         />
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU"
                           alt=""
-                          className="relative z-40 object-cover inline-block h-5 w-5 rounded-full ring-1 ring-white"
+                          className="  object-cover inline-block h-5 w-5 rounded-full ring-1 ring-white"
                         />
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU"
                           alt=""
-                          className="relative z-30 inline-block object-cover h-5 w-5 rounded-full ring-1 ring-white"
+                          className="  inline-block object-cover h-5 w-5 rounded-full ring-1 ring-white"
                         />
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYH_VDaGfxQ_cPhkgDPyoxXJgnnKHzEw7kdg&usqp=CAU"
                           alt=""
-                          className="relative z-20 inline-block h-5 w-5 object-cover rounded-full ring-1 ring-white"
+                          className=" inline-block h-5 w-5 object-cover rounded-full ring-1 ring-white"
                         />
                         <img
                           src="https://thumbs.dreamstime.com/b/true-power-comes-realising-your-potential-portrait-confident-young-businessman-working-modern-office-242593128.jpg"
                           alt=""
-                          className="relative z-10 inline-block h-5 w-5 object-cover rounded-full ring-1 ring-white"
+                          className="  inline-block h-5 w-5 object-cover rounded-full ring-1 ring-white"
                         />
                       </div>
                     ) : null}
@@ -535,4 +558,4 @@ const projects = [
   );
 }
 export default EmployeesGeneral;
-  // 
+  

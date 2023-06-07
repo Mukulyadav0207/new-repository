@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
-
-
+import {AiOutlinePlus} from "react-icons/ai";
+import Button from "../sharedComponents/ButtonComponent";
 
 const Modal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -10,7 +10,7 @@ const Modal = () => {
     return (
       <>
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm w-[1260px] h-[665px]">
-          <div className="p-2 bg-gray-100 ">
+          <div className="p-5 bg-gray-100 ">
             <div className="flex text-black gap-44">
               <div className="font-bold"> Add Department</div>
               <div>
@@ -27,7 +27,7 @@ const Modal = () => {
             <div>
               <input
                 type="text"
-                className="border rounded-md w-[300px] mt-2 mb-2"
+                className="border rounded-md w-full mt-2 mb-2"
               ></input>
             </div>
 
@@ -35,7 +35,7 @@ const Modal = () => {
             <div>
               <input
                 type="text"
-                className="border rounded-md w-[300px] mt-2 mb-2"
+                className="border rounded-md w-full mt-2 mb-2"
               ></input>
             </div>
 
@@ -45,7 +45,7 @@ const Modal = () => {
                 type="email"
                 name="email"
                 id="email"
-                className="border rounded-md w-[300px] mt-2 mb-2"
+                className="border rounded-md w-full mt-2 mb-2"
               ></input>
             </div>
 
@@ -53,7 +53,7 @@ const Modal = () => {
             <div>
               <input
                 type="contact number"
-                className="border rounded-md w-[300px] mt-2 mb-2"
+                className="border rounded-md w-full mt-2 mb-2"
               ></input>
             </div>
 
@@ -61,23 +61,31 @@ const Modal = () => {
             <div>
               <input
                 type="text"
-                className="border rounded-md w-[300px] h-20 mt-2 mb-2"
+                className="border rounded-md w-full h-20 mt-2 mb-4"
               ></input>
             </div>
 
             <div className="flex justify-end gap-3">
               <div>
-                <button
+                <Button
                   onClick={() => setShowModal(false)}
-                  className="px-2 text-blue-700 border border-blue-700 rounded-md w-50"
-                >
-                  Cancel
-                </button>
+                  borderColor="#1A13CB"
+                  textColor="#1A13CB"
+                  label="Cancel"
+                  border="1px solid black"
+                  width={60}
+                  padding="6px 5px"
+                  backgroundColor="white"
+                />
               </div>
               <div>
-                <button className="px-2 text-white bg-blue-700 border rounded-md w-50">
-                  Add
-                </button>
+                <Button
+                  backgroundColor="#1A13CB"
+                  textColor="white"
+                  label="Add"
+                  width={60}
+                  padding="7px 18px"
+                />
               </div>
             </div>
           </div>
@@ -88,12 +96,14 @@ const Modal = () => {
 
   return (
     <>
-      <button
+      <Button
         onClick={() => setShowModal(true)}
-        className="px-2 text-white bg-blue-700 border rounded-md w-50 hover:bg-blue-600"
-      >
-        + Add Client
-      </button>
+        backgroundColor="#1A13CB"
+        textColor="white"
+        padding="8px 8px"
+        label="  Add Employee"
+        icon={<AiOutlinePlus />}
+      />
       {showModal && <Modal />}
     </>
   );

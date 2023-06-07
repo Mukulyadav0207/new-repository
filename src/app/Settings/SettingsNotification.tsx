@@ -4,7 +4,7 @@ import { MdChatBubble } from "react-icons/md";
 import { HiGlobeAlt } from "react-icons/hi";
 import { FaEnvelope } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
-import NotificationNotes from "./SettingsNotificationEditModal";
+import EditNotificationTypes from "./SettingsNotificationEditModal";
 
 const Notification = () => {
   const [showNotificationModal, setShowNotificationModal] = useState(false);
@@ -99,7 +99,7 @@ const Notification = () => {
             </div>
 
             <div>
-              <NotificationNotes />
+              <EditNotificationTypes />
             </div>
           </div>
         </div>
@@ -162,7 +162,7 @@ const Notification = () => {
           </div>
 
           <div>
-            <FaEdit />
+            <EditNotificationTypes />
           </div>
         </div>
       </div>
@@ -202,7 +202,7 @@ const Notification = () => {
           </div>
 
           <div>
-            <FaEdit />
+            <EditNotificationTypes />
           </div>
         </div>
       </div>

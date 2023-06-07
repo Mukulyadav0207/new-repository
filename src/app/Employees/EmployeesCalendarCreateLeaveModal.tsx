@@ -106,7 +106,10 @@ const CreateLeave = () => {
   return (
     <>
       <button onClick={() => setShowModal(true)} className="">
-        2
+        <div className="flex  font-semibold border w-[140px] h-[50px] ">
+        
+          2
+        </div>
       </button>
       {showModal && <CreateMyLeave />}
     </>

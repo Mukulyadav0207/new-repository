@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
+import Button from "../sharedComponents/ButtonComponent";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+
+
+
 
 const AddEmployees = () => {
   const [showModal, setShowModal] = useState(false);
@@ -126,17 +131,25 @@ const AddEmployees = () => {
 
             <div className="flex justify-end gap-3">
               <div>
-                <button
+                <Button
                   onClick={() => setShowModal(false)}
-                  className="px-2 text-blue-700 border border-blue-700 rounded-md w-50"
-                >
-                  Cancel
-                </button>
+                  borderColor="#1A13CB"
+                  textColor="#1A13CB"
+                  label="Cancel"
+                  border="1px solid black"
+                  width={60}
+                  padding="7px 9px"
+                  backgroundColor="white"
+                />
               </div>
               <div>
-                <button className="px-2 text-white bg-blue-700 border rounded-md w-50">
-                  Add
-                </button>
+                <Button
+                  backgroundColor="#1A13CB"
+                  textColor="white"
+                  label="Add"
+                  width={60}
+                  padding="8px 18px"
+                />
               </div>
             </div>
           </div>
@@ -147,12 +160,14 @@ const AddEmployees = () => {
 
   return (
     <>
-      <button
+      <Button
         onClick={() => setShowModal(true)}
-        className="px-2 py-1 text-white bg-[#1A13CB] font-medium border rounded-md"
-      >
-        + Add Employee
-      </button>
+        backgroundColor="#1A13CB"
+        textColor="white"
+        padding="8px 8px"
+        label="  Add Employee"
+        icon={<AiOutlinePlus />}
+      />
       {showModal && <Modal />}
     </>
   );

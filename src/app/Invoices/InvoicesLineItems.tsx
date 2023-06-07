@@ -26,9 +26,9 @@ function InvoiceLineItems() {
   return (
     <>
       <div className="flex gap-2 mt-4 ">
-        <div className=" gap-1 p-2 bg-white w-[450px] border rounded-lg">
-          <div className="flex items-center font-bold">
-            <p>Line Items</p> <FaEdit className="ml-[339px]" />
+        <div className=" gap-1 p-2 bg-white w-[450px] border rounded-lg ">
+          <div className="flex items-center font-bold justify-between">
+            <p>Line Items</p> <FaEdit className="" />
           </div>
 
           <div className="items-center p-2 mt-2 space-y-1 border rounded-lg bg-[#E9F8F8]">
@@ -66,8 +66,8 @@ function InvoiceLineItems() {
         </div>
 
         <div className=" gap-1 p-2 bg-white w-[450px] border rounded-lg">
-          <div className="flex items-center font-bold">
-            <p>Line Items</p> <FaEdit className="ml-[339px]" />
+          <div className="flex items-center font-bold justify-between">
+            <p>Line Items</p> <FaEdit className="" />
           </div>
 
           <div className="items-center p-2 mt-2 space-y-1 border rounded-lg bg-[#E9F8F8] h-[254px]">

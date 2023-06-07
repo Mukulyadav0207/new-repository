@@ -1,15 +1,7 @@
-import React from "react";
-import { BiXCircle } from "react-icons/bi";
-import { FiCheckCircle } from "react-icons/fi";
-import Button from "../sharedComponents/ButtonComponent";
-import Input from "../sharedComponents/InputComponent";
 import { FaFileAlt } from "react-icons/fa";
+import { Routes,Route } from "react-router-dom";
 
-
-function Report() {
-  
-
-
+function ModelDetails() {
   return (
     <>
       <div className="w-[720px] h-[318px] bg-[#FFFFFF]  flex p-6 m-6 rounded-lg">
@@ -32,9 +24,12 @@ function Report() {
           </p>
         </div>
       </div>
+      <Routes>
+      
+    
+      </Routes>
     </>
   );
+}
 
-};
-
-export default Report;
+export default ModelDetails;

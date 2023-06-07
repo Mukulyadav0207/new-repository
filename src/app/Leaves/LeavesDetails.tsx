@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Outlet, useRouteMatch } from "react-router-dom";
+import { Link, Outlet,useNavigate } from "react-router-dom";
 
 // import Incident from "./Incidents";
 
@@ -15,25 +15,24 @@ import { NavLinkCSS } from "../dashboard/DashboardList";
 
 
 function LeaveDetails() {
- 
- const location = useLocation();
- const [currentModule, setCurrentModule] = useState("");
+ const navigate = useNavigate();
+const currentPath = location.pathname;
+const [currentModule, setCurrentModule] = useState("");
 
- useEffect(() => {
-   const currentPath = location.pathname;
-   setCurrentModule(getModuleTextFromPath(currentPath));
- }, [location]);
+useEffect(() => {
+  setCurrentModule(getModuleNameFromPath(currentPath));
+}, [currentPath]);
 
- const getModuleTextFromPath = (path) => {
-   switch (path) {
-     case "/general":
-       return "General Details";
-     case "/timeline":
-       return "Timeline";
-     default:
-       return "";
-   }
- };
+const getModuleNameFromPath = (currentpath) => {
+  switch (currentpath) {
+    case "/app/leaves/allleaves/details/1/general":
+      return "General Details";
+    case "/app/leaves/allleaves/details/1/timeline":
+      return "Timeline";
+    default:
+      return "";
+  }
+};
 
 
 
@@ -41,15 +40,11 @@ function LeaveDetails() {
   return (
     <>
       <div className="flex items-center">
-        <div> Leaves</div>
+        <button onClick={() => navigate("/app/leaves")}>Leaves </button>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
-        <div className="text-blue-700">
-        
-          {currentModule === "General Details" && "General Details"}
-          {currentModule === "Timeline" && "Timeline"}
-        </div>
+        <div className="text-blue-700">{currentModule}</div>
       </div>
 
       <div className="flex gap-4 mt-3 font-bold">

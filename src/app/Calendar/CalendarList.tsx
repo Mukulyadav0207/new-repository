@@ -29,7 +29,7 @@ function Calendar() {
         <div className="flex justify-end flex-grow gap-4 ">
           <div className="relative ml-36 ">
             <input
-              className="px-3 py-1 text-sm border border-gray-500 rounded-md"
+              className="px-3 py-1 text-sm border border-gray-500 rounded- w-[400px]"
               type="text"
               placeholder="Search keyword "
             />
@@ -172,7 +172,7 @@ function Calendar() {
                     <div className="flex items-center justify-center gap-1 text-xs">
                       <FaBullhorn />
                       <GiSandsOfTime />
-                      Samarth Singh
+                      Smarth Singh
                     </div>
                   </div>
                   <div className="flex items-center gap-1 text-xs">

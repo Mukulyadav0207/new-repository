@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, Outlet, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, Outlet, NavLink, useNavigate } from "react-router-dom";
 import InvoiceGeneral from "./InvoicesGeneral";
 import InvoiceTimeline from "./InvoiceTimeline";
 import InvoiceLineItems from "./InvoicesLineItems";
@@ -12,16 +12,36 @@ import { NavLinkCSS } from "../dashboard/DashboardList";
 import { IoIosArrowForward } from "react-icons/io";
 
 function InvoiceDetails() {
-  const handleModuleClick = (module) => {
-    setCurrentModule(module);
+   const navigate = useNavigate();
+ 
+
+  const currentPath = location.pathname;
+  const [currentModule, setCurrentModule] = useState("");
+
+  useEffect(() => {
+    setCurrentModule(getModuleNameFromPath(currentPath));
+  }, [currentPath]);
+
+  const getModuleNameFromPath = (currentpath) => {
+    switch (currentpath) {
+      case "/app/invoices/details/1/general":
+        return "General Detail";
+
+      case "/app/invoices/details/1/timeline":
+        return "Timeline";
+      case "/app/invoices/details/1/lineItems":
+        return "Line Items";
+
+      default:
+        return "";
+    }
   };
 
-  const [currentModule, setCurrentModule] = useState("General Detail");
 
   return (
     <>
       <div className="flex items-center">
-        <div> Invoices</div>
+        <button onClick={() => navigate("/app/invoices")}>Invoices </button>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
@@ -30,46 +50,28 @@ function InvoiceDetails() {
 
       <div className="flex gap-4 mt-3 font-bold">
         <NavLink to="general" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("General Detail");
-            }}
-          >
-            <div className="flex flex-row items-center justify-center gap-1 p-2 ">
-              <div>
-                <IoMdInformationCircle />
-              </div>
-              <div>General</div>
+          <div className="flex flex-row items-center justify-center gap-1 p-2 ">
+            <div>
+              <IoMdInformationCircle />
             </div>
-          </button>
+            <div>General</div>
+          </div>
         </NavLink>
         <NavLink to="lineItems" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("LineItems");
-            }}
-          >
-            <div className="flex flex-row items-center justify-center gap-1 p-2 ">
-              <div>
-                <FaReceipt />
-              </div>
-              <div>Line Items</div>
+          <div className="flex flex-row items-center justify-center gap-1 p-2 ">
+            <div>
+              <FaReceipt />
             </div>
-          </button>
+            <div>Line Items</div>
+          </div>
         </NavLink>
         <NavLink to="timeline" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("Timeline");
-            }}
-          >
-            <div className="flex flex-row items-center justify-center gap-1 p-2 ">
-              <div>
-                <AiOutlineApartment />
-              </div>
-              <div>Timeline</div>
+          <div className="flex flex-row items-center justify-center gap-1 p-2 ">
+            <div>
+              <AiOutlineApartment />
             </div>
-          </button>
+            <div>Timeline</div>
+          </div>
         </NavLink>
       </div>
       <div className="items-start ">

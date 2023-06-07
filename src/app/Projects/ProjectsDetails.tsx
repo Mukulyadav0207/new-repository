@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Routes, NavLink } from "react-router-dom";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaReceipt } from "react-icons/fa";
@@ -17,47 +17,36 @@ import { IoIosArrowForward } from "react-icons/io";
 import { NavLinkCSS } from "../dashboard/DashboardList";
 
 function ProjectsDetails() {
-  const [showOverlay, setShowOverlay] = useState(false);
+   const navigate = useNavigate();
+ 
   const location = useLocation();
 
-  useEffect(() => {
-    setShowOverlay(location.pathname === "/projects/details/1/general");
-  }, [location]);
+ 
 
   const currentPath = location.pathname;
-  const [currentModule, setCurrentModule] = useState("Performance");
+  const [currentModule, setCurrentModule] = useState("");
 
   useEffect(() => {
     setCurrentModule(getModuleNameFromPath(currentPath));
   }, [currentPath]);
 
-  const getModuleNameFromPath = (path) => {
-    switch (path) {
-      case "general":
+  const getModuleNameFromPath = (currentPath) => {
+    switch (currentPath) {
+      case "/app/projects/details/1/general":
         return "General Detail";
 
-      case "/notes":
+      case "/app/projects/details/1/notes":
         return "Notes";
-      case "/performance":
-        return "Performance";
-      case "/financials":
-      case "/employees/financials":
+      case "/app/projects/details/1/resourceTree":
+        return "Resources";
+      case "/app/projects/details/1/financials":
         return "Financials";
-      case "/salary":
-      case "/employees/salary":
-        return "Salary";
-      case "/calendar":
-      case "/employees/calendar":
-        return "Calendar";
-      case "/timeline":
-      case "/employees/timeline":
+      case "/app/projects/details/1/invoices":
+        return "Invoices";
+      case "/app/projects/details/1/timeline":
         return "Timeline";
-      case "/document":
-      case "/employees/document":
-        return "Documents";
-      case "/feedback":
-      case "/employees/feedback":
-        return "Feedbacks";
+      case "/app/projects/details/1/healthChecks":
+        return "Health Check";
       default:
         return "";
     }
@@ -65,8 +54,20 @@ function ProjectsDetails() {
 
   return (
     <>
-      <div className="flex items-center mt-4 text-sm">
-        <div>Projects </div>
+      {currentPath === "/app/projects/details/1/general" ? (
+        <div className="-mt-5 -ml-5 w-[1100px] h-[35px] bg-[#FE0012] font-normal   text-white pl-5 flex justify-between pr-6 text-sm items-center">
+          <p>
+            Project is ongoing but last invoice was sent more than a month ago
+            (INV-001).
+          </p>
+          <p>x</p>
+        </div>
+      ) : (
+        "null"
+      )}
+
+      <div className="flex items-center mt-2 text-sm">
+        <button onClick={() => navigate("/app/projects")}>Projects </button>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
@@ -74,9 +75,7 @@ function ProjectsDetails() {
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
-        <div className="text-blue-700 font-semibold">
-          {getModuleNameFromPath(currentModule)}
-        </div>
+        <div className="text-blue-700 font-semibold">{currentModule}</div>
       </div>
 
       <div className="flex gap-4 mt- font-bold">
@@ -133,7 +132,7 @@ function ProjectsDetails() {
           </div>
         </NavLink>
 
-        <NavLink to="helthChecks" style={NavLinkCSS}>
+        <NavLink to="healthChecks" style={NavLinkCSS}>
           <div className="flex flex-row items-center justify-center gap-1 p-2 ">
             <div>
               <MdLocalHospital />
@@ -142,16 +141,6 @@ function ProjectsDetails() {
             <div>Health Checks</div>
           </div>
         </NavLink>
-
-        {showOverlay && (
-          <div className="fixed top-[56px] left-[160px] w-[1100px] h-[26px] bg-[#FE0012] font-normal  z-10 text-white pl-5 flex justify-between pr-6 text-sm items-center">
-            <p>
-              Project is ongoing but last invoice was sent more than a month ago
-              (INV-001).
-            </p>{" "}
-            <p>x</p>
-          </div>
-        )}
       </div>
       <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />

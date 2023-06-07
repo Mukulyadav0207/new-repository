@@ -20,13 +20,13 @@ import {} from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { receiveEmployeesCalendarData } from "../../redux/actions/EmployeesCalendarActions";
 import CreateLeave from "./EmployeesCalendarCreateLeaveModal";
-
+import {  useNavigate } from "react-router-dom";
 
 
 
 
 function EmployeesCalendar() {
-
+const navigate = useNavigate();
 const calendar = useSelector((state) => state.employeesCalendar.data);
 const dispatch = useDispatch(); 
 
@@ -154,22 +154,43 @@ useEffect(() => {
                 >
                   {data.Sunday}
                 </td>
-                <td className="px-2 py- font-semibold border w-[160px]">
-                  <div>{data.Monday}</div>
-                  <div className="mt-6 text-[#FE0012] ">
-                    {index === 0 ? (
-                      <div className="flex items-center pl-3 gap-1 text-xs w-32 p-1  bg-red-200 border-l-4 border-[#FE0012]">
-                        <BsCircleHalf />
-                        <RxCrossCircled />
-                        Previlege
+                <td className="px-2 py- font-semibold border w-[160px] ">
+                  {index === 0 ? (
+                    <button
+                      className="  flex flex-col  focus:outline-none"
+                      onClick={() =>
+                        navigate("/leaves/allleaves/details/1/general")
+                      }
+                    >
+                      <div>{data.Monday}</div>
+                      <div className="mt-6 text-[#FE0012]">
+                        <div className="flex items-center pl-3 gap-1 text-xs w-32 p-1 bg-red-200 border-l-4 border-[#FE0012]">
+                          <BsCircleHalf />
+                          <RxCrossCircled />
+                          Privilege
+                        </div>
                       </div>
-                    ) : null}
-                  </div>
+                    </button>
+                  ) : (
+                    <>
+                      <div>{data.Monday}</div>
+                      <div className="mt-6 text-[#FE0012]">
+                        {index === 0 ? (
+                          <div className="flex items-center pl-3 gap-1 text-xs w-32 p-1 bg-red-200 border-l-4 border-[#FE0012]">
+                            <BsCircleHalf />
+                            <RxCrossCircled />
+                            Privilege
+                          </div>
+                        ) : null}
+                      </div>
+                    </>
+                  )}
                 </td>
-                <td className="px-2 py-2 font-semibold border w-[160px] ">
+
+                <td className={`px-2 py-2 font-semibold border w-[160px] `}>
                   {data.Tuesday}
-                  <div className="mt-6 text-[#000000] ">
-                    {index===0 ? (<CreateLeave />): null}
+                  <div className=" text-[#000000] ">
+                    {index === 0 ? <CreateLeave /> : null}
                     {index === 3 ? (
                       <div className="flex items-center pl-3 gap-1 text-xs mt-6 w-32 p-1  bg-[#A59F9F] border-l-4 border-[#000000]">
                         <BsCircleFill />

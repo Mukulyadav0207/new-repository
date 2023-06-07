@@ -13,7 +13,7 @@ const EditLeaveModal = () => {
    
  return (
    <>
-     <div className=" fixed inset-0 w-[1260px] h-[665px] bg-black bg-opacity-25  backdrop-blur-x   flex justify-center items-center   ">
+     <div className=" fixed inset-0 w-[1260px] h-[665px] bg-white bg-opacity-80  backdrop-blur-xs   flex justify-center items-center   ">
        <div className="p-2 bg-gray-100 ">
          <div className="flex text-black ">
            <div className="font-bold text-sm"> Edit Employee</div>

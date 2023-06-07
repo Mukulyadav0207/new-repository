@@ -3,7 +3,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { BsFillCloudArrowUpFill } from "react-icons/bs";
 import { FiXCircle } from "react-icons/fi";
-import AddEmployeeModal from "./ProjectAddEmployeeModal";
+import AddEmployeeModal from "./ProjectsAddEmployeeModal";
 import AddInternModal from "./ProjectsAddInternModal";
 
 const EditTeamModal = () => {

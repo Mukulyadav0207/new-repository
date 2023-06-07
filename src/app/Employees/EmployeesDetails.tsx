@@ -1,6 +1,6 @@
 import React,  { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { Routes, NavLink } from "react-router-dom";
+import { Routes, NavLink,useNavigate } from "react-router-dom";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaReceipt } from "react-icons/fa";
 import { FaFileInvoiceDollar } from "react-icons/fa";
@@ -17,55 +17,42 @@ import { IoIosArrowForward } from "react-icons/io";
 import { NavLinkCSS } from "../dashboard/DashboardList";
 
 function EmployeesDetails() {
- const [showOverlay, setShowOverlay] = useState(false);
+  const navigate = useNavigate();
+
  const location = useLocation();
 
- useEffect(() => {
-   setShowOverlay(location.pathname === "/employees/details/1/general"); 
- }, [location]);
 
 
 
 
 
 const currentPath = location.pathname;
-const [currentModule, setCurrentModule] = useState("Performance");
+const [currentModule, setCurrentModule] = useState("");
 
    useEffect(() => {
      setCurrentModule(getModuleNameFromPath(currentPath));
    }, [currentPath]);
 
-   const getModuleNameFromPath = (path) => {
-     switch (path) {
-       case "general":
-       
+   const getModuleNameFromPath = (currentpath) => {
+     switch (currentpath) {
+       case "/app/employees/details/1/general":
          return "General Detail";
 
-
-
-       case "/notes":
-       
+       case "/app/employees/details/1/notes":
          return "Notes";
-       case "/performance":
-       
+       case "/app/employees/details/1/performance":
          return "Performance";
-       case "/financials":
-       case "/employees/financials":
+       case "/app/employees/details/1/financials":
          return "Financials";
-       case "/salary":
-       case "/employees/salary":
+       case "/app/employees/details/1/salary":
          return "Salary";
-       case "/calendar":
-       case "/employees/calendar":
+       case "/app/employees/details/1/calendar":
          return "Calendar";
-       case "/timeline":
-       case "/employees/timeline":
+       case "/app/employees/details/1/timeline":
          return "Timeline";
-       case "/document":
-       case "/employees/document":
+       case "/app/employees/details/1/document":
          return "Documents";
-       case "/feedback":
-       case "/employees/feedback":
+       case "/app/employees/details/1/feedback":
          return "Feedbacks";
        default:
          return "";
@@ -80,8 +67,13 @@ const [currentModule, setCurrentModule] = useState("Performance");
 
   return (
     <>
-      <div className="flex items-center mt-4 text-sm">
-        <div>Employees </div>
+      {currentPath === "/app/employees/details/1/general" ? (
+        <div className="-mt-5 -ml-5 w-[1100px] h-[26px] bg-[#FE0012] font-normal   text-white pl-5 flex justify-between pr-6 text-sm items-center">
+          <p>Salary increment due in 2 weeks.</p> <p>x</p>
+        </div>
+      ) : null}
+      <div className="flex items-center mt-2 text-sm ">
+        <button onClick={() => navigate("/employees")}>Employees </button>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
@@ -89,9 +81,7 @@ const [currentModule, setCurrentModule] = useState("Performance");
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
-        <div className="text-blue-700 font-semibold">
-          {getModuleNameFromPath(currentModule)}
-        </div>
+        <div className="text-blue-700 font-semibold">{currentModule}</div>
       </div>
 
       <div className="flex gap-3 mt- font-bold">
@@ -177,11 +167,6 @@ const [currentModule, setCurrentModule] = useState("Performance");
             <div>Feedbacks</div>
           </div>
         </NavLink>
-        {showOverlay && (
-          <div className="fixed top-[56px] left-[160px] w-[1100px] h-[26px] bg-[#FE0012] font-normal  z-10 text-white pl-5 flex justify-between pr-6 text-sm items-center">
-            <p>Salary increment due in 2 weeks.</p> <p>x</p>
-          </div>
-        )}
       </div>
       <div className="items-start ">
         <hr className="h-px border-0 bg-zinc-400 " />

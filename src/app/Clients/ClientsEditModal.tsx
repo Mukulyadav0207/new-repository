@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
-
+import Button from "../sharedComponents/ButtonComponent";
 
 
 
@@ -11,10 +11,10 @@ const Modal = () => {
   const MyModal = () => {
     return (
       <>
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm w-[1150px] h-[665px]">
-          <div className="p-3 bg-gray-100 h-[470px] w-[400px] text-sm">
-            <div className="flex text-black gap-72">
-              <div className="font-bold"> Edit Client</div>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm w-[1260px] h-[665px]">
+          <div className="p-4 bg-gray-100 h-[500px] w-[400px] text-sm">
+            <div className="flex text-black justify-between">
+              <div className="font-bold  w-[100px]"> Edit Client</div>
               <div>
                 <button
                   onClick={() => setShowModal(false)}
@@ -87,19 +87,26 @@ const Modal = () => {
               ></input>
             </div>
 
-            <div className="flex justify-end gap-3">
+            <div className="flex justify-end gap-3 mt-2 mb-2">
               <div>
-                <button
+                <Button
                   onClick={() => setShowModal(false)}
-                  className="px-2 text-blue-700 border border-blue-700 rounded-md w-50"
-                >
-                  Cancel
-                </button>
+                  borderColor="#1A13CB"
+                  textColor="#1A13CB"
+                  label="Cancel"
+                  border="1px solid black"
+                  width={60}
+                  padding="5px 5px"
+                />
               </div>
               <div>
-                <button className="px-2 text-white bg-blue-700 border rounded-md w-50">
-                  Add
-                </button>
+                <Button
+                  backgroundColor="#1A13CB"
+                  textColor="white"
+                  label="Apply"
+                  width={60}
+                  padding="6px 9px"
+                />
               </div>
             </div>
           </div>

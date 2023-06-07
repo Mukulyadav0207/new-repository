@@ -22,10 +22,10 @@ const Profile = () => {
     return (
       <div
         onClick={() => setShowProfile(false)}
-        className="fixed mt-5 bg-white border border-black rounded-md "
+        className="absolute right-5 top-8  bg-white border border-black rounded-md  w-[125px] h-[90px]"
       >
-        <div className="flex flex-col gap-2 p-2 ">
-          <Link to="/settings" className=" hover:text-red-200">
+        <div className="flex flex-col gap-3 pl-0 p-3   ">
+          <Link to="/app/settings" className=" hover:text-red-200">
             <div className="flex items-center justify-center gap-1">
               <div>
                 <IoMdSettings />

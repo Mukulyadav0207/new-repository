@@ -1,6 +1,7 @@
 import {FaMoneyBillWave  } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import DumbChip from "../sharedComponents/ChipComponent";
 
 const salaryData = [
   {
@@ -113,12 +114,15 @@ function EmployeesSalary() {
                 <p>{salary.heading}</p>
               </div>
               <div className="flex gap-1 items-center">
-                <salary.icon2 />
-                <salary.icon3 />
+                <salary.icon2 className="text-lg" />
+                <salary.icon3 className="text-lg" />
                 {index === 1 ? (
-                  <button className="border rounded-full bg-[#00d100] px-2 text-white">
-                    {salary.button}
-                  </button>
+                  <DumbChip
+                    label={salary.button}
+                    textColor="white"
+                    backgroundColor="#00D100"
+                    fontSize={12}
+                  />
                 ) : null}
               </div>
             </div>
@@ -185,13 +189,10 @@ function EmployeesSalary() {
           >
             <div className=" flex justify-between items-center  font-bold text-sm">
               <div className="flex items-center gap-1">
-               
                 <p>{salary.heading}</p>
               </div>
               <div className="flex gap-1 items-center">
                 <salary.icon />
-             
-               
               </div>
             </div>
 

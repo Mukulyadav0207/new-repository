@@ -75,9 +75,9 @@ function ProjectsResourceTree() {
 
   const renderEmployee = (employee) => {
     return (
-      <div key={employee.id} className="flex justify-center mt- text-sm">
-        <div className="flex flex-col items-center">
-          <div className="w-[170px] h-[150px] rounded-lg bg-white mr-2 flex-col flex items-center ">
+      <div key={employee.id} className="my-2 text-sm">
+        <div className="items-center">
+          <div className="w-[150px] h-[100px] rounded-lg bg-white mr-2 flex-col flex items-center ">
             <p className="mr-2 font-bold">{employee.name}</p>
             <p className="text-sm text-gray-500">{employee.profile}</p>
             <p className="text-sm border rounded-md bg-[#E9F8F8] px-3 py-1 ">
@@ -86,12 +86,11 @@ function ProjectsResourceTree() {
           </div>
         </div>
         {employee.children.length > 0 && (
-          <div className="grid grid-cols-2 gap-8 mt-4">
+          <div className="pl-6">
             {employee.children.map((child) => (
-              <div key={child.id} className="flex flex-col items-center">
-                <div className=""></div>
-                <span className="mt-1">{child.name}</span>
-                {child.children.length > 0 && renderEmployee(child)}
+              <div key={child.id} className="relative">
+                <div className="absolute border-l border-[#0000FF] top-4 left-0 h-full"></div>
+                {renderEmployee(child)}
               </div>
             ))}
           </div>
@@ -100,11 +99,7 @@ function ProjectsResourceTree() {
     );
   };
 
-   return (
-     <div className="mt-9">
-       {employees.map((employee) => renderEmployee(employee))}
-     </div>
-   );
+  return <div className="mt-4">{employees.map((employee) => renderEmployee(employee))}</div>;
 }
 
 export default ProjectsResourceTree;

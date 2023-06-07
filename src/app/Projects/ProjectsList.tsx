@@ -8,6 +8,8 @@ import { receiveProjectsData } from "../../redux/actions/ProjectsActions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { IoIosEye } from "react-icons/io";
+import DumbChip from "../sharedComponents/ChipComponent"; 
+import AddProjects from "./ProjectsAddProjectModal"
 
 function Projects() {
   const projects = useSelector((state) => state.projects.data);
@@ -168,7 +170,7 @@ function Projects() {
           <div className="flex justify-end flex-grow gap-4 ">
             <div className="relative ml-36 ">
               <input
-                className="rounded-md "
+                className="rounded-md p-2 w-[400px]"
                 type="text"
                 placeholder="Search keyword"
               />
@@ -177,10 +179,13 @@ function Projects() {
             <div>
               <Filter />
             </div>
-            <div>{/* <Modal /> */}</div>
+            <div>
+            
+              <AddProjects />
+            </div>
           </div>
         </div>
-        <div className="w-[1060px] h-[530px]  overflow-y-scroll   ">
+        <div className="w-[1060px] h-[530px]  overflow-y-scroll ">
           <table className="mt-4 border-collapse w-[1040px]  text-x">
             <thead>
               <tr className="bg-slate-100">
@@ -224,7 +229,7 @@ function Projects() {
                           <p> {project.WorkerType2}</p>
                         </p>
                         <div className="flex items-center justify-between">
-                          <div className="isolate flex -space-x-1.5 overflow-hidden">
+                          <div className="flex -space-x-1.5 overflow-hidden">
                             <img
                               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU"
                               alt=""
@@ -276,7 +281,7 @@ function Projects() {
                           <p> {project.WorkerType2}</p>
                         </p>
                         <div className="flex items-center justify-between">
-                          <div className="isolate flex -space-x-1.5 overflow-hidden">
+                          <div className=" flex -space-x-1.5 overflow-hidden">
                             <img
                               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU"
                               alt=""
@@ -288,7 +293,7 @@ function Projects() {
                               className="relative z-10 object-cover inline-block h-5 w-5 rounded-full ring-1 ring-gray-500"
                             />
                           </div>
-                          <div className="isolate flex -space-x-1.5 overflow-hidden">
+                          <div className=" flex -space-x-1.5 overflow-hidden">
                             <img
                               src="https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-260nw-1714666150.jpg"
                               alt=""
@@ -307,12 +312,12 @@ function Projects() {
                             <img
                               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYH_VDaGfxQ_cPhkgDPyoxXJgnnKHzEw7kdg&usqp=CAU"
                               alt=""
-                              className="relative z-20 inline-block h-5 w-5 object-cover rounded-full ring-1 ring-gray-500"
+                              className="relative z-20  h-5 w-5 object-cover rounded-full ring-1 ring-gray-500"
                             />
                             <img
                               src="https://thumbs.dreamstime.com/b/true-power-comes-realising-your-potential-portrait-confident-young-businessman-working-modern-office-242593128.jpg"
                               alt=""
-                              className="relative z-10 inline-block h-5 w-5 object-cover rounded-full ring-1 ring-gray-500"
+                              className="relative z-10  h-5 w-5 object-cover rounded-full ring-1 ring-gray-500"
                             />
                           </div>
                         </div>
@@ -325,24 +330,32 @@ function Projects() {
                   </td>
 
                   <td className="px-2 py-2 border w-[120px]">
-                    <button
-                      className={`px-3 py-1  border rounded-full 
-              ${
-                index === 3 || index === 6 || index === 8
-                  ? "bg-[#0000FF] text-white "
-                  : index === 2 || index === 4
-                  ? "bg-[#D5D5D5]  text-black"
-                  : index === 0 || index === 7
-                  ? "bg-[#00D100] text-white"
-                  : "bg-[#FE0012] text-white"
-              } `}
-                    >
-                      {project.Status}
-                    </button>
+                    <DumbChip
+                      label={project.Status}
+                      backgroundColor={
+                        index === 3 || index === 6 || index === 8
+                          ? "#0000FF"
+                          : index === 2 || index === 4
+                          ? "#D5D5D5"
+                          : index === 0 || index === 7
+                          ? "#00D100"
+                          : "#FE0012"
+                      }
+                      textColor={
+                        index === 3 || index === 6 || index === 8
+                          ? "white"
+                          : index === 2 || index === 4
+                          ? "black"
+                          : index === 0 || index === 7
+                          ? "white"
+                          : "white"
+                      }
+                      width={95}
+                    />
                   </td>
                   <td className="px-4 py-2 border ">{project.Invoice}</td>
                   <td className="px-4 py-2 border">
-                    <Link to="/projects/details/1">
+                    <Link to="/app/projects/details/1">
                       <button className="text-gray-500 hover:text-black text-sm">
                         <project.Actions />
                       </button>

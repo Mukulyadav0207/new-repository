@@ -11,7 +11,7 @@ function Timeline(){
       <div className="w-[1050px] h-[470px] bg-white p-6 overflow-y-scroll mt-4 ">
         <Link to="incident">
           <div className="flex justify-end">
-            <button className="px-2 font-medium text-white bg-blue-700 border border-blue-500 rounded-md border- w-50 hover:bg-blue-600">
+            <button className="p-1.5 font-medium text-white bg-[#1A13CB] border  rounded-md  w-50 hover:bg-blue-600">
               + Incidents
             </button>
           </div>

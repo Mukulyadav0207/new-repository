@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye } from "react-icons/ai";
 import { RxHalf2 } from "react-icons/rx";
 
@@ -12,11 +12,11 @@ import { BsLaptop } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 
 import { receiveEmployeesData } from "../../redux/actions/EmployeesActions";
-
+import DumbChip from "../sharedComponents/ChipComponent";
 
 
 function Employees() {
-
+ const navigate = useNavigate();
 
 const employees = useSelector((state) => state.employees.data);
 const dispatch = useDispatch(); 
@@ -138,7 +138,7 @@ const dispatch = useDispatch();
           <div className="flex justify-end flex-grow gap-4 ">
             <div className="relative flex justify-end ">
               <input
-                className="rounded-md "
+                className="rounded-md  p-2 w-[400px]"
                 type="text"
                 placeholder="Search keyword"
               />
@@ -153,7 +153,7 @@ const dispatch = useDispatch();
           </div>
         </div>
 
-        <table className="mt-4 w-[1035px]  h-[100px] ">
+        <table className="mt-8 w-[1035px]  h-[100px] ">
           <thead>
             <tr className="bg-slate-100">
               <th className="px-2 py-2 font-semibold">ID </th>
@@ -185,8 +185,27 @@ const dispatch = useDispatch();
                     </div>
                   </div>
                 </td>
-                <td className="flex items-center justify-center px-2 py-4 ">
-                  <button
+                <td className="flex items-center justify-center gap-2  ">
+                  <DumbChip
+                    label={employee.projects}
+                    backgroundColor={
+                      index === 0 ||
+                      index === 2 ||
+                      index === 4 ||
+                      index === 5 ||
+                      index === 7
+                        ? "#00D100"
+                        : "#FFFF00"
+                    }
+                    textColor={
+                      index === 1 || index === 3 || index === 6 || index === 8
+                        ? "black"
+                        : "white"
+                    }
+                    width={80}
+                  />
+
+                  {/* <button
                     className={`px-4 py-0.5  border rounded-full 
               ${
                 index === 0 ||
@@ -194,47 +213,54 @@ const dispatch = useDispatch();
                 index === 4 ||
                 index === 5 ||
                 index === 7
-                  ? "bg-[#00D100] text-white"
-                  : "bg-[#FFFF00] text-black"
+                  ? "#00D100 text-white"
+                  : "#FFFF00 text-black"
               } `}
                   >
+                   height: "24px",
+                        padding: "4px 5px",
+                        fontSize: "12px",
                     {employee.projects}
-                  </button>
+                  </button> */}
 
                   {index === 4 || index === 7 ? (
-                    <button className="px-4 py-0.5 border rounded-full bg-[#00D100] text-white">
-                      {employee.project2}
-                    </button>
+                    <DumbChip
+                      label={employee.project2}
+                      backgroundColor={"#00D100"}
+                      textColor="white"
+                      width={80}
+                    />
                   ) : null}
                 </td>
 
-                <td className="justify-center px-1 py-2 font-light text-center">
-                  <button
-                    className={`px-4 py-0.5  border rounded-full 
-              ${
-                index === 0 || index === 4 || index === 7
-                  ? "bg-[#00D100] text-white"
-                  : index === 6 || index === 8
-                  ? "bg-[#FFFF00] text-black "
-                  : index === 1 || index === 3 || index === 5
-                  ? "bg-[#FFA500] text-white "
-                  : "bg-[#FE0012] text-white"
-              } `}
-                  >
-                    {employee.hoursEngagement}
-                  </button>
+                <td className="justify-center  font-light text-center">
+                  <DumbChip
+                    label={employee.hoursEngagement}
+                    backgroundColor={
+                      index === 0 || index === 4 || index === 7
+                        ? "#00D100"
+                        : index === 6 || index === 8
+                        ? "#FFFF00"
+                        : index === 1 || index === 3 || index === 5
+                        ? "#FFA500"
+                        : "#FE0012"
+                    }
+                    textColor={index === 6 || index === 8 ? "black" : "white"}
+                    width={80}
+                  />
                 </td>
                 <td className="flex items-center justify-center px-2 py-4 ">
                   {employee.role}
                 </td>
                 <td className="px-2 py-2 ">
                   <div className="flex items-center justify-center gap-1">
-                    <Link to="/employees/details/1">
+                    <Link to="/app/employees/details/1">
                       <button className=" hover:text-black">
                         <AiFillEye />
                       </button>
                     </Link>
                     <button
+                      onClick={() => navigate("/app/devices")}
                       className={`text-sm ${
                         index === 0 ||
                         index === 1 ||

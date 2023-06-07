@@ -4,7 +4,7 @@ import { MdChatBubble } from "react-icons/md";
 import { HiGlobeAlt } from "react-icons/hi";
 import { FaEnvelope } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
-
+import EditNotificationTypes from "./SettingsNotificationEditModal"
 const AdminNotification = () => {
  
  
@@ -36,7 +36,7 @@ const AdminNotification = () => {
               </div>
 
               <div>
-                <FaEdit />
+                <EditNotificationTypes />
               </div>
             </div>
             <div className="flex flex-row items-center mt-4 gap-28">
@@ -54,7 +54,7 @@ const AdminNotification = () => {
               </div>
 
               <div>
-                <FaEdit />
+                <EditNotificationTypes />
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ const AdminNotification = () => {
               </div>
 
               <div>
-                <FaEdit />
+                <EditNotificationTypes />
               </div>
             </div>
           </div>

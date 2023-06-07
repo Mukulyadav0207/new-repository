@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { GrFormAdd } from "react-icons/gr";
 import LineItems from "./InvoicesAddNewLineItems1";
-
+import { AiOutlinePlus } from "react-icons/ai";
+import Button from "../sharedComponents/ButtonComponent";
 const AddInvoice = () => {
   const [showModal, setShowModal] = useState(false);
 
@@ -91,12 +92,14 @@ const AddInvoice = () => {
 
   return (
     <>
-      <button
+      <Button
         onClick={() => setShowModal(true)}
-        className="px-2 text-white bg-blue-700 border rounded-md w-50 hover:bg-blue-600"
-      >
-        + Add Invoice
-      </button>
+        backgroundColor="#1A13CB"
+        textColor="white"
+        padding="8px 8px"
+        label="  Add Devices"
+        icon={<AiOutlinePlus />}
+      />
       {showModal && <Modal />}
     </>
   );

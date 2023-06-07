@@ -6,9 +6,9 @@ import { TbPhoneCall } from "react-icons/tb";
 import { MdOutlineDescription } from "react-icons/md";
 import { Bs0Square } from "react-icons/bs";
 import {} from "react-icons/bs";
-
+import DumbChip from "../sharedComponents/ChipComponent";
 import Modal from "./ClientsEditModal";
-
+import Button from "../sharedComponents/ButtonComponent";
 
 const features = [
   {
@@ -42,7 +42,7 @@ function ClientGeneral() {
       <div className="flex gap-8 ">
         <div className="flex m-2 ml-0 ">
           <div className="m-4 ml-0 bg-white rounded-md ">
-            <div className="flex items-start mt-2 justify-self-end">
+            <div className="flex items-start mt-2 justify-end pr-2 ">
               <div className="flex-col gap-2 ml-32 w-max">
                 <Bs0Square className="flex ml-10 text-5xl text-gray-400 " />
                 <p className="flex justify-center text-xl font-bold ">
@@ -52,9 +52,12 @@ function ClientGeneral() {
               </div>
               <div className="flex items-center justify-end gap-2 mt-2 mr-2 text-2xl ml-28">
                 <Modal />
-                <button className="p-1 text-sm text-white bg-green-500 border rounded-full ">
-                  Ongoing
-                </button>
+                <DumbChip
+                  label="Ongoing"
+                  textColor="white"
+                  backgroundColor="#00D100"
+                  fontSize={13}
+                />
               </div>
             </div>
             <div className="p-4 m-4 rounded-md bg-[#E9F8F8] ">
@@ -138,10 +141,16 @@ function ClientGeneral() {
             </div>
           </div>
         </div>
-        <div className="justify-end ">
-          <button className="flex items-center gap-2 p-2 m-3 font-semibold text-red-500 bg-white border border-red-500 rounded-md">
-            <BsArchiveFill /> Archive
-          </button>
+        <div className="justify-end mt-6 ">
+          <Button
+            icon={<BsArchiveFill />}
+            label="Archive"
+            borderColor="#FE0012"
+            textColor="#FE0012"
+            padding="8px 9px"
+            border="1px solid black"
+            backgroundColor="white"
+          />
         </div>
       </div>
     </>

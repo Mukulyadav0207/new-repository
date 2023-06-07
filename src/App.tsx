@@ -25,17 +25,17 @@ import ProjectsHealthChecks from "./app/projects/ProjectsHealthChecks";
 
 import Departments from "./app/departments/DepartmentsList";
 import Clients from "./app/clients/ClientsList";
-import Devices from "./app/device/DevicesList";
+import Devices from "./app/devices/DevicesList";
 import Calendar from "./app/calendar/CalendarList";
 import Leaves from "./app/leaves/LeavesList";
 import Invoices from "./app/invoices/InvoicesList";
 import Reports from "./app/reports/ReportsList";
 import SettingsMenu from "./app/settings/SettingsDetails";
-import DeviceDetails from "./app/device/DevicesDetails";
+import DeviceDetails from "./app/devices/DevicesDetails";
 import ClientDetails from "./app/clients/ClientsDetails";
 import LeaveDetails from "./app/leaves/LeavesDetails";
-import LeaveGeneral from "./app/leaves/LeavesGeneral";
-import LeaveTimeline from "./app/leaves/LeavesTimeline";
+import LeaveGeneral from "./app/leaves/LeavesAllLeavesGeneral";
+import LeaveTimeline from "./app/leaves/LeavesAllLeavesTimeline";
 import InvoiceDetails from "./app/invoices/InvoicesDetails";
 import InvoiceGeneral from "./app/invoices/InvoicesGeneral";
 import InvoiceTimeline from "./app/invoices/InvoiceTimeline";
@@ -48,9 +48,9 @@ import Settings from "./app/leaves/LeavesSetting";
 import Deductions from "./app/leaves/LeavesDeductionsAndEncashment";
 import Overtime from "./app/leaves/LeavesOvertime";
 
-import General from "./app/device/DevicesGeneral";
-import Timeline from "./app/device/DevicesTimiline";
-import Incident from "./app/device/DevicesIncidents";
+import General from "./app/devices/DevicesGeneral";
+import Timeline from "./app/devices/DevicesTimiline";
+import Incident from "./app/devices/DevicesIncidents";
 
 import EmployeesGeneral from "./app/employees/EmployeesGeneral";
 import EmployeesNote from "./app/employees/EmployeesNotes";
@@ -68,6 +68,7 @@ import DashboardInvoice from "./app/dashboard/DashboardInvoices";
 import DashboardPayroll from "./app/dashboard/DashboardPayroll";
 import DashboardFinancials from "./app/dashboard/DashboardFinancials";
 import Spinner from "./app/Spinner";
+import ModelDetails from "./app/devices/DevicesModelDetails";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -107,11 +108,14 @@ const App = () => {
               </div>
               <div className="p-5">
                 <Routes>
-                  <Route path="/" element={<Navigate to="/dashboard" />} />
+                  <Route
+                    path="/"
+                    element={<Navigate to="/app/departments" />}
+                  />
 
-                  <Route path="/dashboard" element={<Dashboard />}>
+                  <Route path="/app/dashboard" element={<Dashboard />}>
                     <Route
-                      path="/dashboard"
+                      path="/app/dashboard"
                       element={<Navigate to="general" />}
                     ></Route>
                     <Route
@@ -133,13 +137,13 @@ const App = () => {
                     ></Route>
                   </Route>
 
-                  <Route path="/employees" element={<Employees />}></Route>
+                  <Route path="/app/employees" element={<Employees />}></Route>
                   <Route
-                    path="/employees/details/:id"
+                    path="/app/employees/details/:id"
                     element={<EmployeesDetails />}
                   >
                     <Route
-                      path="/employees/details/:id"
+                      path="/app/employees/details/:id"
                       element={<Navigate to="performance" />}
                     ></Route>
 
@@ -175,13 +179,13 @@ const App = () => {
                     ></Route>
                   </Route>
                   {/*  */}
-                  <Route path="/projects" element={<Projects />}></Route>
+                  <Route path="/app/projects" element={<Projects />}></Route>
                   <Route
-                    path="/projects/details/:id"
+                    path="/app/projects/details/:id"
                     element={<ProjectsDetails />}
                   >
                     <Route
-                      path="/projects/details/:id"
+                      path="/app/projects/details/:id"
                       element={<Navigate to="general" />}
                     ></Route>
 
@@ -210,38 +214,44 @@ const App = () => {
                     ></Route>
                   </Route>
                   {/*  */}
-                  <Route path="/departments" element={<Departments />}></Route>
-
-                  <Route path="/clients" element={<Clients />}></Route>
                   <Route
-                    path="/clients/details/:id"
+                    path="/app/departments"
+                    element={<Departments />}
+                  ></Route>
+
+                  <Route path="/app/clients" element={<Clients />}></Route>
+                  <Route
+                    path="/app/clients/details/:id"
                     element={<ClientDetails />}
                   >
                     <Route
-                      path="/clients/details/:id"
+                      path="/app/clients/details/:id"
                       element={<Navigate to="general" />}
                     ></Route>
                     <Route path="general" element={<ClientGeneral />}></Route>
                   </Route>
 
-                  <Route path="/devices" element={<Devices />}></Route>
+                  <Route path="/app/devices" element={<Devices />}></Route>
                   <Route
-                    path="/devices/details/:id"
+                    path="/app/devices/details/:id"
                     element={<DeviceDetails />}
                   >
                     <Route
-                      path="/devices/details/:id"
+                      path="/app/devices/details/:id"
                       element={<Navigate to="general" />}
                     ></Route>
-                    <Route path="general" element={<General />}></Route>
+                    <Route path="general/*" element={<General />}>
+                     
+                    </Route>
+
                     <Route path="timeline" element={<Timeline />}></Route>
                   </Route>
 
-                  <Route path="/calendar" element={<Calendar />}></Route>
+                  <Route path="/app/calendar" element={<Calendar />}></Route>
 
-                  <Route path="/leaves" element={<Leaves />}>
+                  <Route path="/app/leaves" element={<Leaves />}>
                     <Route
-                      path="/leaves"
+                      path="/app/leaves"
                       element={<Navigate to="allleaves" />}
                     />
                     <Route path="allleaves/" element={<AllLeaves />}></Route>
@@ -253,24 +263,24 @@ const App = () => {
                   </Route>
 
                   <Route
-                    path="/leaves/allleaves/details/:id"
+                    path="/app/leaves/allleaves/details/:id"
                     element={<LeaveDetails />}
                   >
                     <Route
-                      path="/leaves/allleaves/details/:id"
-                      element={<LeaveGeneral />}
+                      path="/app/leaves/allleaves/details/:id"
+                      element={<Navigate to="general" />}
                     ></Route>
                     <Route path="general" element={<LeaveGeneral />}></Route>
                     <Route path="timeline" element={<LeaveTimeline />}></Route>
                   </Route>
-                  <Route path="/invoices" element={<Invoices />}></Route>
+                  <Route path="/app/invoices" element={<Invoices />}></Route>
 
                   <Route
-                    path="/invoices/details/:id"
+                    path="/app/invoices/details/:id"
                     element={<InvoiceDetails />}
                   >
                     <Route
-                      path="/invoices/details/:id"
+                      path="/app/invoices/details/:id"
                       element={<Navigate to="general" />}
                     ></Route>
                     <Route path="general" element={<InvoiceGeneral />}></Route>
@@ -284,9 +294,12 @@ const App = () => {
                     ></Route>
                   </Route>
 
-                  <Route path="/reports" element={<Reports />}></Route>
+                  <Route path="/app/reports" element={<Reports />}></Route>
 
-                  <Route path="/settings/*" element={<SettingsMenu />}></Route>
+                  <Route
+                    path="/app/settings/*"
+                    element={<SettingsMenu />}
+                  ></Route>
                 </Routes>
               </div>
             </div>

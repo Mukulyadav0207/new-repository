@@ -1,29 +1,42 @@
-import React, { useState } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import General from "./DevicesGeneral";
-import Timeline from "./DevicesTimiline";
+import React, { useState, useEffect } from "react";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import Incident from "./DevicesIncidents";
-
+import ModelDetails from "./DevicesModelDetails";
 import { IoMdInformationCircle } from "react-icons/io";
 import { AiOutlineApartment } from "react-icons/ai";
-import { SiSpringsecurity } from "react-icons/si";
-import { GoKey } from "react-icons/go";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-
 import { IoIosArrowForward } from "react-icons/io";
 import { NavLinkCSS } from "../dashboard/DashboardList";
 
 function DeviceDetails() {
-  const handleModuleClick = (module) => {
-    setCurrentModule(module);
-  };
+ const navigate = useNavigate();
 
-  const [currentModule, setCurrentModule] = useState("");
+  
+const currentPath = location.pathname;
+const [currentModule, setCurrentModule] = useState("");
+
+useEffect(() => {
+  setCurrentModule(getModuleNameFromPath(currentPath));
+}, [currentPath]);
+
+const getModuleNameFromPath = (currentpath) => {
+  switch (currentpath) {
+    case "/app/devices/details/1/general":
+      return "General Detail";
+
+    case "/app/devices/details/1/timeline":
+      return "Timeline";
+
+    default:
+      return "";
+  }
+};
+
 
   return (
     <>
       <div className="flex items-center">
-        <div> Devices</div>
+        <button onClick={() => navigate("/app/devices")}>Devices </button>
         <div className="text-xl">
           <IoIosArrowForward />
         </div>
@@ -32,32 +45,24 @@ function DeviceDetails() {
 
       <div className="flex gap-4 mt-3 font-bold">
         <NavLink to="general" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("General Details");
-            }}
-          >
+         
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <IoMdInformationCircle />
               </div>
               <div>General</div>
             </div>
-          </button>
+         
         </NavLink>
         <NavLink to="timeline" style={NavLinkCSS}>
-          <button
-            onClick={() => {
-              handleModuleClick("Timeline");
-            }}
-          >
+         
             <div className="flex flex-row items-center justify-center gap-1 p-2 ">
               <div>
                 <AiOutlineApartment />
               </div>
               <div>Timeline</div>
             </div>
-          </button>
+       
         </NavLink>
       </div>
       <div className="items-start ">
@@ -66,6 +71,7 @@ function DeviceDetails() {
       <Outlet />
       <Routes>
         <Route path="incident" element={<Incident />}></Route>
+        <Route path="modelDetails" element={<ModelDetails />}></Route>
       </Routes>
     </>
   );

@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
+import Button from "../sharedComponents/ButtonComponent";
+import Input from "../sharedComponents/InputComponent";
+
+
 
 const Password = (  ) => {
 
@@ -7,45 +11,57 @@ const Password = (  ) => {
   
     return (
       <>
-        <div className="p-3 rounded-md bg-gray-100 w-[1060px] mt-4  h-[470px]">
-          <div className="flex flex-col items-start justify-start">
-            <label for="" className="text-sm ">
-              Old Password
-            </label>
-            <div>
-              <input
-                type="text"
-                className="border rounded-md w-[850px] mt-2 mb-2"
-              ></input>
-            </div>
+        <div className="p-3 rounded-md bg-[#FFFFFF] w-[1060px] mt-4  h-[470px]">
+          <div className="flex flex-col items-start justify-start  m-3">
+            <label className="text-sm text-[#4B5563]">Old Password</label>
+            <Input
+              padding="2px 3px"
+              border="1px solid black"
+              borderColor="#A19D9D"
+              width="full"
+              height={35}
+              type="text"
+              textColor="#A19D9D"
+              width={1010}
+            />
 
-            <label for="" className="text-sm">
+            <label for="" className="text-sm text-[#4B5563] mt-3 font">
               New Password
             </label>
-            <div>
-              <input
-                type="text"
-                className="border rounded-md w-[850px] mt-2 mb-2"
-              ></input>
-            </div>
+            <Input
+              padding="2px 3px"
+              border="1px solid black"
+              borderColor="#A19D9D"
+              width="full"
+              height={35}
+              type="text"
+              textColor="#A19D9D"
+              width={1010}
+            />
 
-            <label for="" className="text-sm">
+            <label for="" className="text-sm text-[#4B5563] mt-3 ">
               Confirm New Password
             </label>
-            <div>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="border rounded-md w-[850px] mt-2 mb-2"
-              ></input>
-            </div>
+            <Input
+              padding="2px 3px"
+              border="1px solid black"
+              borderColor="#A19D9D"
+              width="full"
+              height={35}
+              type="text"
+              textColor="#A19D9D"
+              width={1010}
+            />
           </div>
-          <div className="flex justify-end gap-3 m-7">
+          <div className="flex justify-end gap-3 mt-10 m-3  ">
             <div>
-              <button className="px-2 text-white bg-blue-700 border rounded-md w-50">
-                Change Password
-              </button>
+              <Button
+                label="Change Password"
+                border="1px solid "
+                backgroundColor="#1A13CB"
+                textColor="white"
+                padding="6px 16px"
+              />
             </div>
           </div>
         </div>

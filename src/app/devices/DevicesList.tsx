@@ -139,7 +139,7 @@ function Device() {
           <div className="flex justify-end flex-grow gap-4 ">
             <div className="relative ml-36 ">
               <input
-                className="rounded-md "
+                className="rounded-md p-2 w-[400px] "
                 type="text"
                 placeholder="Search keyword"
               />
@@ -203,7 +203,7 @@ function Device() {
                   </td>
                   <td className="px-4 py-2 border w-[220px]">{device.Notes}</td>
                   <td className="px-4 py-2 border">
-                    <Link to="/devices/details/1">
+                    <Link to="/app/devices/details/1">
                       <button className="text-gray-500 hover:text-black">
                         <device.Actions />
                       </button>

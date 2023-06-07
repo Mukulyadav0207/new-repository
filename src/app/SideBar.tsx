@@ -38,7 +38,7 @@ function Sidebar() {
         </div>
 
         <div className="flex flex-col items-start gap-4 ">
-          <NavLink style={NavLinkCSS} to="/dashboard">
+          <NavLink style={NavLinkCSS} to="/app/dashboard">
             <div className="flex items-center gap-1 ">
               <div>
                 <BsGraphUp />
@@ -46,7 +46,7 @@ function Sidebar() {
               <div>Dashboard</div>
             </div>
           </NavLink>
-          <NavLink style={NavLinkCSS} to="/employees">
+          <NavLink style={NavLinkCSS} to="/app/employees">
             <div className="flex items-center gap-1">
               <div>
                 <BsFillPeopleFill />
@@ -54,7 +54,7 @@ function Sidebar() {
               <div>Employees</div>
             </div>
           </NavLink>
-          <NavLink style={NavLinkCSS} to="/projects">
+          <NavLink style={NavLinkCSS} to="/app/projects">
             <div className="flex items-center gap-1">
               <div>
                 <CiViewTable />
@@ -62,7 +62,7 @@ function Sidebar() {
               <div>Projects</div>
             </div>
           </NavLink>
-          <NavLink style={NavLinkCSS} to="/departments">
+          <NavLink style={NavLinkCSS} to="/app/departments">
             <div className="flex items-center gap-1">
               <div>
                 <VscTypeHierarchySub />
@@ -70,7 +70,7 @@ function Sidebar() {
               <div>Departments</div>
             </div>
           </NavLink>
-          <NavLink style={NavLinkCSS} to="/clients">
+          <NavLink style={NavLinkCSS} to="/app/clients">
             <div className="flex items-center gap-1">
               <div>
                 <GrRestroomMen />
@@ -78,7 +78,7 @@ function Sidebar() {
               <div>Clients</div>
             </div>
           </NavLink>
-          <NavLink style={NavLinkCSS} to="/devices">
+          <NavLink style={NavLinkCSS} to="/app/devices">
             <div className="flex items-center gap-1">
               <div>
                 <BsLaptop />
@@ -86,7 +86,7 @@ function Sidebar() {
               <div>Devices</div>
             </div>
           </NavLink>
-          <NavLink style={NavLinkCSS} to="/calendar">
+          <NavLink style={NavLinkCSS} to="/app/calendar">
             <div className="flex items-center gap-1">
               <div>
                 <FaCalendarAlt />
@@ -94,7 +94,7 @@ function Sidebar() {
               <div>Calendar</div>
             </div>
           </NavLink>
-          <NavLink style={NavLinkCSS} to="/leaves">
+          <NavLink style={NavLinkCSS} to="/app/leaves">
             <div className="flex items-center gap-1">
               <div>
                 <GiUmbrella />
@@ -103,7 +103,7 @@ function Sidebar() {
             </div>
           </NavLink>
 
-          <NavLink style={NavLinkCSS} to="/invoices">
+          <NavLink style={NavLinkCSS} to="/app/invoices">
             <div className="flex items-center gap-1">
               <div>
                 <FaFileInvoiceDollar />
@@ -119,7 +119,7 @@ function Sidebar() {
             //     : ""
             // }`}
             style={NavLinkCSS}
-            to="/reports"
+            to="/app/reports"
             // onClick={() => handleClick("/reports")}
           >
             <div className="flex items-center gap-1">

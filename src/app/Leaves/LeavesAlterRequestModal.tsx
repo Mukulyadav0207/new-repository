@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { BsPencilFill } from "react-icons/bs";
-
+import Button from "../sharedComponents/ButtonComponent";
 
 
 const AlterRequest = () => {
@@ -218,16 +218,17 @@ const Leaves =()=>{
 
   return (
     <>
-      <button
+      <Button
         onClick={() => setShowModal(true)}
-        className="flex items-center justify-center text-white bg-blue-600 border rounded-md h-[30px] p-2 gap-1"
-      >
-        <div>
-          <BsPencilFill className="text-xs" />
-        </div>
-        <p> Alert Request</p>
-      </button>
-      {showModal && <Modal/>}
+        label={"Alert Request"}
+        icon={<BsPencilFill className="text-xs " />}
+        border="1px solid "
+        backgroundColor="#1A13CB"
+        textColor="white"
+        padding="5px 11px"
+      />
+     
+      {showModal && <Modal />}
     </>
   );
 };

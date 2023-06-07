@@ -2,10 +2,11 @@ import { BiLinkExternal } from "react-icons/bi";
 import { AiFillGithub } from "react-icons/ai";
  import { HiPencilAlt } from "react-icons/hi";
   import { MdOutlineAttachment } from "react-icons/md";
- import { MdDelete } from "react-icons/md";
+ import { BsArchiveFill } from "react-icons/bs";
 import Modal from "./ProjectsEditProjectModal";
-import EditTeamModal from "./ProjectEditTeam";
-
+import EditTeamModal from "./ProjectsEditTeam";
+import DumbChip from "../sharedComponents/ChipComponent";
+import Button from "../sharedComponents/ButtonComponent";
 const projects = [
   {
     icon1: AiFillGithub,
@@ -40,11 +41,15 @@ function ProjectsGeneral() {
                 <div className="flex gap-1  justify-betwwen items-start ">
                   <project.icon2 />
 
-                  <div className="flex-col  items-end ">
-                    <button className=" rounded-full px-2 bg-[#00D100] text-white w-[55px] flex items-center justify-center mb-2 ml-1">
-                      {project.status}
-                    </button>
-                    <div className="flex-col flex items-end ">
+                  <div className="flex-col  items-end  space-y-2">
+                    <DumbChip
+                      label={project.status}
+                      textColor="white"
+                      backgroundColor="#00D100"
+                      fontSize={9}
+                      size={"small"}
+                    />
+                    <div className="flex-col flex items-end pr-1 ">
                       <p className="-mb-1 ">{project.date}</p>
                       {project.text}
                     </div>
@@ -145,10 +150,16 @@ function ProjectsGeneral() {
             </div>
           </div>
         </div>
-        <div>
-          <button className="flex gap-1 text-[#FE0012] border border-[#FE0012] rounded-md  bg-white h-8 p-2 items-center font-bold mt-3 text-lg ">
-            <MdDelete /> Archive
-          </button>
+        <div className="font-semibold items-center mt-3">
+          <Button
+            icon={<BsArchiveFill />}
+            label="Archive"
+            borderColor="#FE0012"
+            textColor="#FE0012"
+            padding="8px 9px"
+            border="1px solid black"
+            backgroundColor="white"
+          />
         </div>
       </div>
     </>

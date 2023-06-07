@@ -14,8 +14,8 @@ import EditLeave from "./LeavesEditLeaveModal";
 function LeaveGeneral() {
   return (
     <>
-      <div className="flex gap-2 mt-4 ">
-        <div className=" gap-1 p-2 bg-white w-[450px] border rounded-lg">
+      <div className="flex gap-2 mt-4  justify-between">
+        <div className=" gap-1 p-2 bg-white w-[450px] border rounded-lg ">
           <div className="flex items-center justify-end text-xl ">
             <EditLeave />
           </div>
@@ -80,7 +80,7 @@ function LeaveGeneral() {
                   <p className="ml-5">16/11/2022</p>
                 </div>
                 <div className="flex">
-                  <p className="text-gray-400"> To Date</p>
+                  <p className="text-gray-400 "> To Date</p>
                   <p className="ml-10">20/11/2022</p>
                 </div>
                 <p className="mt-2"> Before Alteration</p>
@@ -157,7 +157,7 @@ function LeaveGeneral() {
             </div>
           </div>
         </div>
-        <div className="ml-12 ">
+        <div className="ml-6 ">
           <AlterRequest />
         </div>
       </div>

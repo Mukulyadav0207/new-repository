@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { TiFilter } from "react-icons/ti";
+import Button from "../sharedComponents/ButtonComponent";
+
+
+
+
 const Filter = () => {
   const [showFilter, setShowFilter] = useState(false);
 
@@ -8,7 +13,7 @@ const Filter = () => {
     return (
       <>
         <div className=" fixed inset-0 bg-black bg-opacity-25 w-[1260px] h-[665px] backdrop-blur-sm   flex justify-center items-center   ">
-          <div className="p-2 bg-gray-100 border rounded-md ">
+          <div className="p-4 bg-gray-100 border rounded-md ">
             <div className="flex text-black gap-60">
               <div className="flex items-center justify-center gap-1 ">
                 <div className="text-sm">
@@ -30,7 +35,7 @@ const Filter = () => {
               Project
             </label>
             <div>
-              <select className=" border rounded-md text-xs w-[320px] px-2 text-gray-400 border-gray-500">
+              <select className=" border rounded-md text-xs w-full p-2 text-gray-400 border-gray-500">
                 <option>Select Project</option>
                 <option className="text-x">
                   <input type="checkbox"></input>ABC
@@ -59,7 +64,7 @@ const Filter = () => {
                 name=""
                 id=""
                 placeholder=""
-                className="border rounded-md w-[320px] mt-2 mb-2 text-xs px-2 border-gray-500"
+                className="border rounded-md w-full mt-2 mb-2 text-xs p-2 border-gray-500"
               ></input>
             </div>
 
@@ -69,7 +74,7 @@ const Filter = () => {
             <div>
               <select
                 placeholder=""
-                className=" border rounded-md text-xs w-[320px] px-2 text-gray-400 border-gray-500"
+                className=" border rounded-md text-xs w-full p-2 text-gray-400 border-gray-500"
               >
                 <option>Select Status</option>
                 <option>Invoice Sent</option>
@@ -82,19 +87,26 @@ const Filter = () => {
               </select>
             </div>
 
-            <div className="flex justify-end gap-3 mt-3">
+            <div className="flex justify-end gap-3 mt-4 mb-2">
               <div>
-                <button
+                <Button
                   onClick={() => setShowFilter(false)}
-                  className="px-2 text-blue-700 border border-blue-700 rounded-md w-50"
-                >
-                  Cancel
-                </button>
+                  borderColor="#1A13CB"
+                  textColor="#1A13CB"
+                  label="Cancel"
+                  border="1px solid black"
+                  width={60}
+                  padding="5px 5px"
+                />
               </div>
               <div>
-                <button className="px-2 text-white bg-blue-700 border rounded-md w-50">
-                  Apply
-                </button>
+                <Button
+                  backgroundColor="#1A13CB"
+                  textColor="white"
+                  label="Apply"
+                  width={60}
+                  padding="6px 9px"
+                />
               </div>
             </div>
           </div>
@@ -105,17 +117,16 @@ const Filter = () => {
 
   return (
     <>
-      <button
+      <Button
         onClick={() => setShowFilter(true)}
-        className="px-2 text-black bg-white border border-black rounded-md w-50"
-      >
-        <div className="flex items-center justify-center gap-1 ">
-          <div className="text-sm">
-            <TiFilter />
-          </div>
-          <div className="font-bold">Filters</div>
-        </div>
-      </button>
+        textColor="black"
+        backgroundColor="white"
+        label="Filters"
+        icon={<TiFilter />}
+        borderColor="black"
+        padding="7px 9px"
+        border="1px solid black"
+      />
       {showFilter && <MyFilter />}
     </>
   );
